@@ -3,9 +3,6 @@
 
 using UnityEngine;
 
-#if UNITY_WII
-	using (WiiUSAVECommand cmd = WiiUSave.SaveCommand(WiiUSave.accountNo));
-#endif
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -36,9 +33,11 @@ namespace HutongGames.PlayMaker.Actions
 			Finish ();
 		}
 
-		#if UNITY_WII
+		#if UNITY_WIIU
 		void SaveMyPlayerPrefs()
 		{
+
+			WiiUSAVECommand cmd = WiiUSave.SaveCommand(WiiUSave.accountNo);
 
 			long freespace = 0;
 			// see if we have enough free space for our save file
