@@ -15,9 +15,6 @@ namespace HutongGames.PlayMaker.Actions
 		[CheckForComponent(typeof(HingeJoint2D))]
 		public FsmOwnerDefault gameObject;
 
-		[Tooltip("The angle referenced between the two bodies used as the constraint for the joint.")]
-		public FsmFloat referenceAngle;
-
 		[ActionSection("Limits")]
 
 		[Tooltip("Should limits be placed on the range of rotation?")]
@@ -26,14 +23,10 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Lower angular limit of rotation.")]
 		public FsmFloat min;
 
-		[Tooltip("Lower angular limit bounce.")]
-		public FsmFloat minBounce;
 		
 		[Tooltip("Upper angular limit of rotation")]
 		public FsmFloat max;
 
-		[Tooltip("Upper angular limit of rotation")]
-		public FsmFloat maxBounce;
 
 		[ActionSection("Motor")]
 		
@@ -53,17 +46,14 @@ namespace HutongGames.PlayMaker.Actions
 		
 		HingeJoint2D _joint;
 		JointMotor2D _motor;
-		JointLimits _limits;
+		JointAngleLimits2D _limits;
 
 		public override void Reset()
 		{
-			referenceAngle = null;
 
 			useLimits = new FsmBool() {UseVariable=true};			
 			min = new FsmFloat() {UseVariable=true};
 			max = new FsmFloat() {UseVariable=true};
-			minBounce = new FsmFloat() {UseVariable=true};
-			maxBounce = new FsmFloat() {UseVariable=true};
 
 			useMotor = new FsmBool() {UseVariable=true};			
 			motorSpeed = new FsmFloat() {UseVariable=true};
@@ -109,11 +99,6 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			}
 
-			if (!referenceAngle.IsNone)
-			{
-				_joint.referenceAngle = referenceAngle.Value;
-			}
-
 			if (!useMotor.IsNone)
 			{
 				_joint.useMotor = useMotor.Value;
@@ -146,16 +131,6 @@ namespace HutongGames.PlayMaker.Actions
 				_joint.limits = _limits;
 			}
 
-			if (!minBounce.IsNone)
-			{
-				_limits.minBounce = minBounce.Value;
-				_joint.limits = _limits;
-			}
-			if (!maxBounce.IsNone)
-			{
-				_limits.maxBounce = maxBounce.Value;
-				_joint.limits = _limits;
-			}
 		}
 		
 	}
