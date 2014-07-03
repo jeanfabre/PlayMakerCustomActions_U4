@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.Material)]
+	[ActionCategory(ActionCategory.Animation)]
 	[Tooltip("Plays a series of sprites at a given framerate on a GameObject with a Sprite Renderer.")]
 	public class PlaySpritesAnimation : FsmStateAction
 	{
