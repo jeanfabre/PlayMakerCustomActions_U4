@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.Animation)]
+	[ActionCategory("sprite")]
 	[Tooltip("Replaces a single Sprite on any GameObject. Object must have a Sprite Renderer.")]
 	public class SwapSprite : FsmStateAction
 	{
