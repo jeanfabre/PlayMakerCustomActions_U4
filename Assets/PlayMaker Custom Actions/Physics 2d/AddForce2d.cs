@@ -25,6 +25,9 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Option for how to apply a force using AddForce")]
 		public ForceMode2D forceMode;
 
+		[Tooltip("Apply the force in world or local space.")]
+		public Space space;
+
 		[UIHint(UIHint.Variable)]
 		[Tooltip("Optionally apply the force at a position on the object. This will also add some torque. The position is often returned from MousePick or GetCollision2dInfo actions.")]
 		public FsmVector2 atPosition;
@@ -57,6 +60,7 @@ namespace HutongGames.PlayMaker.Actions
 			vector3 = new FsmVector3 {UseVariable = true};
 
 			forceMode = ForceMode2D.Force;
+			space = Space.Self;
 
 			// default axis to variable dropdown with None selected.
 			x = new FsmFloat { UseVariable = true };
@@ -111,14 +115,23 @@ namespace HutongGames.PlayMaker.Actions
 			if (!y.IsNone) force.y = y.Value;
 			
 			// apply force			
-			if (!atPosition.IsNone)
+			if (space == Space.World)
 			{
-				rb2d.AddForceAtPosition(force, atPosition.Value,forceMode);
+				if (!atPosition.IsNone)
+				{
+					rb2d.AddForceAtPosition(force, atPosition.Value,forceMode);
+				}
+				else
+				{
+					rb2d.AddForce(force,forceMode);
+				}
 			}
 			else
 			{
-				rb2d.AddForce(force,forceMode);
+				rb2d.AddRelativeForce(force,forceMode);
 			}
+
+
 
 		}
 		

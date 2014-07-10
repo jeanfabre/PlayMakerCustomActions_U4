@@ -28,6 +28,7 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Option for how to apply a force using AddTorque")]
 		public ForceMode2D forceMode;
 
+
 		[Tooltip("Repeat every frame while the state is active.")]
 		public bool everyFrame;
 
@@ -43,7 +44,6 @@ namespace HutongGames.PlayMaker.Actions
 
 			torque = null;
 			forceMode = ForceMode2D.Force;
-
 			everyFrame = false;
 		}
 
