@@ -16,6 +16,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmOwnerDefault gameObject;
 
 		[RequiredField]
+		[UIHint(UIHint.TextArea)]
 		[Tooltip("The text of the UGui Text component.")]
 		public FsmString text;
 
