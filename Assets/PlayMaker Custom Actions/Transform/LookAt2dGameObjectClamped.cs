@@ -98,7 +98,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (debug.Value)
 			{
-				if (! rot_z.AlmostEquals(final_rot_z,0.01f))
+				if ( Mathf.Abs(rot_z - final_rot_z) > 0.01f) // not almost equal
 				{
 					float distance = (goTarget.transform.position-go.transform.position).magnitude;
 					Vector3 RealPointingtip = go.transform.position + go.transform.TransformDirection(Vector3.right)*distance;
