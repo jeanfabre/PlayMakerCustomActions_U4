@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
 //--- __ECO__ __ACTION__
 
 using UnityEngine;
@@ -15,8 +15,8 @@ namespace HutongGames.PlayMaker.Actions
 		[RequiredField]
 		[CheckForComponent(typeof(SpriteRenderer))]
 		public FsmOwnerDefault gameObject;
-		
-		public Sprite spriteToSwap;
+		[ObjectType(typeof(Sprite))]
+		public FsmObject spriteToSwap;
 
 		public FsmBool resetOnExit;
 
@@ -61,7 +61,7 @@ namespace HutongGames.PlayMaker.Actions
 		}
 		void SwapSprites()
 		{
-			spriteRenderer.sprite = spriteToSwap;
+			spriteRenderer.sprite = spriteToSwap.Value as Sprite;
 		}
 
 
