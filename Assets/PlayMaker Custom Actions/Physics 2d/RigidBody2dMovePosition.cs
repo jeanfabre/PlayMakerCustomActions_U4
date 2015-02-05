@@ -1,11 +1,15 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 /*--- __ECO__ __ACTION__ ---*/
 
+using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Physics 2d")]
+	#pragma warning disable 219
+	#if UNITY_4_3 || UNITY_4_4
+	[Obsolete("This action is only available starting from Unity 4.5 onward")]
+	#endif
 	[Tooltip("Moves a Game Object's Rigid Body 2D to a new world position. To leave any axis unchanged, set variable to 'None'.")]
 	public class RigidBody2dMovePosition : FsmStateAction
 	{
@@ -78,8 +82,10 @@ namespace HutongGames.PlayMaker.Actions
 			// apply
 
 			Vector2 position2d = new Vector3(position.x,position.y);
-
+			#if UNITY_4_3 || UNITY_4_4
+			#else
 			_rb2d.MovePosition(position2d);
+			#endif
 		
 		}
 

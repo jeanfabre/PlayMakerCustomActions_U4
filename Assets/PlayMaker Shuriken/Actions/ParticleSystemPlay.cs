@@ -10,11 +10,11 @@ namespace HutongGames.PlayMaker.Actions
 	public class ParticleSystemPlay : FsmStateAction
 	{
 		[RequiredField]
-		[Tooltip("the GameObject with the particleSystem to stop")]
+		[Tooltip("The GameObject with the particleSystem to play")]
 		[CheckForComponent(typeof(ParticleSystem))]
 		public FsmOwnerDefault gameObject;
 		
-		[Tooltip("stop playing again when state exits")]
+		[Tooltip("Stop playing again when state exits")]
 		public FsmBool stopOnExit;
 
 		ParticleSystem _ps;

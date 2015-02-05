@@ -1,11 +1,15 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
 /*--- __ECO__ __ACTION__ ---*/
 
+using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("Physics 2d")]
+	#if UNITY_4_3 || UNITY_4_4
+	[Obsolete("This action is only available starting from Unity 4.5 onward")]
+	#endif
 	[Tooltip("Makes the 2d collision detection system ignore all collisions between collider1 and collider2.")]
 	public class Physics2dIgnoreCollision : FsmStateAction
 	{
@@ -49,8 +53,11 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return;
 			}
-			
+
+			#if UNITY_4_3 || UNITY_4_4
+			#else
 			Physics2D.IgnoreCollision(go1.collider2D, go2.collider2D,ignoreCollision.Value);
+			#endif
 		}
 		
 	}

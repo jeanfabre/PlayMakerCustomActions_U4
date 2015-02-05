@@ -1,18 +1,26 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
 //--- __ECO__ __ACTION__ ---//
 
+using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
+	#if UNITY_4_3 || UNITY_4_4
+	[Obsolete("This action is only available starting from Unity 4.5 onward")]
+	#endif
 	[ActionCategory("Physics 2d")]
 	[Tooltip("Sets the various properties of a WheelJoint2d component")]
 	public class SetWheelJoint2dProperties : FsmStateAction
 	{
 		
 		[RequiredField]
-		[Tooltip("The WheelJoint2d target")]
+		#if UNITY_4_3 || UNITY_4_4
+		#else
 		[CheckForComponent(typeof(WheelJoint2D))]
+		#endif
+		[Tooltip("The WheelJoint2d target")]
+
 		public FsmOwnerDefault gameObject;
 		
 		[ActionSection("Motor")]
@@ -40,9 +48,12 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Repeat every frame while the state is active.")]
 		public bool everyFrame;
 
+		#if UNITY_4_3 || UNITY_4_4
+		#else
 		WheelJoint2D _wj2d;
 		JointMotor2D _motor;
 		JointSuspension2D _suspension;
+		#endif
 		public override void Reset()
 		{
 			useMotor = new FsmBool() {UseVariable=true};
@@ -56,7 +67,8 @@ namespace HutongGames.PlayMaker.Actions
 			everyFrame = false;
 
 		}
-		
+		#if UNITY_4_3 || UNITY_4_4
+		#else
 		public override void OnEnter()
 		{
 			var go = Fsm.GetOwnerDefaultTarget(gameObject);
@@ -126,6 +138,7 @@ namespace HutongGames.PlayMaker.Actions
 				_wj2d.suspension = _suspension;
 			}
 		}
+		#endif
 		
 	}
 }

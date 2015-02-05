@@ -25,8 +25,12 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Torque")]
 		public FsmFloat torque;
 
+		#if UNITY_4_3 || UNITY_4_4
+		// Force mode only came with 4.5
+		#else
 		[Tooltip("Option for how to apply a force using AddTorque")]
 		public ForceMode2D forceMode;
+		#endif
 
 
 		[Tooltip("Repeat every frame while the state is active.")]
@@ -43,7 +47,10 @@ namespace HutongGames.PlayMaker.Actions
 			gameObject = null;
 
 			torque = null;
+			#if UNITY_4_3 || UNITY_4_4
+			#else
 			forceMode = ForceMode2D.Force;
+			#endif
 			everyFrame = false;
 		}
 
@@ -70,8 +77,11 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return;
 			}
-
+			#if UNITY_4_3 || UNITY_4_4
+			rb2d.AddTorque(torque.Value);
+			#else
 			rb2d.AddTorque(torque.Value,forceMode);
+			#endif
 
 		}
 		

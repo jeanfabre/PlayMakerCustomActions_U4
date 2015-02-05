@@ -22,11 +22,17 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("The GameObject to apply the force to.")]
 		public FsmOwnerDefault gameObject;
 
+#if UNITY_4_3 || UNITY_4_4
+		// ForceMod2d and Space only came with 4.5
+#else
 		[Tooltip("Option for how to apply a force using AddForce")]
 		public ForceMode2D forceMode;
 
 		[Tooltip("Apply the force in world or local space.")]
 		public Space space;
+
+#endif
+
 
 		[UIHint(UIHint.Variable)]
 		[Tooltip("Optionally apply the force at a position on the object. This will also add some torque. The position is often returned from MousePick or GetCollision2dInfo actions.")]
@@ -59,8 +65,11 @@ namespace HutongGames.PlayMaker.Actions
 			vector = null;
 			vector3 = new FsmVector3 {UseVariable = true};
 
+			#if UNITY_4_3 || UNITY_4_4
+			#else
 			forceMode = ForceMode2D.Force;
 			space = Space.Self;
+			#endif
 
 			// default axis to variable dropdown with None selected.
 			x = new FsmFloat { UseVariable = true };
@@ -100,7 +109,6 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			} 
 
-
 			Vector2 force = vector.IsNone ? new Vector2(x.Value, y.Value) : vector.Value;
 
 			if (!vector3.IsNone)
@@ -114,22 +122,34 @@ namespace HutongGames.PlayMaker.Actions
 			if (!x.IsNone) force.x = x.Value;
 			if (!y.IsNone) force.y = y.Value;
 			
-			// apply force			
-			if (space == Space.World)
-			{
+			// apply force	
+			#if UNITY_4_3 || UNITY_4_4
 				if (!atPosition.IsNone)
 				{
-					rb2d.AddForceAtPosition(force, atPosition.Value,forceMode);
+					rb2d.AddForceAtPosition(force, atPosition.Value);
 				}
 				else
 				{
-					rb2d.AddForce(force,forceMode);
+					rb2d.AddForce(force);
 				}
-			}
-			else
-			{
-				rb2d.AddRelativeForce(force,forceMode);
-			}
+			#else
+
+				if (space == Space.World)
+				{
+					if (!atPosition.IsNone)
+					{
+						rb2d.AddForceAtPosition(force, atPosition.Value,forceMode);
+					}
+					else
+					{
+						rb2d.AddForce(force,forceMode);
+					}
+				}
+				else
+				{
+					rb2d.AddRelativeForce(force,forceMode);
+				}
+			#endif
 
 
 

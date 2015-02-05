@@ -1,10 +1,14 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
 //--- __ECO__ __ACTION__ ---//
 
+using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
+	#if UNITY_4_3 || UNITY_4_4
+	[Obsolete("This action is only available starting from Unity 4.5 onward")]
+	#endif
 	[ActionCategory("Physics 2d")]
 	[Tooltip("Sets the joint's anchor point on the second object (ie, the one which doesn't have the joint component).")]
 	public class SetJoint2dConnectedAnchor : FsmStateAction
@@ -12,7 +16,10 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[RequiredField]
 		[Tooltip("The AnchoredJoint2D target")]
+		#if UNITY_4_3 || UNITY_4_4
+		#else
 		[CheckForComponent(typeof(AnchoredJoint2D))]
+		#endif
 		public FsmOwnerDefault gameObject;
 		
 		
@@ -24,7 +31,8 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[Tooltip("Repeat every frame while the state is active.")]
 		public bool everyFrame;
-		
+		#if UNITY_4_3 || UNITY_4_4
+		#else
 		AnchoredJoint2D _anchoredJoint2d;
 		
 		public override void Reset()
@@ -72,6 +80,6 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			_anchoredJoint2d.connectedAnchor = _connectedAnchor;
 		}
-		
+	#endif
 	}
 }
