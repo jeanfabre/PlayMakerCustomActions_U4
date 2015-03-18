@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 /*--- __ECO__ __ACTION__ ---*/
 
 using System;
@@ -51,6 +51,17 @@ namespace HutongGames.PlayMaker.Actions
 			GameObject go2 = collider2.Value;
 			if (go2==null || go2.collider2D==null)
 			{
+				return;
+			}
+
+			if (go1.activeInHierarchy)
+			{
+				Debug.LogWarning(go1.name+" not active, ignoring collision failed");
+				return;
+			}
+			if (go2.activeInHierarchy)
+			{
+				Debug.LogWarning(go2.name+" not active, ignoring collision failed");
 				return;
 			}
 
