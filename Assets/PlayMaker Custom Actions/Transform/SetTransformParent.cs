@@ -9,6 +9,11 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("Sets the Parent of a Game Object. It uses the Transform.SetParent method")]
 	public class SetTransformParent : FsmStateAction
 	{
+		#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5
+		[UIHint(UIHint.Description)] // Use on a string field to format the text in a large readonly info box.
+		public string descriptionArea =" NOT AVAILABLE UNTIL Unity 4.6";
+		#endif
+
 		[RequiredField]
 		[Tooltip("The Game Object to parent.")]
 		public FsmOwnerDefault gameObject;
@@ -29,21 +34,24 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void OnEnter()
 		{
-			var go = Fsm.GetOwnerDefaultTarget(gameObject);
+			#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5
+			UnityEngine.Debug.Log("SetTransformParent isn't available until Unity 4.6. Use 'Set Parent' Action instead if you must work on this version of Unity");
+			#else
+				var go = Fsm.GetOwnerDefaultTarget(gameObject);
 
-			var _parent = parent.Value;
-			Transform _parentTransform =null;
+				var _parent = parent.Value;
+				Transform _parentTransform =null;
 
-			if (_parent!=null)
-			{
-				_parentTransform = _parent.transform;
-			}
+				if (_parent!=null)
+				{
+					_parentTransform = _parent.transform;
+				}
 
-			if (go != null)
-			{
-				go.transform.SetParent(_parentTransform,worldPositionStays.Value);
-			}
-			
+				if (go != null)
+				{
+					go.transform.SetParent(_parentTransform,worldPositionStays.Value);
+				}
+			#endif
 			Finish();
 		}
 	}
