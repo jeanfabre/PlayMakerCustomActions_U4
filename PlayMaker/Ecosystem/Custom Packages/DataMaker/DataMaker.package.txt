@@ -5,5 +5,5 @@
 "UnityMinimumVersion":"4.3.4",
 "PlayMakerMinimumVersion":"1.7.8.3",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/DataMaker/DataMaker.unitypackage",
-"pingAssetPath":"Assets/PlayMaker DataMaker/readme.md"
+"pingAssetPath":"Assets/PlayMaker DataMaker/Readme.md"
 }
