@@ -1,0 +1,5 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/PhotonUnityNetworking/DemoWorker.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/PhotonUnityNetworking/DemoWorker/DemoWorker.unity"
+}
