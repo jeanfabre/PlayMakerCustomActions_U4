@@ -1,0 +1,10 @@
+{
+"__ECO__":"__PACKAGE__",
+"Type":"Unity Module",
+"UnityModules":["Animator"],
+"Version":"1.1.0",
+"UnityMinimumVersion":"4.6.3",
+"PlayMakerMinimumVersion":"1.7.0",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/Animator/AnimatorProxy.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Animator/README.md"
+}
