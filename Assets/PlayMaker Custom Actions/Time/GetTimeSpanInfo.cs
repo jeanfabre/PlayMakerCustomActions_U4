@@ -1,9 +1,9 @@
 // (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*---
+/*--- __ECO__ __ACTION__
 EcoMetaStart
 {
 "script dependancies":[
-						"https://github.com/jeanfabre/PlayMaker--Utils/raw/master/PlayMakerUtils_FsmVar.cs"
+						"https://github.com/jeanfabre/PlayMaker--Utils/raw/master/PlayMakerUtils_FsmVar.cs?assetFilePath=Assets/PlayMaker Utils/PlayMakerUtils_FsmVar.cs"
 					]
 }
 EcoMetaEnd
