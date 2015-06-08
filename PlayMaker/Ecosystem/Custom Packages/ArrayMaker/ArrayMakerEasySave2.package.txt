@@ -1,0 +1,9 @@
+{
+"__ECO__":"__PACKAGE__",
+"Type":"Addon",
+"Version":"1.0.1",
+"UnityMinimumVersion":"4.3.4",
+"PlayMakerMinimumVersion":"1.7.8.3",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/ArrayMaker/ArrayMakerEasySave2.unitypackage",
+"pingAssetPath":"Assets/PlayMaker ArrayMaker EasySave2/readme.txt"
+}
