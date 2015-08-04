@@ -7,7 +7,7 @@ namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.Screen)]
 	[Tooltip("Show or hide the mouse Cursor.")]
-	public class ScreenSowCursor : FsmStateAction
+	public class ScreenShowCursor : FsmStateAction
 	{
 		[Tooltip("The flag to show or hide the cursor")]
 		public FsmBool showCursor;
@@ -32,7 +32,11 @@ namespace HutongGames.PlayMaker.Actions
 
 			if (resetOnExit)
 			{
+				#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
 				_orig = Screen.showCursor;
+				#else
+				_orig = Cursor.visible;
+				#endif
 			}
 
 			DoAction();
@@ -50,14 +54,22 @@ namespace HutongGames.PlayMaker.Actions
 
 		void DoAction()
 		{
+			#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
 			Screen.showCursor = showCursor.Value;
+			#else
+				Cursor.visible = showCursor.Value;
+			#endif
 		}
 
 		public override void OnExit()
 		{
 			if (resetOnExit)
 			{
+				#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
 				Screen.showCursor = _orig;
+				#else
+				Cursor.visible = _orig;
+				#endif
 			}
 		}
 
