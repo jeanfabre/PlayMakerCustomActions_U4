@@ -2,6 +2,10 @@
 //--- __ECO__ __ACTION__
 
 using UnityEngine;
+#if UNITY_WIIU
+using UnityEngine.WiiU;
+#endif
+using System.Collections;
 
 
 namespace HutongGames.PlayMaker.Actions
@@ -10,39 +14,39 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("Save Player Prefs")]
 	public class WiiuSavePlayerPrefs : FsmStateAction
 	{
-
+		
 		public FsmEvent NotEnoughFreeSpaceEvent;
-
+		
 		public FsmEvent FailureEvent;
-
+		
 		public FsmEvent SuccessEvent;
-
-
+		
+		
 		public override void Reset()
 		{
 			NotEnoughFreeSpaceEvent = null;
-
+			
 		}
 		
 		public override void OnEnter()
 		{
-
+			
 			SaveMyPlayerPrefs();
-
-
+			
+			
 			Finish ();
 		}
-
+		
 		#if UNITY_WIIU
 		void SaveMyPlayerPrefs()
 		{
-
+			
 			WiiUSAVECommand cmd = WiiUSave.SaveCommand(WiiUSave.accountNo);
-
+			
 			long freespace = 0;
 			// see if we have enough free space for our save file
 			WiiUSave.FSStatus savestatus = cmd.GetFreeSpaceSize(out freespace, WiiUSave.FSRetFlag.None);
-			var needspace = Mathf.Min(1024 * 1024, PlayerPrefs.rawData.Length);
+			var needspace = Mathf.Min(1024 * 1024, WiiUPlayerPrefsHelper.rawData.Length);
 			
 			if (savestatus == WiiUSave.FSStatus.OK)
 			{
@@ -50,7 +54,7 @@ namespace HutongGames.PlayMaker.Actions
 				{
 					// not enough free space
 					Debug.Log("Not enough free space, freespace = " + freespace.ToString() + ", needspace = " + needspace.ToString());
-
+					
 					Fsm.Event(NotEnoughFreeSpaceEvent);
 					Fsm.Event(FailureEvent);
 				}
@@ -78,9 +82,9 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(FailureEvent);
 			}
 		}
-
+		
 		#else
-
+		
 		void SaveMyPlayerPrefs()
 		{
 			Debug.Log("WiiuSavePlayerPrefs only works properly on WiiU platform");
@@ -89,4 +93,3 @@ namespace HutongGames.PlayMaker.Actions
 		#endif	
 	}
 }
-
