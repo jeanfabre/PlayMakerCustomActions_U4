@@ -4,7 +4,8 @@ EcoMetaStart
 {
 "script dependancies":[
 						"Assets/PlayMaker Custom Actions/__internal/FsmStateActionAdvanced.cs",
-						"Assets/PlayMaker Unity 2D/Scripts/PlayMakerUnity2d.cs"
+						"Assets/PlayMaker Unity 2D/Scripts/PlayMakerUnity2d.cs",
+						Assets/PlayMaker Custom Actions/Physics 2d/Internal/IFsmCollider2DStateAction.cs"
 					]
 }
 EcoMetaEnd
