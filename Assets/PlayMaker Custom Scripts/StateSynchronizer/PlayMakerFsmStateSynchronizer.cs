@@ -29,13 +29,13 @@ public class PlayMakerFsmStateSynchronizer : MonoBehaviour
 	
 	public PlayMakerFsmTarget fsmTarget;
 
-	public StateMatching matchType = StateMatching.Always;
+	public StateMatching matchType = StateMatching.IfNotEqual;
 
 	public bool throwSynchErrors = false;
 
 	public bool debug = false;
 	
-	public bool everyFrame;
+	public bool everyFrame =true;
 
 	Dictionary<string,FsmState> TargetStatesLut;
 

@@ -1,0 +1,9 @@
+{
+"__ECO__":"__PACKAGE__",
+"Type":"Addon",
+"Version":"1.0.0",
+"UnityMinimumVersion":"4.3.4",
+"PlayMakerMinimumVersion":"1.7.8.3",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/StateSynchronizer/PlayMakerStateSynchronizer.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Scripts/StateSynchronizer/PlayMakerFsmStateSynchronizer.cs"
+}
