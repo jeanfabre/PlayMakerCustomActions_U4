@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace HutongGames.PlayMaker.Actions {
 
 	[ActionCategory(ActionCategory.String)]
-	[Tooltip("Execute a Regex on a string and return whether a match was found. USe StringRegexMatch if you want to store the result")]
+	[Tooltip("Execute a Regex on a string and return whether a match was found. ")]
 	public class StringRegexMatch : FsmStateAction {
 
 		[RequiredField]
