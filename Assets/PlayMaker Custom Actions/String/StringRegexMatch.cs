@@ -1,5 +1,5 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-// http://hutonggames.com/playmakerforum/index.php?topic=7005.msg34168#msg34168
+// http://hutonggames.com/playmakerforum/index.php?topic=7006.msg34170#msg34170
 // __ECO__ __ACTION__
 
 using UnityEngine;
@@ -9,13 +9,12 @@ namespace HutongGames.PlayMaker.Actions {
 
 	[ActionCategory(ActionCategory.String)]
 	[Tooltip("Execute a Regex on a string and return whether a match was found. USe StringRegexMatch if you want to store the result")]
-	public class StringRegexIsMatch : FsmStateAction {
+	public class StringRegexMatch : FsmStateAction {
 
 		[RequiredField]
 		[Tooltip("The string to execute the regex on")]
 		public FsmString stringVariable;
 
-		[RequiredField]
 		[Tooltip("The regex expression.")]
 		public FsmString regex;
 
@@ -23,8 +22,12 @@ namespace HutongGames.PlayMaker.Actions {
 		public RegexOptions[] options;
 
 		[UIHint(UIHint.Variable)]
+		[Tooltip("The regex Match Value. Check storeIsSuccess to make sure the regex did match.")]
+		public FsmString storeMatch;
+
+		[UIHint(UIHint.Variable)]
 		[Tooltip("True if the regex matched.")]
-		public FsmBool storeIsMatch;
+		public FsmBool storeIsSuccess;
 
 		[UIHint(UIHint.Variable)]
 		[Tooltip("Event sent if regex matches.")]
@@ -42,14 +45,18 @@ namespace HutongGames.PlayMaker.Actions {
 			stringVariable = new FsmString() {UseVariable=true};
 
 			regex = new FsmString { Value = "" };
+
 			options = new RegexOptions[0];
-			storeIsMatch = null;
+
+			storeMatch = null;
+			storeIsSuccess = null;
 			trueEvent = null;
 			falseEvent = null;
 			everyFrame = false;
 		}
 		
 		public override void OnEnter() {
+
 			DoAction();
 			
 			if ( ! everyFrame ) {
@@ -62,6 +69,8 @@ namespace HutongGames.PlayMaker.Actions {
 		}
 		
 		void DoAction() {
+			Match match = null;
+			
 			if ( options.Length > 0 ) {
 				RegexOptions optionsBit = 0;
 				
@@ -69,13 +78,16 @@ namespace HutongGames.PlayMaker.Actions {
 					optionsBit |= option;
 				}
 				
-				storeIsMatch.Value = Regex.IsMatch( stringVariable.Value, regex.Value, optionsBit );
+				match = Regex.Match( stringVariable.Value, regex.Value, optionsBit );
 			} else {
-				storeIsMatch.Value = Regex.IsMatch( stringVariable.Value, regex.Value );
+				match = Regex.Match( stringVariable.Value, regex.Value );
 			}
+			
+			storeMatch.Value = match.Value;
 
+			storeIsSuccess.Value =  match.Success;
 
-			if ( storeIsMatch.Value ) {
+			if ( match.Success ) {
 				if ( trueEvent != null ) {
 					Fsm.Event( trueEvent );
 				}
