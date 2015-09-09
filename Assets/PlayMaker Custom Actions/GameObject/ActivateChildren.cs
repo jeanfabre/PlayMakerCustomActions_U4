@@ -74,7 +74,7 @@ namespace HutongGames.PlayMaker.Actions
 
 			go.SetActive(state);
 
-			if (recursiveDepth.Value>0 && currentDepth>=recursiveDepth.Value)
+			if (recursiveDepth.Value>=0 && currentDepth>=recursiveDepth.Value)
 			{
 				return;
 			}
