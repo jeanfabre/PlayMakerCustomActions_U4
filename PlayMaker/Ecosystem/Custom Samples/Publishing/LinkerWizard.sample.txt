@@ -5,6 +5,6 @@
 "UnityMinimumVersion":"4.3.4",
 "PlayMakerMinimumVersion":"1.7.8.3",
 "unitypackage":"PlayMaker/Ecosystem/Custom Samples/Publishing/LinkerWizard.unitypackage",
-"pingAssetPath":"Assets/PlayMaker Custom Samples/Publishing/LinkerWizard/LinkerWizard.unity",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Publishing/LinkerWizard.unity",
 "keywords":"link utils link.xml linker reflection IOS device Android publish publishing wizard assembly"
 }
