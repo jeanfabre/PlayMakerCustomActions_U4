@@ -6,5 +6,6 @@
 "PlayMakerMinimumVersion":"1.7.8.3",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/Publishing/LinkerWizard.unitypackage",
 "pingAssetPath":"Assets/Linker Wizard.asset",
+"YoutubeVideos":["https://youtu.be/cnCq-OPuLRE"],
 "keywords":"link utils link.xml linker reflection IOS device Android publish publishing wizard assembly"
 }
