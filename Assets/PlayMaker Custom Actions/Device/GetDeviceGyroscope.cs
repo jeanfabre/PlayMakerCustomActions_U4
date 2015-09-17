@@ -66,8 +66,6 @@ namespace HutongGames.PlayMaker.Actions
 				Debug.Log("hello "+go.name);
 				deviceTransform = go.transform;
 				initialRotation = deviceTransform.rotation;
-				Quaternion _attitude = new Quaternion (-Input.gyro.attitude.x,Input.gyro.attitude.y,Input.gyro.attitude.z,Input.gyro.attitude.w);
-				
 				gyroInitialInvertedRotation = Quaternion.Inverse( Input.gyro.attitude * new Quaternion(0f,0f,1f,0f));
 			}
 			
@@ -99,8 +97,6 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (deviceTransform!=null)
 			{
-				//Quaternion _attitude = new Quaternion (-Input.gyro.attitude.x,Input.gyro.attitude.y,Input.gyro.attitude.z,Input.gyro.attitude.w);
-				
 				deviceTransform.rotation = initialRotation * gyroInitialInvertedRotation * Input.gyro.attitude * new Quaternion(0f,0f,1f,0f);
 			}
 			
