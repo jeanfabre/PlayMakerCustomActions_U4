@@ -1,0 +1,8 @@
+{
+"__ECO__":"__PACKAGE__"
+"Version":"1.0",
+"UnityMinimumVersion":"4.3.4",
+"PlayMakerMinimumVersion":"1.7.8.3",
+"WebLink":"http://www.west-racing.com/mf/?page_id=6323",
+"keywords":"mega fiers megafiers"
+}
