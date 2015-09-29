@@ -1,5 +1,5 @@
 {
-"__!ECO__":"__PACKAGE__",
+"__ECO__":"__PACKAGE__",
 "EcoFilter":"__MEGAFIERS__",
 "Version":"1.0",
 "UnityMinimumVersion":"4.3.4",
