@@ -1,5 +1,6 @@
 {
-"__!ECO__":"__PACKAGE__"
+"__!ECO__":"__PACKAGE__",
+"EcoFilter":"__MEGAFIERS__",
 "Version":"1.0",
 "UnityMinimumVersion":"4.3.4",
 "PlayMakerMinimumVersion":"1.7.8.3",
