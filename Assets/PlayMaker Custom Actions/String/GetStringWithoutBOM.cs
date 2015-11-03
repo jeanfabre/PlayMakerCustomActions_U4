@@ -1,5 +1,5 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-// __ECO__ __ACTION__
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 // http://hutonggames.com/playmakerforum/index.php?action=post;topic=10645.0;last_msg=50293
 // http://answers.unity3d.com/questions/10904/xmlexception-text-node-canot-appear-in-this-state.html
 
