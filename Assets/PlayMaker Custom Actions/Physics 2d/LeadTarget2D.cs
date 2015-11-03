@@ -1,10 +1,11 @@
-﻿// Reference and Credit information
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+// Reference and Credit information
 //
 // Action compiled by Lane Fox
 //
 // Original code Link:
 // http://forum.unity3d.com/threads/3848-Getting-AI-to-lead-with-its-shots
-/*--- __ECO__ __ACTION__ ---*/
 
 using UnityEngine;
 using System.Collections;
