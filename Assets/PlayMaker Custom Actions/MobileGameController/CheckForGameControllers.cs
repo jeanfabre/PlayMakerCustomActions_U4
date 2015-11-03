@@ -1,5 +1,5 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
-//--- __ECO__ __ACTION__
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 // JoystickName pattern: [$profile_type,$connection_type] joystick $number by $model
 // this action assume that only one game controller can be connected.
