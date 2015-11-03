@@ -1,6 +1,7 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 // original action created by collidernyc: http://hutonggames.com/playmakerforum/index.php?topic=7075.msg37373#msg37373
-//--- __ECO__ __ACTION__ ---//
+
 
 
 using UnityEngine;
