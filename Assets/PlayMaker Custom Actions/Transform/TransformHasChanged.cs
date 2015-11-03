@@ -1,8 +1,9 @@
 // (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 // Action made by : Sebaslive
 // Forum link : http://hutonggames.com/playmakerforum/index.php?topic=10953.0
 // Edited by : DjayDino
-/*--- __ECO__ __ACTION__ ---*/
+
 
 namespace HutongGames.PlayMaker.Actions
 {
