@@ -1,5 +1,5 @@
 // (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __!ECO__ __!PLAYMAKER__ __!ACTION__ ---*/ already defined in U3 ---*/
+/*--- __!ECO__ __!PLAYMAKER__ __!ACTION__ --- already defined in U3 ---*/
 
 using UnityEngine;
 
