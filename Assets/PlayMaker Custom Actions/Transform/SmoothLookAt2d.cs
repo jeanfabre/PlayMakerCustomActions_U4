@@ -28,10 +28,16 @@ namespace HutongGames.PlayMaker.Actions
 		[HasFloatSlider(0.5f,15)]
 		[Tooltip("How fast the look at moves.")]
 		public FsmFloat speed;
-		
+
+		[ActionSection("Result")]
+		[Tooltip("Store the angle between the current rotation and the target rotation")]
+		[UIHint(UIHint.Variable)]
+		public FsmFloat angleToTarget;
+
 		[Tooltip("Draw a line in the Scene View to the look at position.")]
 		public FsmBool debug;
-		
+
+
 		[Tooltip("If the angle to the target is less than this, send the Finish Event below. Measured in degrees.")]
 		public FsmFloat finishTolerance;
 		
@@ -131,17 +137,19 @@ namespace HutongGames.PlayMaker.Actions
 				Debug.DrawLine(go.transform.position, lookAtPos, Color.grey);
 			}
 			
+
+
+			float _angle = desiredRotation.eulerAngles.z - lastRotation.eulerAngles.z;
+			angleToTarget.Value = _angle;
+
 			// send finish event?
-			
 			if (finishEvent != null)
 			{
-				//var targetDir = lookAtPos - go.transform.position;
-				//var angle = Vector3.Angle(targetDir, go.transform.right) - rotationOffset.Value;
-				var angle = Vector3.Angle(desiredRotation.eulerAngles,lastRotation.eulerAngles);
-				if (Mathf.Abs(angle ) <= finishTolerance.Value)
+				if (Mathf.Abs(_angle) <= finishTolerance.Value)
 				{
 					Fsm.Event(finishEvent);
 				}
+
 			}
 		}
 		
