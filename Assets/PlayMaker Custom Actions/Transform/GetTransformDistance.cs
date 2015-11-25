@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.GameObject)]
+	[ActionCategory(ActionCategory.Transform)]
 	[Tooltip("Gets the distance based on the Transform Values.")]
 	public class GetTransformDistance : FsmStateAction
 	{

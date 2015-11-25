@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.GameObject)]
+	[ActionCategory(ActionCategory.Transform)]
 	[Tooltip("Move the transform to the end of the local transform list.")]
 	public class SetTransformAsLastSibling : FsmStateAction
 	{

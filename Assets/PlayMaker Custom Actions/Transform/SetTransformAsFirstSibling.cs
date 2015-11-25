@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.GameObject)]
+	[ActionCategory(ActionCategory.Transform)]
 	[Tooltip("Move the transform to the start of the local transform list.")]
 	public class SetTransformAsFirstSibling : FsmStateAction
 	{

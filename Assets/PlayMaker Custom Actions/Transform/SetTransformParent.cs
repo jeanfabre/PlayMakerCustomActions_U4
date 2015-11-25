@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.GameObject)]
+	[ActionCategory(ActionCategory.Transform)]
 	[Tooltip("Sets the Parent of a Game Object. It uses the Transform.SetParent method")]
 	public class SetTransformParent : FsmStateAction
 	{
