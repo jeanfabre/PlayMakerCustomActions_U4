@@ -59,13 +59,15 @@ namespace HutongGames.PlayMaker.Actions
 		void DoFill()
 		{
 			_go = Fsm.GetOwnerDefaultTarget(camera);
-			if (_go == null) return;
 			
-			_camera = _go.GetComponent<Camera>();
+			if (_go!=null)
+			{
+				_camera = _go.GetComponent<Camera>();
+			}
+			
 			if (_camera == null)
 			{
-				LogError("Missing Camera Component!");
-				return;
+				_camera = Camera.main;
 			}
 			
 			_targetGo = targetSprite.Value;
