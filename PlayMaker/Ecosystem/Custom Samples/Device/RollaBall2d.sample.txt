@@ -1,0 +1,6 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/Device/RollaBall2d.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Device/Roll a Ball 2d/Roll a Ball 2d.unity",
+"keywords":"Device acceleration tilt ortho sprite fit"
+}
