@@ -1,0 +1,6 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/Camera/SpriteFitAndClamp.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Camera/SpriteFitAndClamp/SpriteFitAndClamp.unity",
+"keywords":"2d ortho sprite fit clamp align screen"
+}
