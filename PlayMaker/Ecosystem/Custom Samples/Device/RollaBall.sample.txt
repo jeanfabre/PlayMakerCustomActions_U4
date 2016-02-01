@@ -1,0 +1,6 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/Device/RollaBall.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Device/Roll A Ball/Roll A Ball.unity",
+"keywords":"Device acceleration Camera relative torque Input Mapping"
+}
