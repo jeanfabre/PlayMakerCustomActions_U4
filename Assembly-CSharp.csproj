@@ -62,6 +62,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Device\GetDeviceGyroscope.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\ActivateChildren.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\DestroyRoot.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\GameObject\FindGameObject2.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Logic\GameObjectIsActiveInHierarchy.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialColorToChildren.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\MobileGameController\CheckForGameControllers.cs" />

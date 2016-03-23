@@ -146,6 +146,10 @@
  <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{AA0C95C3-F13B-759E-5C96-6A7B69181A5F}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.
