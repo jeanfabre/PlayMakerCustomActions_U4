@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_IPHONE;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;UNITY_IPHONE_API;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;UNITY_IOS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;ENABLE_DUCK_TYPING</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_7_1;UNITY_4_7;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,25 +39,32 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity 4.3.4/Unity 4.3.4.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity 4.3.4/Unity 4.3.4.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlayMaker Custom Scripts\StateSynchronizer\Editor\PlayMakerFsmStateSynchronizerInspector.cs" />
      <Compile Include="Assets\PlayMaker Unity 2D\Components\Editor\PlayMakerUnity2DProxyInspector.cs" />
      <Compile Include="Assets\PlayMaker Unity 2D\Editor\PlayMakerUnity2DEditorTools.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Components\Editor\CommentInspector.cs" />
      <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerEditorUtils.cs" />
      <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerInspectorUtils.cs" />
      <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerInspectorUtils_Events.cs" />
      <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerInspectorUtils_Reflection.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerInspectorUtils_Variables.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerStats.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\ButtonAttribute\Editor\ButtonDrawer.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\Editor\PlayMakerPropertyDrawerBaseClass.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\Owner\Editor\OwnerPropertyDrawer.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEvent\Editor\PlayMakerEventPropertyDrawer.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEventTarget\Editor\PlayMakerEventTargetPropertyDrawer.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmTarget\Editor\PlayMakerFsmTargetPropertyDrawer.cs" />
-     <Compile Include="Assets\PlayMaker Utils\StateSynchronizer\Editor\PlayMakerFsmStateSynchronizerInspector.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Wizards\LinkerWizard\Editor\LinkerDataCustomInspector.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Wizards\PlayMakerEventProxy\Editor\PlayMakerEventProxyCreator.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Wizards\PlayMakerEventProxy\Editor\PlayMakerEventProxyCreatorWizard.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Editor\LookAtActionEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Editor\MoveTowardsActionEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Editor\SetCameraFOVActionEditor.cs" />
@@ -76,6 +83,7 @@
      <Compile Include="Assets\PlayMaker\Editor\FsmTemplate.cs" />
      <Compile Include="Assets\PlayMaker\Editor\FsmTemplateEditor.cs" />
      <Compile Include="Assets\PlayMaker\Editor\FsmTemplateWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerAutoUpdater.cs" />
      <Compile Include="Assets\PlayMaker\Editor\PlayMakerBugReportWindow.cs" />
      <Compile Include="Assets\PlayMaker\Editor\PlayMakerCustomActionWizard.cs" />
      <Compile Include="Assets\PlayMaker\Editor\PlayMakerGUIInspector.cs" />
@@ -89,61 +97,54 @@
      <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\PlayMaker\Resources\PlayMakerAssemblies.txt" />
      <None Include="Assets\PlayMaker\Versions\readme.txt" />
- <Reference Include="Assets\PlayMaker\PlayMaker">
- <HintPath>Assets\PlayMaker\PlayMaker.dll</HintPath>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/UnityExtensions/Unity/GUISystem/4.7.1/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\PlayMakerEditor">
- <HintPath>Assets\PlayMaker\Editor\PlayMakerEditor.dll</HintPath>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/UnityExtensions/Unity/GUISystem/4.7.1/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\PlayMakerEditorResources">
- <HintPath>Assets\PlayMaker\Editor\PlayMakerEditorResources.dll</HintPath>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\de\PlayMakerEditor.de.resources">
- <HintPath>Assets\PlayMaker\Editor\de\PlayMakerEditor.de.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditorResources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\es-ES\PlayMakerEditor.es-ES.resources">
- <HintPath>Assets\PlayMaker\Editor\es-ES\PlayMakerEditor.es-ES.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\fr\PlayMakerEditor.fr.resources">
- <HintPath>Assets\PlayMaker\Editor\fr\PlayMakerEditor.fr.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.zh-TW.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\it\PlayMakerEditor.it.resources">
- <HintPath>Assets\PlayMaker\Editor\it\PlayMakerEditor.it.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.zh-CN.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/zh-CN/PlayMakerEditor.zh-CN.resources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\ja\PlayMakerEditor.ja.resources">
- <HintPath>Assets\PlayMaker\Editor\ja\PlayMakerEditor.ja.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.es-ES.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\nl\PlayMakerEditor.nl.resources">
- <HintPath>Assets\PlayMaker\Editor\nl\PlayMakerEditor.nl.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.it.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/it/PlayMakerEditor.it.resources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\pt-BR\PlayMakerEditor.pt-BR.resources">
- <HintPath>Assets\PlayMaker\Editor\pt-BR\PlayMakerEditor.pt-BR.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.pt-BR.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/pt-BR/PlayMakerEditor.pt-BR.resources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\sv-SE\PlayMakerEditor.sv-SE.resources">
- <HintPath>Assets\PlayMaker\Editor\sv-SE\PlayMakerEditor.sv-SE.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.de.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/de/PlayMakerEditor.de.resources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\zh-CN\PlayMakerEditor.zh-CN.resources">
- <HintPath>Assets\PlayMaker\Editor\zh-CN\PlayMakerEditor.zh-CN.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.sv-SE.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/sv-SE/PlayMakerEditor.sv-SE.resources.dll</HintPath>
  </Reference>
- <Reference Include="Assets\PlayMaker\Editor\zh-TW\PlayMakerEditor.zh-TW.resources">
- <HintPath>Assets\PlayMaker\Editor\zh-TW\PlayMakerEditor.zh-TW.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.nl.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/nl/PlayMakerEditor.nl.resources.dll</HintPath>
  </Reference>
- <Reference Include="\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\Frameworks\Managed\UnityEditor.Graphs">
- <HintPath>\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\Frameworks\Managed\UnityEditor.Graphs.dll</HintPath>
+ <Reference Include="PlayMakerEditor.ja.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/ja/PlayMakerEditor.ja.resources.dll</HintPath>
  </Reference>
- <Reference Include="\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions">
- <HintPath>\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions.dll</HintPath>
+ <Reference Include="PlayMakerEditor.fr.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/fr/PlayMakerEditor.fr.resources.dll</HintPath>
  </Reference>
- <Reference Include="\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions">
- <HintPath>\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions.dll</HintPath>
+ <Reference Include="PlayMaker">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
- <Reference Include="\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions">
- <HintPath>\Applications\Unity 4.3.4\Unity 4.3.4.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{AA0C95C3-F13B-759E-5C96-6A7B69181A5F}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

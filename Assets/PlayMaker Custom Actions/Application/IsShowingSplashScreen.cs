@@ -26,7 +26,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
-#if !UNITY_5_0 && !UNITY_5_1
+#if UNITY_5 && !UNITY_5_0 && !UNITY_5_1
 			Fsm.Event(Application.isShowingSplashScreen ? isTrue : isFalse);
 #else
 	 Debug.Log("This Action only works on Unity 5.2 and upwards");
@@ -40,7 +40,7 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void OnUpdate()
 		{
-#if !UNITY_5_0 && !UNITY_5_1
+#if UNITY_5 &&  !UNITY_5_0 && !UNITY_5_1
 			Fsm.Event(Application.isShowingSplashScreen ? isTrue : isFalse);
 #else
 			Debug.Log("This Action only works on Unity 5.2 and upwards");

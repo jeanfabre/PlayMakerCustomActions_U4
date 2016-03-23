@@ -32,7 +32,7 @@ namespace HutongGames.PlayMaker.Actions
 
 			if (resetOnExit)
 			{
-				#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
+				#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
 				_orig = Screen.showCursor;
 				#else
 				_orig = Cursor.visible;
@@ -54,7 +54,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		void DoAction()
 		{
-			#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
+			#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
 			Screen.showCursor = showCursor.Value;
 			#else
 				Cursor.visible = showCursor.Value;
@@ -65,7 +65,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			if (resetOnExit)
 			{
-				#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
+				#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
 				Screen.showCursor = _orig;
 				#else
 				Cursor.visible = _orig;

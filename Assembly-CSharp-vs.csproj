@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_IPHONE;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;UNITY_IPHONE_API;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;UNITY_IOS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_7_1;UNITY_4_7;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,20 +39,31 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity 4.3.4/Unity 4.3.4.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity 4.3.4/Unity 4.3.4.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PlayMaker Custom Actions\Animation\PlaySpritesAnimation.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Application\IsShowingSplashScreen.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\BlendShapes\GetBlendShapeIndex.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\BlendShapes\GetBlendShapeName.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\BlendShapes\GetBlendShapeWeight.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\BlendShapes\GetBlendShapesCount.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\BlendShapes\SetBlendShapeWeight.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Camera\CameraOrtho2dFillSprite.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Camera\CameraOrtho2dFitSprite.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Camera\CameraOrthoFillSize.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Camera\CameraOrthoFitSize.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Convert\ConvertStringToVector3.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Convert\ConvertVector3ToString.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Device\GetDeviceGyroscope.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\GameObject\ActivateChildren.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\GameObject\DestroyRoot.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Logic\GameObjectIsActiveInHierarchy.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialColorToChildren.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\MobileGameController\CheckForGameControllers.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Physics 2d\AddForce2d.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Physics 2d\AddTorque2d.cs" />
@@ -92,25 +103,43 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Physics 2d\Sleep2d.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Physics 2d\WakeAllRigidBodies2d.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Physics 2d\WakeUp2d.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Physics\DragRigidBody.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Screen\ScreenShowCursor.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Sprite\SetSpriteSortingLayerName.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Sprite\SwapSprite.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Sprite\WWWSprite.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\String\GetStringWithoutBOM.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\String\StringRegexIsMatch.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\String\StringRegexMatch.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\String\StringRegexReplace.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Time\GetTimeSpanInfo.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Transform\GetTransformDistance.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Transform\GetTransformSiblingIndex.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\LookAt2d.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\LookAt2dClamped.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\LookAt2dGameObject.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\LookAt2dGameObjectClamped.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Transform\MatchTransform.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformAsFirstSibling.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformAsLastSibling.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformParent.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformSiblingIndex.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SmoothLookAt2d.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Transform\TransformHasChanged.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\WebCam\CheckForWebcam.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\WebCam\GetWebcamName.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\WebCam\SetWebcamMaterial.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\__internal\FsmStateActionAdvanced.cs" />
+     <Compile Include="Assets\PlayMaker Custom Scripts\StateSynchronizer\PlayMakerFsmStateSynchronizer.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Actions\GetNextCollisionEvent.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Actions\ParticleSystemPause.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Actions\ParticleSystemPlay.cs" />
+     <Compile Include="Assets\PlayMaker Shuriken\Actions\ParticleSystemPlayAll.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Actions\ParticleSystemStop.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Scripts\playMakerShurikenProxy.cs" />
      <Compile Include="Assets\PlayMaker Unity 2D\Components\PlayMakerUnity2DProxy.cs" />
      <Compile Include="Assets\PlayMaker Unity 2D\Scripts\PlayMakerUnity2d.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Components\Comment.cs" />
      <Compile Include="Assets\PlayMaker Utils\Event Properties\Actions\GetEventProperties.cs" />
      <Compile Include="Assets\PlayMaker Utils\Event Properties\Actions\SetEventProperties.cs" />
      <Compile Include="Assets\PlayMaker Utils\Extensions\PlayMakerUtils_extensions.cs" />
@@ -120,13 +149,15 @@
      <Compile Include="Assets\PlayMaker Utils\PlayMakerUtils_Fsm.cs" />
      <Compile Include="Assets\PlayMaker Utils\PlayMakerUtils_FsmVar.cs" />
      <Compile Include="Assets\PlayMaker Utils\PlayMakerUtils_Serialization.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\ButtonAttribute\ButtonAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\EventTargetVariableAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\ShowOptionsAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\Owner\OwnerClass.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEvent\PlayMakerEvent.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEventTarget\PlayMakerEventTarget.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmTarget\PlayMakerFsmTarget.cs" />
-     <Compile Include="Assets\PlayMaker Utils\StateSynchronizer\PlayMakerFsmStateSynchronizer.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Wizards\LinkerWizard\LinkerData.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Wizards\PlayMakerEventProxy\PlayMakerEventProxy.cs" />
      <Compile Include="Assets\PlayMaker WiiU\Actions\WiiuSavePlayerPrefs.cs" />
      <Compile Include="Assets\PlayMaker\Actions\ActivateGameObject.cs" />
      <Compile Include="Assets\PlayMaker\Actions\AddAnimationClip.cs" />
@@ -180,6 +211,7 @@
      <Compile Include="Assets\PlayMaker\Actions\ColorInterpolate.cs" />
      <Compile Include="Assets\PlayMaker\Actions\ColorRamp.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Comment.cs" />
+     <Compile Include="Assets\PlayMaker\Actions\ComponentAction.cs" />
      <Compile Include="Assets\PlayMaker\Actions\ControllerIsGrounded.cs" />
      <Compile Include="Assets\PlayMaker\Actions\ControllerMove.cs" />
      <Compile Include="Assets\PlayMaker\Actions\ControllerSettings.cs" />
@@ -196,7 +228,6 @@
      <Compile Include="Assets\PlayMaker\Actions\ConvertStringToInt.cs" />
      <Compile Include="Assets\PlayMaker\Actions\CreateEmptyObject.cs" />
      <Compile Include="Assets\PlayMaker\Actions\CreateObject.cs" />
-     <Compile Include="Assets\PlayMaker\Actions\CustomActionTest.cs" />
      <Compile Include="Assets\PlayMaker\Actions\CutToCamera.cs" />
      <Compile Include="Assets\PlayMaker\Actions\DebugBool.cs" />
      <Compile Include="Assets\PlayMaker\Actions\DebugDrawShape.cs" />
@@ -679,8 +710,11 @@
      <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\PlayMaker\Resources\PlayMakerAssemblies.txt" />
      <None Include="Assets\PlayMaker\Versions\readme.txt" />
- <Reference Include="Assets\PlayMaker\PlayMaker">
- <HintPath>Assets\PlayMaker\PlayMaker.dll</HintPath>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/UnityExtensions/Unity/GUISystem/4.7.1/Standalone/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMaker">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
