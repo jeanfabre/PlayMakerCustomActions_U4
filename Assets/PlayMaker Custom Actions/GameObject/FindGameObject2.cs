@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
+
+	
+	#pragma warning disable 168
+
 	[ActionCategory(ActionCategory.GameObject)]
 	[Tooltip("Finds a Game Object by Name and/or Tag. If searching by tags defined as FsmString, optional event to catch when tag doesn't exists")]
 	public class FindGameObject2 : FsmStateAction

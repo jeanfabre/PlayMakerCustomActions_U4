@@ -103,47 +103,47 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/UnityExtensions/Unity/GUISystem/4.7.1/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditorResources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
+ <Reference Include="PlayMaker">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor">
  <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
  </Reference>
- <Reference Include="PlayMakerEditor.zh-TW.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.zh-CN.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/zh-CN/PlayMakerEditor.zh-CN.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.es-ES.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.it.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/it/PlayMakerEditor.it.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.pt-BR.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/pt-BR/PlayMakerEditor.pt-BR.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditorResources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.de.resources">
  <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/de/PlayMakerEditor.de.resources.dll</HintPath>
  </Reference>
- <Reference Include="PlayMakerEditor.sv-SE.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/sv-SE/PlayMakerEditor.sv-SE.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.nl.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/nl/PlayMakerEditor.nl.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.ja.resources">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/ja/PlayMakerEditor.ja.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor.es-ES.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.fr.resources">
  <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/fr/PlayMakerEditor.fr.resources.dll</HintPath>
  </Reference>
- <Reference Include="PlayMaker">
- <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/PlayMaker.dll</HintPath>
+ <Reference Include="PlayMakerEditor.it.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/it/PlayMakerEditor.it.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.ja.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/ja/PlayMakerEditor.ja.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.nl.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/nl/PlayMakerEditor.nl.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.pt-BR.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/pt-BR/PlayMakerEditor.pt-BR.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.sv-SE.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/sv-SE/PlayMakerEditor.sv-SE.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.zh-CN.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/zh-CN/PlayMakerEditor.zh-CN.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.zh-TW.resources">
+ <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

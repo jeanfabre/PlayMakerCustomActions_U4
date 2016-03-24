@@ -127,10 +127,12 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformSiblingIndex.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SmoothLookAt2d.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\TransformHasChanged.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Vector3\Vector3ClampMagnitudeAdvanced.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\WebCam\CheckForWebcam.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\WebCam\GetWebcamName.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\WebCam\SetWebcamMaterial.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\__internal\FsmStateActionAdvanced.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\__internal\PlayMakerActionsUtils.cs" />
      <Compile Include="Assets\PlayMaker Custom Scripts\StateSynchronizer\PlayMakerFsmStateSynchronizer.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Actions\GetNextCollisionEvent.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Actions\ParticleSystemPause.cs" />
