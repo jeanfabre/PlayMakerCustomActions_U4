@@ -1,0 +1,10 @@
+{
+"__ECO__":"__PACKAGE__",
+"Type":"Addon",
+"Version":"1.0.0",
+"UnityMinimumVersion":"4.7",
+"PlayMakerMinimumVersion":"1.7.8.3",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/PathologicalGames/PoolManager.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Actions/PathologicalGames/PoolManager/Readme.md",
+"keywords":"Pool Manager Pooling"
+}
