@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayMaker Custom Actions/Vector3/Vector3ClampMagnitudeAdvanced.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonClasses.cs">
     <Files>
-      <File FileName="Assets/PlayMaker/Actions/Vector3ClampMagnitude.cs" Line="11" Column="18" />
-      <File FileName="Assets/PlayMaker Custom Actions/Vector3/Vector3ClampMagnitudeAdvanced.cs" Line="47" Column="3" />
+      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/Shared Assets/Scripts/IdleRunJump.cs" Line="1" Column="1" />
+      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/PunBasics-Tutorial/Scripts/PlayerAnimatorManager.cs" Line="1" Column="1" />
+      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/PunBasics-Tutorial/Scripts/PlayerManager.cs" Line="22" Column="58" />
+      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonClasses.cs" Line="65" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

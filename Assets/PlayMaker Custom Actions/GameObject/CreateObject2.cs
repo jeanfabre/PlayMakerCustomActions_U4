@@ -8,7 +8,7 @@ namespace HutongGames.PlayMaker.Actions
 	[ActionCategory(ActionCategory.GameObject)]
    	[ActionTarget(typeof(GameObject), "gameObject", true)]
 	[Tooltip("Creates a Game Object, usually using a Prefab.\nUse a Game Object and/or Position/Rotation for the Spawn Point. If you specify a Game Object, Position is used as a local offset, and Rotation will override the object's rotation.\n" +
-		"v2: Fixed local offset for spawn point position)]")]
+		"v2: Fixed local offset for spawn point position and remove obsolete old networking properties]")]
 	public class CreateObject2 : FsmStateAction
 	{
 		[RequiredField]
@@ -28,12 +28,6 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Optionally store the created object.")]
 		public FsmGameObject storeObject;
 
-		[Tooltip("Use Network.Instantiate to create a Game Object on all clients in a networked game.")]
-		public FsmBool networkInstantiate;
-
-		[Tooltip("Usually 0. The group number allows you to group together network messages which allows you to filter them if so desired.")]
-		public FsmInt networkGroup;
-
 		public override void Reset()
 		{
 			gameObject = null;
@@ -41,8 +35,6 @@ namespace HutongGames.PlayMaker.Actions
 			position = new FsmVector3 { UseVariable = true };
 			rotation = new FsmVector3 { UseVariable = true };
 			storeObject = null;
-			networkInstantiate = false;
-			networkGroup = 0;
 		}
 
 		public override void OnEnter()
@@ -81,14 +73,8 @@ namespace HutongGames.PlayMaker.Actions
 #if !(UNITY_FLASH || UNITY_NACL || UNITY_METRO || UNITY_WP8 || UNITY_WIIU || UNITY_PSM || UNITY_WEBGL || UNITY_PS3 || UNITY_PS4 || UNITY_XBOXONE)
                 GameObject newObject;
 
-				if (!networkInstantiate.Value)
-				{
-					newObject = (GameObject)Object.Instantiate(go, spawnPosition, Quaternion.Euler(spawnRotation));
-				}
-				else
-				{
-					newObject = (GameObject)Network.Instantiate(go, spawnPosition, Quaternion.Euler(spawnRotation), networkGroup.Value);
-				}
+		newObject = (GameObject)Object.Instantiate(go, spawnPosition, Quaternion.Euler(spawnRotation));
+				
 #else
                 var newObject = (GameObject)Object.Instantiate(go, spawnPosition, Quaternion.Euler(spawnRotation));
 #endif

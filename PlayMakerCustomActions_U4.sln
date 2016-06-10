@@ -5,6 +5,8 @@ Project("{1A22C060-EED5-D784-CC40-EBEC4C6F6908}") = "PlayMakerCustomActions_U4",
 EndProject
 Project("{1A22C060-EED5-D784-CC40-EBEC4C6F6908}") = "PlayMakerCustomActions_U4", "Assembly-CSharp-Editor.csproj", "{A00C91E9-1961-0B97-D72F-4ADDED0B5D77}"
 EndProject
+Project("{1A22C060-EED5-D784-CC40-EBEC4C6F6908}") = "PlayMakerCustomActions_U4", "Assembly-UnityScript-Editor.unityproj", "{59F9DEFA-B988-DB3D-16F5-513A2838275A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,15 +21,20 @@ Global
 		{A00C91E9-1961-0B97-D72F-4ADDED0B5D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A00C91E9-1961-0B97-D72F-4ADDED0B5D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A00C91E9-1961-0B97-D72F-4ADDED0B5D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F9DEFA-B988-DB3D-16F5-513A2838275A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F9DEFA-B988-DB3D-16F5-513A2838275A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F9DEFA-B988-DB3D-16F5-513A2838275A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F9DEFA-B988-DB3D-16F5-513A2838275A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																																																							GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																		GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
-		$1.inheritsSet = null
+		$1.inheritsSet = Mono
+		$1.inheritsScope = text/plain
 		$1.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $2
 		$2.inheritsSet = Mono
@@ -40,6 +47,9 @@ Global
 		$3.inheritsSet = Mono
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
+		$0.DotNetNamingPolicy = $4
+		$4.DirectoryNamespaceAssociation = None
+		$4.ResourceNamePolicy = FileFormatDefault
 	EndGlobalSection
 
 EndGlobal
