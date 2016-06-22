@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonClasses.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Sources/PlayMakerRep/Projects/Playmaker.source.unity/Assets/PlayMaker/Actions/GetRaycastAllInfo.cs">
     <Files>
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/Shared Assets/Scripts/IdleRunJump.cs" Line="1" Column="1" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/PunBasics-Tutorial/Scripts/PlayerAnimatorManager.cs" Line="1" Column="1" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/PunBasics-Tutorial/Scripts/PlayerManager.cs" Line="22" Column="58" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonClasses.cs" Line="65" Column="31" />
+      <File FileName="Assets/PlayMaker/Actions/Array/GetFsmArray.cs" Line="73" Column="34" />
+      <File FileName="../../../Sources/PlayMakerRep/Projects/Playmaker.source.unity/Assets/PlayMaker/Actions/GetRaycastAllInfo.cs" Line="9" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
