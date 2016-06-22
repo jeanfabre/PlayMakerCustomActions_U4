@@ -1,6 +1,6 @@
 {
 "__ECO__":"__SAMPLE__",
 "unitypackage":"PlayMaker/Ecosystem/Custom Samples/Animator/RobotKyle.unitypackage",
-"pingAssetPath":"Assets/PlayMaker Custom Samples/Animator/RobotKyle/Robot Kyle.unity",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Animator/Robot Kyle/Robot Kyle.unity",
 "keywords":"Mecanim Parameter controller camera follow"
 }
