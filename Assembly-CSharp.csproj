@@ -71,6 +71,10 @@
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\DestroyRoot.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\FindGameObject2.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\GetNextChildReset.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Input\GetKeyCodeToString.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Input\GetKeyDownFromString.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Input\GetKeyFromString.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Input\GetKeyUpFromString.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Logic\GameObjectIsActiveInHierarchy.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialColorToChildren.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialHDRColor.cs" />
@@ -103,6 +107,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformAsLastSibling.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformParent.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformSiblingIndex.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Transform\TransformDirectionAdvanced.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\TransformHasChanged.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Vector3\RandomVector3InsideSphere.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Vector3\RandomVector3OnSphere.cs" />

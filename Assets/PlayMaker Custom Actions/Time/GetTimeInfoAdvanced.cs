@@ -56,7 +56,6 @@ namespace HutongGames.PlayMaker.Actions
 		}
 
 
-
 		public override void OnActionUpdate()
 		{
 			switch (getInfo) 
