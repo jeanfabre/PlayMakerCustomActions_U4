@@ -36,11 +36,6 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("the range of parsing")]
 		public FsmInt parseRange;
 
-		[ActionSection("Storage")]
-		[Tooltip("The result.")]
-		[RequiredField]
-		[UIHint(UIHint.Variable)]
-		public FsmArray result;
 
 		[ActionSection("Split")]
 		[Tooltip("Split")]
@@ -48,10 +43,16 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[Tooltip("Split is ignored if this value is not empty. Each chars taken in account for split")]
 		public FsmString OrThisChar;
-		
-		[ActionSection("Value")]
+
+		[ActionSection("Storage")]
+
 		[Tooltip("Parse the line as a specific type")]
 		public ArrayParseStringAs parseAsType;
+
+		[Tooltip("The result.")]
+		[RequiredField]
+		[UIHint(UIHint.Variable)]
+		public FsmArray result;
 
 
 		public override void Reset()
