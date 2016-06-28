@@ -155,7 +155,7 @@ namespace HutongGames.PlayMaker.Actions
 				foreach(String text in lines)
 				{
 
-					bool _ok = int.TryParse(text, out _value_i);
+					int.TryParse(text, out _value_i);
 					result.Set(i,_value_i);
 					++i;
 					
