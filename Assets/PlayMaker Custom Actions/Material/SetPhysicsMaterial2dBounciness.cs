@@ -6,7 +6,7 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.Material)]
-	[Tooltip("Sets the bounciness value of a PhysicsMaterial2d.")]
+	[Tooltip("Sets the bounciness value of a Physics Material 2d.")]
 	public class SetPhysicsMaterial2dBounciness : FsmStateAction
 	{
 		[Tooltip("The GameObject that the material is applied to. Requires a Collider2d components")]
