@@ -23,6 +23,9 @@ public class MouseLook2d : FsmStateAction
 		[HasFloatSlider(-180, 180)]
 		public FsmFloat maximumZ;
 		
+		[Tooltip("Set the GameObject starting offset. In degrees. 0 if your object is facing right, 180 if facing left etc...")]
+		public FsmFloat rotationOffset;
+		
 		[UIHint(UIHint.Variable)]
 		[Tooltip("the Z rotation")]
 		public FsmFloat zRotation;
@@ -34,6 +37,7 @@ public class MouseLook2d : FsmStateAction
 		minimumZ = null;
 		maximumZ = null;
 		onlyGetValue = false;
+		rotationOffset = 0;
 		}
 		
 	// Code that runs on entering the state.
@@ -83,11 +87,11 @@ public class MouseLook2d : FsmStateAction
 			{
 				angle = maximumZ.Value;
 			}
-			zRotation.Value = angle;
+			zRotation.Value = angle - rotationOffset.Value;
 			
 			if(!onlyGetValue)
 			{
-				transform.rotation = Quaternion.Euler(0, 0, angle);
+				transform.rotation = Quaternion.Euler(0, 0, angle - rotationOffset.Value);
 			}
 			
 			
