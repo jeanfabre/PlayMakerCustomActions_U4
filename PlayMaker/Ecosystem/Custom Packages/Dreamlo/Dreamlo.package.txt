@@ -10,7 +10,5 @@
 
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/Dreamlo/DreamloActions.unitypackage",
 
-"pingAssetPath":"Assets/PlayMaker Dreamlo/readme.txt",
-
-/* "YoutubeVideos":[""]            (video coming soon)*/
+"keywords" : "Dreamlo Save"
 }
