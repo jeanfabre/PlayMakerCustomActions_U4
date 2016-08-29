@@ -1,0 +1,16 @@
+{
+"__ECO__":"__PACKAGE__",
+"Type":"Addon",          /*(the actions do not require an addon but they do need a codes from the website, so i am not sure what type to use)*/
+
+"Version":"1.0.0",
+
+"UnityMinimumVersion":"4.3.4",          /*(unsure what version is required)*/
+
+"PlayMakerMinimumVersion":"1.8.1",          /*(i am using co-routine so 1.8.1 is required)*/
+
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/Dreamlo/DreamloActions.unitypackage",
+
+"pingAssetPath":"Assets/PlayMaker Dreamlo/readme.txt",
+
+/* "YoutubeVideos":[""]            (video coming soon)*/
+}
