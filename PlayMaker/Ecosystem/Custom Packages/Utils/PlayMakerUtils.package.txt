@@ -1,0 +1,10 @@
+{
+"__ECO__":"__PACKAGE__",
+"Type":"Wizard",
+"Version":"1.2.7",
+"UnityMinimumVersion":"4.7.2",
+"PlayMakerMinimumVersion":"1.8.1",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/Utils/PlayMakerUtils.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Utils/Action/MonoBehaviour/TransformEventsBridge.cs",
+"keywords":"Transform Parent Changed Children Event"
+}
