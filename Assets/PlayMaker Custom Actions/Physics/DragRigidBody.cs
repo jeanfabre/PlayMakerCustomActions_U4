@@ -1,5 +1,5 @@
-// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-/*--- __!ECO__ __!PLAYMAKER__ __!ACTION__ already defined in U3 rep ---*/
+// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using UnityEngine;
 
