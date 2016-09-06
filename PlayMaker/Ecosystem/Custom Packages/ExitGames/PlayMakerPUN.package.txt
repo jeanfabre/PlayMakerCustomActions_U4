@@ -1,9 +1,9 @@
 {
 "__ECO__":"__PACKAGE__",
 "Type":"Addon",
-"Version":"1.71",
-"UnityMinimumVersion":"4.7",
-"PlayMakerMinimumVersion":"1.8.0",
+"Version":"1.75",
+"UnityMinimumVersion":"4.7.2",
+"PlayMakerMinimumVersion":"1.8.2",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/ExitGames/PlayMakerPUN.unitypackage",
 "pingMenu":"PlayMaker/Addons/Photon Networking/Set up Photon Networking",
 "keywords":"ExitGames Photon networking PUN"
