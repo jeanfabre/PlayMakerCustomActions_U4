@@ -1,0 +1,22 @@
+{"Game":
+	{
+	"name":"test",
+	"secure_word":"",
+	"secure_status":"0",
+	"user_id":"1034",
+	"short_description":"just a test to see what it is all about",
+	"description":"",
+	"game_type":"test",
+	"version":"0",
+	"levels":"5",
+	"platform":"playmaker",
+	"play_url":"",
+	"website_url":"",
+	"created":"2012-07-27 10:17:13",
+	"updated":"2012-07-27 10:17:13",
+	"players_count":"0",
+	"scores_count":"0",
+	"locked":"0",
+	"status":"1"
+	}
+ }
