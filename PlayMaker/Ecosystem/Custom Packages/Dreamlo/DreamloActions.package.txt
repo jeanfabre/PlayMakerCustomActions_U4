@@ -1,0 +1,10 @@
+{
+"__ECO__":"__PACKAGE__",
+"Type":"Addon",
+"Version":"1.0.0",
+"UnityMinimumVersion":"4.7",
+"PlayMakerMinimumVersion":"1.8.1",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/Dreamlo/DreamloActions.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Dreamlo/readme.txt",
+"keywords":"Dreamlo"
+}

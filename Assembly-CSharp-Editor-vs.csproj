@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_7_1;UNITY_4_7;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;PLAYMAKER;PLAYMAKER_1_8;PLAYMAKER_1_8_1;PLAYMAKER_1_8_OR_NEWER</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_7_2;UNITY_4_7;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;PLAYMAKER;PLAYMAKER_1_8;PLAYMAKER_1_8_OR_NEWER;PLAYMAKER_1_8_3</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.7.2/Unity 4.7.2.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.7.2/Unity 4.7.2.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +63,10 @@
      <Compile Include="Assets\Chili4U\Editor\CUTextInputDialog.cs" />
      <Compile Include="Assets\Chili4U\Editor\CUUndoUtility.cs" />
      <Compile Include="Assets\Chili4U\Editor\EditorResources\CUEditorResourcesLocator.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\API\Editor\FsmVector4ActionEditor.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Camera\Editor\ScreenTo3dPlanePointActionEditor.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Editor\SetStringValueCustomEditor.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Transform\Editor\MoveTowardsAdvancedCustomEditor.cs" />
      <Compile Include="Assets\PlayMaker Custom Scripts\StateSynchronizer\Editor\PlayMakerFsmStateSynchronizerInspector.cs" />
      <Compile Include="Assets\PlayMaker Utils\Components\Editor\CommentInspector.cs" />
      <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerEditorUtils.cs" />
@@ -105,10 +109,12 @@
      <Compile Include="Assets\PlayMaker\Actions\Animator\Editor\SetAnimatorBoolActionEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Animator\Editor\SetAnimatorFloatActionEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Animator\Editor\SetAnimatorIntActionEditor.cs" />
+     <Compile Include="Assets\PlayMaker\Actions\Editor\CallMethodEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Editor\GetDistanceEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Editor\LookAtActionEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Editor\MoveTowardsActionEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Editor\SetCameraFOVActionEditor.cs" />
+     <Compile Include="Assets\PlayMaker\Actions\Editor\SetPropertyEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Quaternion\Editor\GetQuaternionEulerAnglesCustomEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Quaternion\Editor\GetQuaternionFromRotationCustomEditor.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Quaternion\Editor\GetQuaternionMultipliedByQuaternionCustomEditor.cs" />
@@ -457,6 +463,7 @@
      <Compile Include="Assets\uTomate\Editor\UTils.cs" />
      <Compile Include="Assets\uTomate\Editor\UTomate.cs" />
      <Compile Include="Assets\uTomate\Editor\UTomateRunner.cs" />
+     <None Include="Assets\PlayMaker Custom Actions\JSON\json content.txt" />
      <None Include="Assets\PlayMaker\Templates\readme.txt" />
      <None Include="Assets\PlayMaker\Readme.txt" />
      <None Include="Assets\uTomate\Editor\PublicAPI\README.txt" />
@@ -469,10 +476,10 @@
      <None Include="Assets\Temp\StringParseContent.txt" />
      <None Include="Assets\PlayMaker\Versions\readme.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/UnityExtensions/Unity/GUISystem/4.7.1/Standalone/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity 4.7.2/Unity 4.7.2.app/Contents/UnityExtensions/Unity/GUISystem/4.7.2/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/UnityExtensions/Unity/GUISystem/4.7.1/Editor/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Applications/Unity 4.7.2/Unity 4.7.2.app/Contents/UnityExtensions/Unity/GUISystem/4.7.2/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="ConditionalExpression">
  <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/ConditionalExpression.dll</HintPath>
@@ -526,7 +533,7 @@
  <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/uTomate/Editor/Libs/Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity 4.7.1/Unity 4.7.1.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
+ <HintPath>/Applications/Unity 4.7.2/Unity 4.7.2.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
