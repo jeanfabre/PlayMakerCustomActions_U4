@@ -81,7 +81,10 @@
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEvent\Editor\PlayMakerEventPropertyDrawer.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEventTarget\Editor\PlayMakerEventTargetPropertyDrawer.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmTarget\Editor\PlayMakerFsmTargetPropertyDrawer.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmVariable\Editor\PlayMakerFsmVariablePropertyDrawer.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmVariableTarget\Editor\PlayMakerFsmVariableTargetPropertyDrawer.cs" />
      <Compile Include="Assets\PlayMaker Utils\Wizards\LinkerWizard\Editor\LinkerDataCustomInspector.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Wizards\PlayMakerEventProxy\Editor\EventProxyFileFinder.cs" />
      <Compile Include="Assets\PlayMaker Utils\Wizards\PlayMakerEventProxy\Editor\PlayMakerEventProxyCreator.cs" />
      <Compile Include="Assets\PlayMaker Utils\Wizards\PlayMakerEventProxy\Editor\PlayMakerEventProxyCreatorWizard.cs" />
      <Compile Include="Assets\PlayMaker\Actions\Animator\Editor\BaseClasses\OnAnimatorUpdateActionEditorBase.cs" />

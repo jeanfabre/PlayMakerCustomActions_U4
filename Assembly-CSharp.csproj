@@ -321,6 +321,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\SendEventIfBool.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\SubtractFsmFloat.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\BuildString2.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\String\GenerateGUID.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\GetNewLineCharacter.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\GetStringWithoutBOM.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\GetTabCharacter.cs" />
@@ -407,6 +408,7 @@
      <Compile Include="Assets\PlayMaker Shuriken\Actions\ParticleSystemPlayAll.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Actions\ParticleSystemStop.cs" />
      <Compile Include="Assets\PlayMaker Shuriken\Scripts\playMakerShurikenProxy.cs" />
+     <Compile Include="Assets\PlayMaker Utils\Actions\MonoBehaviour\TransformEventsBridge.cs" />
      <Compile Include="Assets\PlayMaker Utils\Components\Comment.cs" />
      <Compile Include="Assets\PlayMaker Utils\Event Properties\Actions\GetEventProperties.cs" />
      <Compile Include="Assets\PlayMaker Utils\Event Properties\Actions\SetEventProperties.cs" />
@@ -419,11 +421,15 @@
      <Compile Include="Assets\PlayMaker Utils\PlayMakerUtils_Serialization.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\ButtonAttribute\ButtonAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\EventTargetVariableAttribute.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\FsmVariableTargetVariableAttribute.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\FsmVariableTypeAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\ShowOptionsAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\Owner\OwnerClass.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEvent\PlayMakerEvent.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEventTarget\PlayMakerEventTarget.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmTarget\PlayMakerFsmTarget.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmVariable\PlayMakerFsmVariable.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerFsmVariableTarget\PlayMakerFsmVariableTarget.cs" />
      <Compile Include="Assets\PlayMaker Utils\Wizards\LinkerWizard\LinkerData.cs" />
      <Compile Include="Assets\PlayMaker Utils\Wizards\PlayMakerEventProxy\PlayMakerEventProxy.cs" />
      <Compile Include="Assets\PlayMaker WiiU\Actions\WiiuSavePlayerPrefs.cs" />
