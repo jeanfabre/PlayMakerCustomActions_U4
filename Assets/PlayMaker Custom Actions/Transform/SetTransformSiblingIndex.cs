@@ -38,7 +38,7 @@ namespace HutongGames.PlayMaker.Actions
 
 				if (go != null)
 				{
-					go.transform.SetSiblingIndex(Mathf.Clamp(index.Value,0,go.transform.childCount-1));
+					go.transform.SetSiblingIndex(Mathf.Clamp(index.Value,0,go.transform.parent.childCount-1));
 				}
 			#endif
 			Finish();
