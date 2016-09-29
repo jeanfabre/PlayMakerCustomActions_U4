@@ -3,8 +3,8 @@
 EcoMetaStart
 {
 "script dependancies":[
-						"Assets/PlayMaker Custom Actions/__Internal/PlayMakerActionsUtils.cs"
-					]
+						"Assets/PlayMaker Custom Actions/__internal/PlayMakerActionsUtils.cs"
+					],
 "version":"1.1.0"
 }
 EcoMetaEnd
