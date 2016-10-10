@@ -1,9 +1,9 @@
 {
 "__ECO__":"__PACKAGE__",
 "Type":"Addon",
-"Version":"1.0.6",
-"UnityMinimumVersion":"4.3.4",
-"PlayMakerMinimumVersion":"1.7.8.3",
+"Version":"1.1",
+"UnityMinimumVersion":"4.7",
+"PlayMakerMinimumVersion":"1.8",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/DataMaker/DataMaker.unitypackage",
 "pingAssetPath":"Assets/PlayMaker DataMaker/Readme.md",
 "keywords":"xml xpath json data arraymaker"
