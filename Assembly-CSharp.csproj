@@ -330,6 +330,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\String\GetNewLineCharacter.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\GetStringWithoutBOM.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\GetTabCharacter.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\String\ReadTextAsset.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\SplitTextToArray.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\StringAddNewLine.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\StringDeleteLine.cs" />
