@@ -1,5 +1,6 @@
 ﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved. 
 // __ECO__ __PLAYMAKER__ __ACTION__ 
+// Made By : DjayDino
 
 
 using UnityEngine;
@@ -24,9 +25,15 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("The index of the value in the array.")]
 		[UIHint(UIHint.Variable)]
 		public FsmInt index;
+		
+		[Tooltip("Can hit the same number twice in a row")]
+		public FsmBool Repeat;
 
 		[Tooltip("Repeat every frame while the state is active.")]
 		public bool everyFrame;
+		
+		private int randomIndex;
+		private int lastIndex = -1;
 
 		public override void Reset()
 		{
@@ -34,6 +41,7 @@ namespace HutongGames.PlayMaker.Actions
 			storeValue =null;
 			index = null;
             everyFrame = false;
+			Repeat = true;
 		}
 		
 		// Code that runs on entering the state.
@@ -60,8 +68,29 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				return;
 			}
-			index.Value = Random.Range(0,array.Length);
-			storeValue.SetValue(array.Get(index.Value));	
+			
+			if (Repeat.Value)
+			{
+				randomIndex = Random.Range(0,array.Length);
+				index.Value = randomIndex;
+				storeValue.SetValue(array.Get(index.Value));
+			}
+			else
+			{
+				do
+				{
+					randomIndex = Random.Range(0,array.Length);
+				} while ( randomIndex == lastIndex);
+				
+				lastIndex = randomIndex;
+			}
+			if (randomIndex != -1)
+			{
+				index.Value = randomIndex;
+				storeValue.SetValue(array.Get(index.Value));
+			}
+			
+	
 		}
 
 		
