@@ -5,6 +5,6 @@
 "UnityMinimumVersion":"4.7.2",
 "PlayMakerMinimumVersion":"1.8.2",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/Tasharen/PlayMakerNgui.unitypackage",
-"pingAssetPath":"Assets/PlayMaker NGUI/Addons/Changelog.md",
+"pingAssetPath":"Assets/PlayMaker NGUI/Changelog.md",
 "keywords":"Tasharen ngui ui"
 }
