@@ -1,12 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayMaker/Actions/Animator/SetAnimatorIKGoal.cs">
     <Files>
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs" Line="4106" Column="73" />
+      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs" Line="1" Column="1" />
       <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/DemoFriendsAndCustomAuth/GUICustomAuth.cs" Line="1" Column="1" />
       <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs" Line="1" Column="1" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs" Line="1" Column="1" />
       <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/changelog.txt" Line="1" Column="1" />
+      <File FileName="Assets/PlayMaker Custom Actions/String/ReadTextAsset.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayMaker Custom Actions/String/SplitTextToArray.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayMaker/Actions/Animator/SetAnimatorIKGoal.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
