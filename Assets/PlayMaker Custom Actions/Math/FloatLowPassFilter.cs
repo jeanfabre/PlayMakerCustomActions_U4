@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using UnityEngine;
@@ -32,7 +32,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-			filteredFloat = (floatVariable.Value * filteringFactor.Value) + (floatVariable.Value * (1.0f - filteringFactor.Value));
+			filteredFloat = (floatVariable.Value * filteringFactor.Value) + (filteredFloat * (1.0f - filteringFactor.Value));
 			
 			floatVariable.Value = filteredFloat;
 		}
