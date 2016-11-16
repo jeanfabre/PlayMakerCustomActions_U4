@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.Math)]
+	[ActionCategory(ActionCategory.AnimateVariables)]
 	[Tooltip("Follow a float value and lerp if outside the defined margin. Typically use for camera movement to follow player when getting close to the screen sides")]
 	public class FloatFalloff : FsmStateAction
 	{
