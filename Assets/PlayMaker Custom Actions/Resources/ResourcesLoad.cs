@@ -1,5 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
-// AudioClip support by LampRabbit
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using UnityEngine;
@@ -127,57 +126,17 @@ namespace HutongGames.PlayMaker.Actions
 				break;
 			case VariableType.Object:
 
+				FsmObject _var= this.Fsm.Variables.GetFsmObject(storeAsset.variableName);
 				
+				_var.Value = Resources.Load(assetPath.Value,_var.ObjectType);
 				
-				#if ! UNITY_3_5 
-				System.Type _type = storeAsset.objectReference.GetType();
-				if (_type == typeof(UnityEngine.Sprite))
+				if (_var.Value != null && _var.Value.GetType() == _var.ObjectType)
 				{
-					/* Can't find a way to make a reusable code for All types...
-					FsmObject _target= this.Fsm.Variables.GetFsmObject(storeAsset.variableName);
-					//	_target.Value = this.LoadResourceByType<_type>(assetPath.Value);
-
-					var mi = typeof(ResourcesLoad).GetMethod("LoadResourceByType");
-					var fooRef = mi.MakeGenericMethod(_type);
-					_target.Value = (Object)fooRef.Invoke(new ResourcesLoad(), new object[] { assetPath.Value });
-					*/
-					
-					
-					UnityEngine.Sprite _sprite = (UnityEngine.Sprite)Resources.Load(assetPath.Value,typeof(UnityEngine.Sprite));
-					if (_sprite==null)
-					{
-						return false;
-					}else{
-						FsmObject _target= this.Fsm.Variables.GetFsmObject(storeAsset.variableName);
-						_target.Value = _sprite;
-						return true;
-					}
+					return true;
+				}else{
+					_var.Value = null;
+					return false;
 				}
-				if (_type == typeof(AudioClip))
-					{
-					AudioClip audioClip = (AudioClip)Resources.Load(assetPath.Value,typeof(AudioClip));
-					if (audioClip==null)
-					{
-						return false;
-					}else{
-						FsmObject _target= this.Fsm.Variables.GetFsmObject(storeAsset.variableName);
-						_target.Value = audioClip;
-						return true;
-					}
-				}
-				#else
-					AudioClip audioClip = (AudioClip)Resources.Load(assetPath.Value,typeof(AudioClip));
-					if (audioClip==null)
-					{
-						return false;
-					}else{
-						FsmObject _target= this.Fsm.Variables.GetFsmObject(storeAsset.variableName);
-						_target.Value = audioClip;
-						return true;
-					}
-				#endif
-				
-				
 
 				break;
 			default:
