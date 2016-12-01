@@ -1,5 +1,6 @@
 // (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+/*--- Keywords: Shader Keyword parameter --- */
 
 using UnityEngine;
 
