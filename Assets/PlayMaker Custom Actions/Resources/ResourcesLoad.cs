@@ -3,6 +3,7 @@
 
 using UnityEngine;
 
+#pragma warning disable 0162  
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -146,12 +147,6 @@ namespace HutongGames.PlayMaker.Actions
 			return true;
 		}
 
-		/*
-		System.Object LoadResourceByType<T>(string assetPath)
-		{
-			return (T)Resources.Load(assetPath,typeof(T));
-		}
-		*/
 	}
 }
 

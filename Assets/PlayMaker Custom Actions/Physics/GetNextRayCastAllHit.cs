@@ -121,7 +121,7 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			}
 			
-			Debug.Log("getting index"+nextHitIndex );
+		//	Debug.Log("getting index"+nextHitIndex );
 			Fsm.RaycastHitInfo = hits[nextHitIndex];
 			
 			nextHitIndex++;
@@ -134,7 +134,7 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoRaycastAll()
 		{
-			Debug.Log("DoRaycastAll");
+			//Debug.Log("DoRaycastAll");
 			
 			if (distance.Value == 0)
 			{

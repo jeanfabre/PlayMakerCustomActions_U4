@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PlayMaker Custom Actions\API\FsmVector4Action.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\AnimateVariables\FloatFalloff.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Animator\AnimatorActionBase.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Application\ApplicationEventsBridge.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Application\ApplicationGetSystemLanguage.cs" />
@@ -153,6 +154,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\GetGameObjectSpeed.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\GetLayer2.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\GetNextChildReset.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\GameObject\GetTag2.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\HasChild.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\IsActive.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\GameObject\IsVisibleInCameraFrustrum.cs" />
@@ -192,7 +194,12 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Logic\StringGetIndexOf.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Logic\Vector3Compare.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\GetMaterialColor.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Material\GetMaterialName.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Material\MaterialDisableKeyword.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Material\MaterialEnableKeyword.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Material\MaterialGetShaderKeywords.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialColorToChildren.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialFloatToChildren.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialHDRColor.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetMaterialVector4.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetPhysicsMaterial2dBounciness.cs" />
@@ -277,6 +284,8 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Physics\TriggerEvent2.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Physics\internal\PlayMakerWheelFrictionCurveClass.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Physics2D\EnableCollider2DByTag.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Physics2D\Rigidbody2dMovePosition.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Physics2D\Rigidbody2dMoveRotation.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\PlayerPrefs\PlayerPrefsAddFloat.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\PlayerPrefs\PlayerPrefsAddInt.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\PlayerPrefs\PlayerPrefsBoolTest.cs" />
@@ -303,6 +312,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\RenderSettings\SetFogStartDistance.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Resources\GetResourcesCount.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Resources\ResourcesLoad.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Resources\ResourcesLoadAsynch.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Resources\ResourcesUnloadUnusedAssets.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Screen\ScreenShowCursor.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\ScriptControl\GetStaticProperty.cs" />
@@ -343,6 +353,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\String\StringTypewriter.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Texture\GetPixelColor.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Texture\GetTerrainTextureName.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Texture\GetTextureName.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Texture\SetTextureValue.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Texture\TextureDrawCircle.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Time\CountdownTimer.cs" />
@@ -429,6 +440,7 @@
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\EventTargetVariableAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\FsmVariableTargetVariableAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\FsmVariableTypeAttribute.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\RequiredAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\GenericAttributes\ShowOptionsAttribute.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\Owner\OwnerClass.cs" />
      <Compile Include="Assets\PlayMaker Utils\PropertyDrawers\PlayMakerEvent\PlayMakerEvent.cs" />
@@ -1187,17 +1199,22 @@
      <Compile Include="Assets\StaticTest.cs" />
      <Compile Include="Assets\iTween\iTween.cs" />
      <None Include="Assets\PlayMaker Custom Actions\JSON\json content.txt" />
+     <None Include="Assets\PlaymakerSamples\NoExit\NoExitAssets\Sound\SoundsnapLicense.txt" />
      <None Include="Assets\PlayMaker\Templates\readme.txt" />
      <None Include="Assets\PlayMaker\Readme.txt" />
      <None Include="Assets\uTomate\Editor\PublicAPI\README.txt" />
      <None Include="Assets\uTomate\README.txt" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\PlayMaker Utils\External Libraries\Rotorz\Reorderable List Field\README.txt" />
      <None Include="Assets\net.fabrejean\Editor\Common\GuiSkins\VolcanicGuiSkin\ReadMeForCredits.txt" />
      <None Include="Assets\uTomate\CHANGES.txt" />
      <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\PlayMaker\Resources\PlayMakerAssemblies.txt" />
      <None Include="Assets\net.fabrejean\Editor\Common\GuiSkins\README.txt" />
+     <None Include="Assets\PlayMaker Utils\External Libraries\Rotorz\Reorderable List Field\LICENSE.txt" />
      <None Include="Assets\Temp\StringParseContent.txt" />
      <None Include="Assets\PlayMaker\Versions\readme.txt" />
+     <None Include="Assets\PlayMaker Utils\External Libraries\Rotorz\Reorderable List Field\Editor\Editor.ReorderableList.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity 4.7.2/Unity 4.7.2.app/Contents/UnityExtensions/Unity/GUISystem/4.7.2/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -1207,6 +1224,12 @@
  <Reference Include="PlayMaker">
  <HintPath>/Users/jeanfabre/Documents/work/Unity/PlayMaker/Ecosystem/Repositories/PlayMakerCustomActions_U4/Assets/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{82BBA893-8CD9-00CF-82B6-6A7D1ACDE92F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{CD9ABA8E-92EF-5CD8-7A6E-3F34CF44C24F}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
