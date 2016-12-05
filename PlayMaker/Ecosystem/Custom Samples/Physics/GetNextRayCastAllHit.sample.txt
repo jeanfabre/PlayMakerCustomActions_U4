@@ -1,5 +1,6 @@
 {
 "__ECO__":"__SAMPLE__",
 "unitypackage":"PlayMaker/Ecosystem/Custom Samples/Physics/GetNextRayCastAllHit.unitypackage",
-"pingAssetPath":"Assets/PlayMaker Custom Samples/Physics/GetNextRayCastAllHit/GetNextRayCastAllHit.unity"
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Physics/GetNextRayCastAllHit/GetNextRayCastAllHit.unity".
+"keywords":"raycast hit target event tag"
 }
