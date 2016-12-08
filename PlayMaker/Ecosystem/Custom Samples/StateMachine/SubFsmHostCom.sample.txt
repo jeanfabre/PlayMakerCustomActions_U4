@@ -1,0 +1,5 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/StateMachine/SubFsmHostCom.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/StateMachine/SubFsmHostCom/SubFsmHostCom.unity"
+}
