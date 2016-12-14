@@ -4,7 +4,7 @@
 "Version":"1.2.1",
 "UnityMinimumVersion":"4.7",
 "PlayMakerMinimumVersion":"1.8",
-"unitypackage":"PlayMaker/Ecosystem/Custom Packages/DataMaker/DataMaker.unitypackage",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/DataMaker/DataMaker_Xml_Json.unitypackage",
 "pingAssetPath":"Assets/PlayMaker DataMaker/Readme.md",
-"keywords":"xml xpath csv data arraymaker"
+"keywords":"xml xpath json csv data arraymaker"
 }
