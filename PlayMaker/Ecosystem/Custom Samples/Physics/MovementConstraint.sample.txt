@@ -1,5 +1,6 @@
 {
 "__ECO__":"__SAMPLE__",
 "unitypackage":"PlayMaker/Ecosystem/Custom Samples/Physics/MovementConstraint.unitypackage",
-"pingAssetPath":"Assets/PlayMaker Custom Samples/Physics/MovementConstraint/MovementConstraint.unity"
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Physics/MovementConstraint/MovementConstraint.unity",
+"keywords":"Space shooter physics"
 }
