@@ -67,6 +67,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Camera\Editor\ScreenTo3dPlanePointActionEditor.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Editor\SetStringValueCustomEditor.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\Editor\MoveTowardsAdvancedCustomEditor.cs" />
+     <Compile Include="Assets\PlayMaker Custom Samples\_assets_\Scripts\uGui\Editor\PlaymakerDpCanvasScalerInspector.cs" />
      <Compile Include="Assets\PlayMaker Custom Scripts\StateSynchronizer\Editor\PlayMakerFsmStateSynchronizerInspector.cs" />
      <Compile Include="Assets\PlayMaker Utils\Components\Editor\CommentInspector.cs" />
      <Compile Include="Assets\PlayMaker Utils\Editor\PlayMakerEditorUtils.cs" />

@@ -91,11 +91,13 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Camera\SetCameraDepth.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Camera\SetCameraOrthoSize.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Camera\SetCameraRect.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Camera\SetOrthCameraPixelPerfect.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Color\ColorHSV.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Color\GetColorHSV.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Color\GetSpriteColorRGBA.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Color\RandomColor.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Color\SetColorHSV.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Color\SetHexColorValue.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Color\SetSpriteColorRGBA.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Convert\AudioListenerSetPause.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Convert\ConvertBytesLengthToReadableSize.cs" />
@@ -115,6 +117,8 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Convert\ConvertStringToVector3.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Convert\ConvertVector2ToString.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Convert\ConvertVector3ToString.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Convert\DecodeBitFlagField.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Convert\EncodeBitFlagField.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Device\DeviceOrientationWatcher.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Device\DeviceStillEvent.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Device\GetDeviceGyroscope.cs" />
@@ -205,6 +209,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetPhysicsMaterial2dBounciness.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetPhysicsMaterial2dFriction.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Material\SetVisibility2.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Material\SetVisibilityByTag.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\FloatCeiling.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\FloatClampAdvanced.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\FloatFloor.cs" />
@@ -231,6 +236,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Math\IntEquals.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\IntInterpolate.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\IntModulo.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Math\IntOddEvenTest.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\IntSubstract.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\InverseFloat.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Math\LerpAngle.cs" />
@@ -310,6 +316,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\RenderSettings\IsFogEnabled.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\RenderSettings\SetFogEndDistance.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\RenderSettings\SetFogStartDistance.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Renderer\SetSortingRendererLayer.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Resources\GetResourcesCount.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Resources\ResourcesLoad.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Resources\ResourcesLoadAsynch.cs" />
@@ -324,6 +331,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Sprite\WWWSprite.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\AddFsmFloat.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\AddToFsmInt.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\FsmBoolChange.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\GetEventSender.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\GetFsmName.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\StateMachine\GetHost.cs" />
@@ -350,6 +358,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\String\StringRegexMatch.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\StringRegexReplace.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\StringSplitToStrings.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\String\StringTrim.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\String\StringTypewriter.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Texture\GetPixelColor.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Texture\GetTerrainTextureName.cs" />
@@ -375,6 +384,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\LookAt2dGameObjectClamped.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\MatchTransform.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\MoveTowardsAdvanced.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Transform\RotateAround.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetPositionAdvanced.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetRotationAdvanced.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\SetTransformAsFirstSibling.cs" />
@@ -388,6 +398,7 @@
      <Compile Include="Assets\PlayMaker Custom Actions\Transform\TranslateAdvanced.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Trigonometry\ConvertDegreesToRadians.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Trigonometry\ConvertRadiansToDegrees.cs" />
+     <Compile Include="Assets\PlayMaker Custom Actions\Trigonometry\GetDeltaAngle.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Trigonometry\GetSignedAngleToTarget.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\UnityObject\GetComponentInChildren.cs" />
      <Compile Include="Assets\PlayMaker Custom Actions\Vector2\RandomVector2.cs" />

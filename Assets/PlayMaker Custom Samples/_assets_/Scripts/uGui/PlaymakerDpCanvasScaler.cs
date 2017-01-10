@@ -5,12 +5,15 @@
     I share it under the same MIT/X11 license.
     
     Modder: Tess Snider, Hidden Achievement
+    https://bitbucket.org/snippets/Malkyne/Xqare/a-unity-canvas-scaler-for-constant-dp-size
 */
 
 // modified to not clash with any use outside the Ecosystem, so renamed both the namespace and script
 
 using UnityEngine;
 using UnityEngine.EventSystems;
+
+//using System.Collections
 
 
 namespace HutongGames.PlayMaker.Ecosystem.UI
@@ -27,7 +30,20 @@ namespace HutongGames.PlayMaker.Ecosystem.UI
 		
 		// The log base doesn't have any influence on the results whatsoever, as long as the same base is used everywhere.
 		private const float kLogBase = 2;
-		
+
+
+		[Tooltip("The target DPI to assume if the screen DPI is not known.")]
+		[SerializeField]
+		protected float m_TargetDpi = 160;
+		public float TargetDpi { get { return m_TargetDpi; } set { m_TargetDpi = value; } }
+
+
+		//[Tooltip("The target DPI to assume for each platform using the platform using BuildTarget enum.")]
+		//[SerializeField]
+		//protected list<float,float> m_DpiPerTarget = new float[0];
+		//public float[] DpiPerTarget { get { return m_DpiPerTarget; } set { m_DpiPerTarget = value; } }
+
+
 		[Tooltip("The DPI to assume if the screen DPI is not known.")]
 		[SerializeField]
 		protected float m_FallbackScreenDPI = 96;
@@ -44,7 +60,9 @@ namespace HutongGames.PlayMaker.Ecosystem.UI
 		protected float m_DynamicPixelsPerUnit = 1;
 		public float dynamicPixelsPerUnit { get { return m_DynamicPixelsPerUnit; } set { m_DynamicPixelsPerUnit = value; } }
 		
-		
+
+		public float currentDpi;
+
 		// General variables
 		private Canvas m_Canvas;
 		[System.NonSerialized]
@@ -96,16 +114,13 @@ namespace HutongGames.PlayMaker.Ecosystem.UI
 		
 		protected virtual void HandleConstantPhysicalSize()
 		{
-			float currentDpi = Screen.dpi;
+			currentDpi = Screen.dpi;
 			float dpi = (currentDpi == 0 ? m_FallbackScreenDPI : currentDpi);
-			float targetDPI = 160;
-			
-			#if (UNITY_EDITOR && (UNITY_ANDROID || UNITY_IOS))
-			targetDPI = 96;
-			#endif
-			
-			SetScaleFactor(dpi / targetDPI);
-			SetReferencePixelsPerUnit(m_ReferencePixelsPerUnit * targetDPI / m_DefaultSpriteDPI);
+
+			m_TargetDpi = currentDpi;
+
+			SetScaleFactor(dpi / m_TargetDpi);
+			SetReferencePixelsPerUnit(m_ReferencePixelsPerUnit * m_TargetDpi / m_DefaultSpriteDPI);
 		}
 		
 		protected void SetScaleFactor(float scaleFactor)
