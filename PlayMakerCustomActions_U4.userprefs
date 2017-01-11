@@ -1,20 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayMaker Custom Actions/String/StringTrim.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Addons/ExitGames/PlayMaker--ExitGames--PhotonUnityNetworking_U4.3.4/Assets/PlayMaker PUN/Actions/PhotonNetworkSetAuthenticationValues.cs">
     <Files>
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonView.cs" Line="1" Column="1" />
-      <File FileName="Assets/PlayMaker/Actions/SetLightType.cs" Line="1" Column="1" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/PunBasics-Tutorial/Scripts/Launcher.cs" Line="1" Column="1" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs" Line="1" Column="1" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Demos/DemoChangeOwner/OnClickRequestOwnership.cs" Line="1" Column="1" />
-      <File FileName="../../../../ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/LoadbalancingPeer.cs" Line="1" Column="1" />
-      <File FileName="Assets/PlayMaker Custom Actions/String/StringTrim.cs" Line="2" Column="45" />
+      <File FileName="../Addons/ExitGames/PlayMaker--ExitGames--PhotonUnityNetworking_U4.3.4/Assets/PlayMaker PUN/Actions/PhotonNetworkSetAuthenticationValues.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/jeanfabre/Documents/work/Unity/ExitGames/Repositories/photon-sdk-dotnet (trunk)/Unity/PhotonNetworking/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs" line="4120" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
