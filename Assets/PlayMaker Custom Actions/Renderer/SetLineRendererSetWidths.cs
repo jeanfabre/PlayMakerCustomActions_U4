@@ -1,6 +1,6 @@
 // (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
-// Keywords: line renderer number of vertex position
+// Keywords: line renderer width start end
 
 using UnityEngine;
 using HutongGames.PlayMaker;
@@ -8,8 +8,8 @@ using HutongGames.PlayMaker;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.Renderer)]
-	[Tooltip("Set the number of positions of a lineRenderer")]
-	public class SetLineRendererPositionsCount : FsmStateAction
+	[Tooltip("Set the start and end widths of a lineRenderer")]
+	public class SetLineRendererSetWidths : FsmStateAction
 	{
 
 		[ActionSection("Setup")]
@@ -18,9 +18,17 @@ namespace HutongGames.PlayMaker.Actions
 		[CheckForComponent(typeof(LineRenderer))]
 		public FsmOwnerDefault gameObject;
 
-		[Tooltip("The number of positions")]
+		[Tooltip("The start Width")]
+		#if ! UNITY_5_5_OR_NEWER 
 		[RequiredField]
-		public FsmInt count;
+		#endif
+		public FsmFloat startWidth;
+
+		[Tooltip("The end Width")]
+		#if ! UNITY_5_5_OR_NEWER 
+		[RequiredField]
+		#endif
+		public FsmFloat endWidth;
 
 		[Tooltip("Repeat every frame.")]
 		public bool everyFrame;
@@ -30,14 +38,14 @@ namespace HutongGames.PlayMaker.Actions
 		public override void Reset ()
 		{
 			gameObject = null;
-			count = 2;
+			startWidth = null;
+			endWidth = null;
 			everyFrame = false;
-
 		}
 
 		public override void OnEnter ()
 		{
-			SetPositionCount();
+			SetWidths();
 
 			if (!everyFrame)
 			{
@@ -47,10 +55,10 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-			SetPositionCount();
+			SetWidths();
 		}
 
-		void SetPositionCount()
+		void SetWidths()
 		{
 			var go = Fsm.GetOwnerDefaultTarget (gameObject);
 			if (go == null) {
@@ -65,9 +73,10 @@ namespace HutongGames.PlayMaker.Actions
 			}
 
 			#if UNITY_5_5_OR_NEWER 
-				_lr.numPositions = Mathf.Max (1,count.Value);
+			if (!startWidth.IsNone)	_lr.startWidth = startWidth.Value;
+			if (!endWidth.IsNone)	_lr.endWidth = endWidth.Value;
 			#else
-				_lr.SetVertexCount(Mathf.Max (1,count.Value));
+				_lr.SetWidth(startWidth.Value,endWidth.Value);
 			#endif
 
 		}

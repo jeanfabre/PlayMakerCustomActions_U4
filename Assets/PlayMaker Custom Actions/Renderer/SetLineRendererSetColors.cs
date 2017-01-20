@@ -1,6 +1,6 @@
 // (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
-// Keywords: line renderer number of vertex position
+// Keywords: line renderer color start end
 
 using UnityEngine;
 using HutongGames.PlayMaker;
@@ -8,8 +8,8 @@ using HutongGames.PlayMaker;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.Renderer)]
-	[Tooltip("Set the number of positions of a lineRenderer")]
-	public class SetLineRendererPositionsCount : FsmStateAction
+	[Tooltip("Set the start and end colors of a lineRenderer")]
+	public class SetLineRendererSetColors : FsmStateAction
 	{
 
 		[ActionSection("Setup")]
@@ -18,9 +18,17 @@ namespace HutongGames.PlayMaker.Actions
 		[CheckForComponent(typeof(LineRenderer))]
 		public FsmOwnerDefault gameObject;
 
-		[Tooltip("The number of positions")]
+		[Tooltip("The start Color")]
+		#if ! UNITY_5_5_OR_NEWER 
 		[RequiredField]
-		public FsmInt count;
+		#endif
+		public FsmColor startColor;
+
+		[Tooltip("The end Color")]
+		#if ! UNITY_5_5_OR_NEWER 
+		[RequiredField]
+		#endif
+		public FsmColor endColor;
 
 		[Tooltip("Repeat every frame.")]
 		public bool everyFrame;
@@ -30,14 +38,14 @@ namespace HutongGames.PlayMaker.Actions
 		public override void Reset ()
 		{
 			gameObject = null;
-			count = 2;
+			startColor = null;
+			endColor = null;
 			everyFrame = false;
-
 		}
 
 		public override void OnEnter ()
 		{
-			SetPositionCount();
+			SetColors();
 
 			if (!everyFrame)
 			{
@@ -47,10 +55,10 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-			SetPositionCount();
+			SetColors();
 		}
 
-		void SetPositionCount()
+		void SetColors()
 		{
 			var go = Fsm.GetOwnerDefaultTarget (gameObject);
 			if (go == null) {
@@ -65,9 +73,10 @@ namespace HutongGames.PlayMaker.Actions
 			}
 
 			#if UNITY_5_5_OR_NEWER 
-				_lr.numPositions = Mathf.Max (1,count.Value);
+				if (!startColor.IsNone)	_lr.startColor = startColor.Value;
+				if (!endColor.IsNone)	_lr.endColor = endColor.Value;
 			#else
-				_lr.SetVertexCount(Mathf.Max (1,count.Value));
+				_lr.SetColors(startColor.Value,endColor.Value);
 			#endif
 
 		}

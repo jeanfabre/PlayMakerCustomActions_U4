@@ -13,14 +13,17 @@ namespace HutongGames.PlayMaker.Actions
 	{
 
 		[ActionSection("Setup")]
+		[RequiredField]
 		[Tooltip("The GameObject with the LineRenderer component.")]
 		[CheckForComponent(typeof(LineRenderer))]
 		public FsmOwnerDefault gameObject;
 
 		[Tooltip("The index")]
+		[RequiredField]
 		public FsmInt index;
 
 		[Tooltip("The Position")]
+		[RequiredField]
 		public FsmVector3 position;
 
 		[Tooltip("Repeat every frame.")]
@@ -32,7 +35,8 @@ namespace HutongGames.PlayMaker.Actions
 		public override void Reset ()
 		{
 			gameObject = null;
-
+			position = null;
+			everyFrame = false;
 		}
 
 		public override void OnEnter ()
