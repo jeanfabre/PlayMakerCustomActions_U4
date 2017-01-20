@@ -1,6 +1,6 @@
 // (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
-
+// Keywords: line renderer
 
 using UnityEngine;
 using HutongGames.PlayMaker;
