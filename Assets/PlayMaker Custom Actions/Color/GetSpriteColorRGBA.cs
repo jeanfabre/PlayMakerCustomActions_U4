@@ -16,7 +16,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmOwnerDefault gameObject;
 
 		[UIHint(UIHint.Variable)]
-		[Tooltip("The Color of the UI component")]
+		[Tooltip("Get The Color of the UI component")]
 		public FsmColor color;
 		
 		[UIHint(UIHint.Variable)]
@@ -45,10 +45,10 @@ namespace HutongGames.PlayMaker.Actions
 		public override void Reset()
 		{
 			gameObject = null;
-			red = null;
-			green = null;
-			blue = null;
-			alpha = null;
+			red = new FsmFloat(){UseVariable=true};
+			green = new FsmFloat(){UseVariable=true};
+			blue = new FsmFloat(){UseVariable=true};
+			alpha = new FsmFloat(){UseVariable=true};
 			everyFrame = false;
 		
 		}
