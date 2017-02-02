@@ -31,6 +31,10 @@ namespace HutongGames.PlayMaker.Actions
         [Tooltip("Set the volume.")]
 		public FsmFloat volume;
 		
+		[HasFloatSlider(0,1)]
+        [Tooltip("Set the pitch.")]
+		public FsmFloat pitch;
+		
 		[HasFloatSlider(-1,1)]
         [Tooltip("Set the Stereo Pan.")]
 		public FsmFloat stereoPan;
@@ -67,6 +71,7 @@ namespace HutongGames.PlayMaker.Actions
 			spatialBlend = new FsmFloat(){UseVariable=true};
 			reverbZoneMix = new FsmFloat(){UseVariable=true};
 			dopplerLevel = new FsmFloat(){UseVariable=true};
+			pitch = new FsmFloat(){UseVariable=true};
 			oneShotClip = null;
 		    finishedEvent = null;
 			WaitForEndOfClip = false;
@@ -82,30 +87,13 @@ namespace HutongGames.PlayMaker.Actions
 			    audio = go.GetComponent<AudioSource>();
 				if (audio != null)
 				{
-					if (!priority.IsNone)
-					{
-					audio.priority = priority.Value;
-					}
-					
-					if (!stereoPan.IsNone)
-					{
-					audio.panStereo = stereoPan.Value;
-					}
-					
-					if (!spatialBlend.IsNone)
-					{
-					audio.spatialBlend = spatialBlend.Value;
-					}
-					
-					if (!reverbZoneMix.IsNone)
-					{
-					audio.reverbZoneMix = reverbZoneMix.Value;
-					}
-					
-					if (!dopplerLevel.IsNone)
-					{
-					audio.dopplerLevel = dopplerLevel.Value;
-					}
+				if (!volume.IsNone && volume.Value != audio.volume) audio.volume = volume.Value;
+				if (!priority.IsNone) audio.priority = priority.Value;
+				if (!stereoPan.IsNone) audio.panStereo = stereoPan.Value;
+				if (!spatialBlend.IsNone) audio.spatialBlend = spatialBlend.Value;
+				if (!reverbZoneMix.IsNone) audio.reverbZoneMix = reverbZoneMix.Value;
+				if (!dopplerLevel.IsNone) audio.dopplerLevel = dopplerLevel.Value;
+				if (!pitch.IsNone) audio.pitch = pitch.Value;
 					
 					
 					var audioClip = oneShotClip.Value as AudioClip;
@@ -163,6 +151,7 @@ namespace HutongGames.PlayMaker.Actions
 				if (!spatialBlend.IsNone) audio.spatialBlend = spatialBlend.Value;
 				if (!reverbZoneMix.IsNone) audio.reverbZoneMix = reverbZoneMix.Value;
 				if (!dopplerLevel.IsNone) audio.dopplerLevel = dopplerLevel.Value;
+				if (!pitch.IsNone) audio.pitch = pitch.Value;
 			}
 		}
 	}
