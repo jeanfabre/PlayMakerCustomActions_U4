@@ -31,7 +31,7 @@ namespace HutongGames.PlayMaker.Actions
         [Tooltip("Set the volume.")]
 		public FsmFloat volume;
 		
-		[HasFloatSlider(0,1)]
+		[HasFloatSlider(-3,3)]
         [Tooltip("Set the pitch.")]
 		public FsmFloat pitch;
 		
