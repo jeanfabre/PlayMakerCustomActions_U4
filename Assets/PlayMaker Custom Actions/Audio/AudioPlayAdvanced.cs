@@ -1,5 +1,5 @@
 // (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
-/*--- __ECO__ __ACTION__ ---*/
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 // Made By : DjayDino
 
 using UnityEngine;
@@ -34,7 +34,8 @@ namespace HutongGames.PlayMaker.Actions
 		[HasFloatSlider(-3,3)]
         [Tooltip("Set the pitch.")]
 		public FsmFloat pitch;
-		
+
+		#if UNITY_5_5_OR_NEWER
 		[HasFloatSlider(-1,1)]
         [Tooltip("Set the Stereo Pan.")]
 		public FsmFloat stereoPan;
@@ -46,7 +47,8 @@ namespace HutongGames.PlayMaker.Actions
 		[HasFloatSlider(0,1.1f)]
         [Tooltip("Set the reverb Zone Mix.")]
 		public FsmFloat reverbZoneMix;
-		
+
+#endif
 		[ActionSection("3D Sound Settings.")]
 		
 		[HasFloatSlider(0,5)]
@@ -67,9 +69,11 @@ namespace HutongGames.PlayMaker.Actions
 			gameObject = null;
 			volume = new FsmFloat(){UseVariable=true};
 			priority = new FsmInt(){UseVariable=true};
+			#if UNITY_5_5_OR_NEWER
 			stereoPan = new FsmFloat(){UseVariable=true};
 			spatialBlend = new FsmFloat(){UseVariable=true};
 			reverbZoneMix = new FsmFloat(){UseVariable=true};
+			#endif
 			dopplerLevel = new FsmFloat(){UseVariable=true};
 			pitch = new FsmFloat(){UseVariable=true};
 			oneShotClip = null;
@@ -89,9 +93,11 @@ namespace HutongGames.PlayMaker.Actions
 				{
 				if (!volume.IsNone && volume.Value != audio.volume) audio.volume = volume.Value;
 				if (!priority.IsNone) audio.priority = priority.Value;
+				#if UNITY_5_5_OR_NEWER
 				if (!stereoPan.IsNone) audio.panStereo = stereoPan.Value;
 				if (!spatialBlend.IsNone) audio.spatialBlend = spatialBlend.Value;
 				if (!reverbZoneMix.IsNone) audio.reverbZoneMix = reverbZoneMix.Value;
+				#endif
 				if (!dopplerLevel.IsNone) audio.dopplerLevel = dopplerLevel.Value;
 				if (!pitch.IsNone) audio.pitch = pitch.Value;
 					
@@ -147,9 +153,11 @@ namespace HutongGames.PlayMaker.Actions
 				}
 				if (!volume.IsNone && volume.Value != audio.volume) audio.volume = volume.Value;
 				if (!priority.IsNone) audio.priority = priority.Value;
+				#if UNITY_5_5_OR_NEWER
 				if (!stereoPan.IsNone) audio.panStereo = stereoPan.Value;
 				if (!spatialBlend.IsNone) audio.spatialBlend = spatialBlend.Value;
 				if (!reverbZoneMix.IsNone) audio.reverbZoneMix = reverbZoneMix.Value;
+				#endif
 				if (!dopplerLevel.IsNone) audio.dopplerLevel = dopplerLevel.Value;
 				if (!pitch.IsNone) audio.pitch = pitch.Value;
 			}
