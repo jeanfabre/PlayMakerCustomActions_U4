@@ -32,9 +32,7 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("If true, maxDelta is multiplied by Time.DeltaTime for framerate independant animations")]
 		public bool timeBasedMaxDelta;
 
-
-		[HasFloatSlider(0, 5)]
-		[Tooltip("Distance at which the move is considered finished, and the Finish Event is sent. Set to 0 for continous execution")]
+		[Tooltip("Distance at which the move is considered finished, and the Finish Event is sent. Set to none for continous execution")]
 		public FsmFloat finishDistance;
 
 		[ActionSection("Result")]
@@ -107,7 +105,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 
 
-			if (finishDistance.Value!= 0f && Mathf.Abs(_distance) < Mathf.Abs(finishDistance.Value))
+			if (!finishDistance.IsNone  && Mathf.Abs(_distance) < Mathf.Abs(finishDistance.Value))
 			{
 				Fsm.Event(finishEvent);
 				Finish();
