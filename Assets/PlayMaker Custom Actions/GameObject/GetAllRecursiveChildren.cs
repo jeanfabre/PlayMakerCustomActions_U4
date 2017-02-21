@@ -3,6 +3,7 @@
 // Keywords: All Recursive Childs
 
 using UnityEngine;
+using System.Linq;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -11,7 +12,7 @@ namespace HutongGames.PlayMaker.Actions
 	#pragma warning disable 168
 
 	[ActionCategory(ActionCategory.GameObject)]
-	[Tooltip("Finds GameObjects by Tag.")]
+	[Tooltip("gets all children recursivly")]
 	public class GetAllRecursiveChildren : FsmStateAction
 	{
 
@@ -56,7 +57,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 
 			_result = _go.GetComponentsInChildren<Transform>(includeInactive.Value);
-
+			_result = _result.Where((source, index) => index != 0).ToArray();
 			store.RawValue = _result;
 			
 		}
