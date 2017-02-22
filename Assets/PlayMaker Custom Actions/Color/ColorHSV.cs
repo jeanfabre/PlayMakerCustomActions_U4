@@ -35,14 +35,14 @@ public struct ColorHSV {
 		}
 	}
 
-	public ColorHSV (float h, float s, float v) {
+	public ColorHSV (float h, float s, float v) : this() {
 		this.h = h;
 		this.s = s;
 		this.v = v;
 		this.a = 100.0f;
 	}
 	
-	public ColorHSV (float h, float s, float v, float a) {
+	public ColorHSV (float h, float s, float v, float a) : this() {
 		this.h = h;
 		this.s = s;
 		this.v = v;

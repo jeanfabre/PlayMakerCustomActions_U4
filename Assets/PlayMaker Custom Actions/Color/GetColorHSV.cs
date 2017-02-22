@@ -19,21 +19,28 @@ namespace HutongGames.PlayMaker.Actions
 	public class GetColorHSV : FsmStateAction
 	{
 		
-		[UIHint(UIHint.Variable)]
+		[RequiredField]
 		[Tooltip("The color source")]
 		public FsmColor colorSource;
 		
 		[ActionSection("Result")]
+		[UIHint(UIHint.Variable)]
 		[Tooltip("The hsv values of the color source")]
 		public FsmVector3 HSV;
-		
+
+		[UIHint(UIHint.Variable)]
 		[Tooltip("The Hue value of the color source")]
 		public FsmFloat hue;
+
+		[UIHint(UIHint.Variable)]
 		[Tooltip("The Saturation value of the color source")]
 		public FsmFloat saturation;
+
+		[UIHint(UIHint.Variable)]
 		[Tooltip("The Value value of the color source")]
 		public FsmFloat value;
-		
+
+		[UIHint(UIHint.Variable)]
 		[Tooltip("The alpha value of the color source")]
 		public FsmFloat alpha;
 		
