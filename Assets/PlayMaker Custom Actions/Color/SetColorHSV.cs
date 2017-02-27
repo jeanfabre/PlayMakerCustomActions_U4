@@ -18,6 +18,7 @@ namespace HutongGames.PlayMaker.Actions
 	[HelpUrl("https://hutonggames.fogbugz.com/default.asp?W1147")]
 	public class SetColorHSV : FsmStateAction
 	{
+		[RequiredField]
 		[Tooltip("The hsv color source")]
 		public FsmVector3 HSV;
 		
@@ -32,7 +33,8 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[Tooltip("The alpha value source")]
 		public FsmFloat alpha;
-		
+
+		[ActionSection("Result")]
 		[UIHint(UIHint.Variable)]
 		[Tooltip("The resulting color")]
 		public FsmColor colorResult;
