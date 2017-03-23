@@ -1,0 +1,5 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/Quaternion/TotalRotation.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Transform/TotalRotation/TotalRotation.unity"
+}
