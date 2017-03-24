@@ -2,7 +2,6 @@
 
 using UnityEngine;
 
-
 namespace HutongGames.PlayMaker.Actions
 {
 	public abstract class FsmStateActionAdvanced : FsmStateAction

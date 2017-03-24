@@ -1,9 +1,9 @@
 {
 "__ECO__":"__PACKAGE__",
 "Type":"Addon",
-"Version":"1.1.5",
+"Version":"1.1.6",
 "UnityMinimumVersion":"4.7.2",
-"PlayMakerMinimumVersion":"1.8.2",
+"PlayMakerMinimumVersion":"1.8.3",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/ArrayMaker/ArrayMaker.unitypackage",
 "pingAssetPath":"Assets/PlayMaker ArrayMaker/readme.txt",
 "YoutubeVideos":["https://www.youtube.com/watch?v=6SBuH1vxC7A&list=PL1EwQda_5HM_n8MEaBGfcXLNpmL8qBqV1"]
