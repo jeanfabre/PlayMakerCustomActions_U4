@@ -1,0 +1,6 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/iTween/RotateBy.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/iTween/RotateBy/RotateBy.unity",
+"keywords":"iTween Rotate rotateBy Rotation"
+}
