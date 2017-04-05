@@ -1,6 +1,9 @@
 ﻿//Frankencopypastecoded by MDS
+
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+
 // Keywords: UV map animate offset material sprite sheet
+
 using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
@@ -8,17 +11,13 @@ using Random = UnityEngine.Random;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory(ActionCategory.Animation)]
+[ActionCategory(ActionCategory.Animation)]
     public class AnimatedUvMap : FsmStateAction
     {
 
         [RequiredField]
         [CheckForComponent(typeof(MeshFilter))]
         public FsmOwnerDefault gameObject;
-
-        //   public FsmMaterial materialToAnimate;
-
-
 
         //vars for the whole sheet
         public FsmInt columnCount = 4;
@@ -29,8 +28,11 @@ namespace HutongGames.PlayMaker.Actions
         private int colNumber = 0; //Zero Indexed
         private int totalCells = 4;
         public FsmInt fps = 10;
-        //Maybe this should be a private var
+        
+	//Maybe this should be a private var
         private Vector2 offset;
+	GameObject _go;
+	Renderer _renderer;
 
         public FsmBool everyFrame;
 
@@ -42,17 +44,18 @@ namespace HutongGames.PlayMaker.Actions
             colNumber = 0;
             totalCells = 12;
             fps = 15;
-            // materialToAnimate = null;
-
             everyFrame = true;
         }
 
 
         public override void OnEnter()
         {
-            var go = Fsm.GetOwnerDefaultTarget(gameObject);
-            Renderer renderer = go.GetComponent<Renderer>();
+            _go = Fsm.GetOwnerDefaultTarget(gameObject);
 
+		if (_go!=null)
+		{
+				_renderer = _go.GetComponent<Renderer>();
+		}
             totalCells = columnCount.Value * rowCount.Value;
 
 
@@ -91,11 +94,11 @@ namespace HutongGames.PlayMaker.Actions
             float offsetY = (1.0f - size.y) - (vIndex + rowNumber.Value) * size.y;
             Vector2 offset = new Vector2(offsetX, offsetY);
 
-            var go = Fsm.GetOwnerDefaultTarget(gameObject);
-            Renderer renderer = go.GetComponent<Renderer>();
-
-            renderer.material.SetTextureOffset("_MainTex", offset);
-            renderer.material.SetTextureScale("_MainTex", size);
+			if(_renderer!=null)
+			{
+            _renderer.material.SetTextureOffset("_MainTex", offset);
+		_renderer.material.SetTextureScale("_MainTex", size);
+			}
         }
     }
 }
