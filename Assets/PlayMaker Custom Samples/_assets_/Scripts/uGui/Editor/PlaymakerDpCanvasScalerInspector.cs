@@ -12,7 +12,7 @@ namespace HutongGames.PlayMaker.Ecosystem.UI
 		public override void OnInspectorGUI()
 		{
 			
-			PlaymakerDpCanvasScaler _target = (PlaymakerDpCanvasScaler)this.target;
+			//PlaymakerDpCanvasScaler _target = (PlaymakerDpCanvasScaler)this.target;
 
 			DrawDefaultInspector();
 		}
