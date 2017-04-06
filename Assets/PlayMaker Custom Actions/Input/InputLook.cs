@@ -10,7 +10,7 @@ namespace HutongGames.PlayMaker.Actions
 	/// TODO: Expose invert Y option.
 	/// </summary>
 	[ActionCategory(ActionCategory.Input)]
-	[Tooltip("Rotates a GameObject based on mouse movement. Minimum and Maximum values can be used to constrain the rotation.")]
+	[Tooltip("Based on MouseLook, Rotates a GameObject based on mouse movement using Inputs. Minimum and Maximum values can be used to constrain the rotation.")]
 	public class InputLook : FsmStateAction
 	{
 		public enum RotationAxes { InputXAndY = 0, InputX = 1, InputY = 2 }
