@@ -28,6 +28,7 @@ namespace HutongGames.PlayMaker.Actions
 		[HasFloatSlider(0, 1)]
 		public FsmFloat alpha;
 
+		[RequiredField]
 		[UIHint(UIHint.Variable)]
 		[Tooltip("The random Color")]
 		public FsmColor storeResult;
