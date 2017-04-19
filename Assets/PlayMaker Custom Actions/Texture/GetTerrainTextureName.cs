@@ -24,14 +24,14 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.Variable)]
 		public FsmString mainTexture;
 		
-		public override Void Reset ()
+		public override void Reset ()
 		{
 			texturePosition = null;
 			terrain = null;
 			mainTexture = null;
 		}
 		
-		public override Void OnEnter ()
+		public override void OnEnter ()
 		{
 			
 			GetTexture();
