@@ -1,41 +1,65 @@
-﻿using UnityEngine;
+﻿// (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+
+using System;
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace HutongGames.PlayMaker.Actions
 {
-    [ActionCategory(ActionCategory.Array)]
-    [Tooltip("Remove an item from an array")]
-    public class arrayRemove : FsmStateAction
-    {
-        [RequiredField]
-        [UIHint(UIHint.Variable)]
-        [Tooltip("The Array Variable to use.")]
-        public FsmArray array;
+	[ActionCategory(ActionCategory.Array)]
+	[Tooltip("Remove an item from an array")]
+	public class arrayRemove : FsmStateAction
+	{
+		[RequiredField]
+		[UIHint(UIHint.Variable)]
+		[Tooltip("The Array Variable to use.")]
+		public FsmArray array;
 
-        [RequiredField]
-        [MatchElementType("array")]
-        [Tooltip("Item to add.")]
-        public FsmVar value;
+		[RequiredField]
+		[MatchElementType("array")]
+		[Tooltip("Item to remove.")]
+		public FsmVar value;
 
-        public override void Reset()
-        {
-            array = null;
-            value = null;
-        }
 
-        public override void OnEnter()
-        {
-            DoAddValue();
-            Finish();
-        }
+		public override void Reset ()
+		{
+			array = null;
+			value = null;
+		}
 
-        private void DoAddValue()
-        {
-            array.Resize(array.Length + 1);
-            value.UpdateValue();
-            array.Set(array.Length - 1, value.GetValue());
-        }
+		public override void OnEnter ()
+		{
+			DoRemoveValue ();
+			Finish ();
+		}
 
-    }
+		private void DoRemoveValue ()
+		{
+
+			value.UpdateValue ();
+
+			List<object> _new = new List<object>();
+
+			int i = 0;
+			foreach(object _obj in array.Values)
+			{
+				if (!_obj.Equals(value.GetValue()))
+				{
+					_new.Add(_obj);
+				}
+
+				i++;
+			}
+
+
+			array.Values = _new.ToArray();
+			array.SaveChanges();
+
+		}
+
+	}
 
 }
 
