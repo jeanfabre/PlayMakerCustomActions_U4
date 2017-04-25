@@ -4,7 +4,7 @@
 EcoMetaStart
 {
 "script dependancies":[
-						"Assets/PlayMaker Custom Actions/Physics2D/CircleCast2dActionEditor.cs"
+						"Assets/PlayMaker Custom Actions/Physics2D/Editor/CircleCast2dActionEditor.cs"
 					],
 "version":"1.0.0"
 }
