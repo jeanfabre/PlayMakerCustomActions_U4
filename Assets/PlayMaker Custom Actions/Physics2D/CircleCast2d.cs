@@ -100,9 +100,12 @@ namespace HutongGames.PlayMaker.Actions
 	    private int repeat;
 
 
-		private Vector3 _start;
-		private Vector3 _direction;
+		private Vector2 _start;
+		private Vector2 _direction;
 		private float _length;
+		private float _minDepth;
+		private float _maxDepth; 
+		private bool _hasDepth;
 
 		public override void Reset()
 		{
@@ -153,10 +156,13 @@ namespace HutongGames.PlayMaker.Actions
 			}
 		}
 
-		public void ComputeRayCastProperties(out Vector3 start, out Vector3 direction,out float length)
+		public void ComputeRayCastProperties(out Vector2 start, out Vector2 direction,out float length, out bool hasDepth, out float minDepth,out float maxDepth)
 		{
-			start = new Vector3();
-			direction = new Vector3();
+			hasDepth = false;
+			minDepth = 0f;
+			maxDepth = 0f;
+			start = new Vector2();
+			direction = new Vector2();
 
 			var go = Fsm.GetOwnerDefaultTarget(fromGameObject);
 			if (go!=null)
@@ -168,6 +174,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				start.x += _transform.position.x;
 				start.y += _transform.position.y;
+
 			}
 
 			if (!fromPosition.IsNone)
@@ -176,9 +183,11 @@ namespace HutongGames.PlayMaker.Actions
 				{
 					start.x += fromPosition.Value.x;
 					start.y += fromPosition.Value.y;
+
 				}else{
 					start.x = fromPosition.Value.x;
 					start.y = fromPosition.Value.y;
+
 				}
 
 
@@ -216,6 +225,55 @@ namespace HutongGames.PlayMaker.Actions
 			}else{
 				direction = this.direction.Value.normalized; // normalized to get the proper distance later using fraction from the rayCastHitinfo.
 			}
+
+			hasDepth = !this.minDepth.IsNone || !this.maxDepth.IsNone || this.space == Space.Self;
+
+			if (hasDepth)
+			{
+
+				if (!this.minDepth.IsNone)
+				{
+					minDepth = this.minDepth.Value;
+				}else{
+					if (this.space == Space.Self && _transform!=null)
+					{
+						minDepth = _transform.position.z ;
+					}else{
+						minDepth = Mathf.NegativeInfinity;
+					}
+
+
+				}
+
+				if (!this.maxDepth.IsNone)
+				{
+					maxDepth = this.maxDepth.Value;
+				}else{
+					if (this.space == Space.Self && _transform!=null)
+					{
+						maxDepth = _transform.position.z;
+					}else{
+						maxDepth = Mathf.Infinity;
+					}
+				}
+
+			}
+
+			if (_transform!=null && space == Space.Self)
+			{
+				if (!this.minDepth.IsNone)
+				{
+					minDepth += _transform.position.z;
+
+				}
+				if (!this.maxDepth.IsNone)
+				{
+					maxDepth += _transform.position.z;
+					
+				}
+			}
+
+
 		}
 
 	    	private void DoRaycast()
@@ -227,28 +285,23 @@ namespace HutongGames.PlayMaker.Actions
 				return;
 			}
 
-			ComputeRayCastProperties(out _start,out _direction,out _length);
-
-			var originPos = fromPosition.Value;
-
+			ComputeRayCastProperties(out _start,out _direction,out _length,out _hasDepth,out _minDepth,out _maxDepth);
 
 			RaycastHit2D hitInfo;
 		
-
-			if (minDepth.IsNone && maxDepth.IsNone)
+			if (!_hasDepth)
 			{
 
 				// Changed from ray to circleCast
-				hitInfo = Physics2D.CircleCast(_start, radius.Value, new Vector2(_direction.x,_direction.y), _length, ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
+				hitInfo = Physics2D.CircleCast(_start, radius.Value, _direction, _length, ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value));
 
 			}
 		        else
 		       	{
-				var _minDepth = minDepth.IsNone? Mathf.NegativeInfinity : minDepth.Value;
-				var _maxDepth = maxDepth.IsNone? Mathf.Infinity : maxDepth.Value;
+
 
 				// Changed from ray to circleCast
-				hitInfo = Physics2D.CircleCast(_start, radius.Value, new Vector2(_direction.x,_direction.y), _length, ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value), _minDepth, _maxDepth );
+				hitInfo = Physics2D.CircleCast(_start, radius.Value, _direction, _length, ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value), _minDepth, _maxDepth );
 			}
 
             		Fsm.RecordLastRaycastHit2DInfo(Fsm, hitInfo);

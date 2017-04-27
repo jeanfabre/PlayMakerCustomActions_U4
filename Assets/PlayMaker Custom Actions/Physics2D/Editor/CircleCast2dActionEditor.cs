@@ -10,6 +10,20 @@ namespace HutongGames.PlayMakerEditor
 
 	public class CircleCast2dActionEditor : CustomActionEditor
     	{
+		CircleCast2d _action;
+		
+		private Vector2 _start;
+		private Vector2 _direction;
+		private float _length;
+		private float _minDepth;
+		private float _maxDepth; 
+		private bool _hasDepth;
+		
+		Vector3[] startCircle;
+		Vector3[] endCircle;
+		
+		Vector3 _startDepth;
+		Vector3 _direction3d;
 	        public override bool OnGUI()
 	        {
 			_action = (HutongGames.PlayMaker.Actions.CircleCast2d)target;
@@ -17,20 +31,21 @@ namespace HutongGames.PlayMakerEditor
 			bool _changed =  DrawDefaultInspector();
 			if (_changed)
 			{
-				_action.ComputeRayCastProperties(out _start,out _direction,out _length);
+				_action.ComputeRayCastProperties(out _start,out _direction,out _length,out _hasDepth, out _minDepth,out _maxDepth);
 			}
+
+			EditorGUILayout.LabelField("start",_start.ToString());
+			EditorGUILayout.LabelField("direction",_direction.ToString());
+			EditorGUILayout.LabelField("length",_length.ToString());
+			EditorGUILayout.LabelField("hasDepth",_hasDepth.ToString());
+			EditorGUILayout.LabelField("minDepth",_minDepth.ToString());
+			EditorGUILayout.LabelField("maxDepth",_maxDepth.ToString());
+
 
 			return _changed;
 	        }
 
-		CircleCast2d _action;
 
-		private Vector3 _start;
-		private Vector3 _direction;
-		private float _length;
-
-		Vector3[] startCircle = new Vector3[45];
-		Vector3[] endCircle = new Vector3[45];
 
 	        public override void OnSceneGUI()
 	        {
@@ -42,65 +57,142 @@ namespace HutongGames.PlayMakerEditor
 				return;
 			}
 
-			_action.ComputeRayCastProperties(out _start,out _direction,out _length);
+			_action.ComputeRayCastProperties(out _start,out _direction,out _length,out _hasDepth, out _minDepth,out _maxDepth);
 
 			Handles.color = _action.debugColor.Value;
+			_startDepth.x = _start.x;
+			_startDepth.y = _start.y;
+			_startDepth.z = 0f;
+			_direction.Normalize ();
+			_direction3d.x = _direction.x;
+			_direction3d.y = _direction.y;
+
+			Vector3 _min = -Vector3.forward*10;
+			Vector3 _max = Vector3.forward*10;
+			float dotSize = 5f;
+
+			if (_hasDepth)
+			{
+
+					_startDepth.x = _start.x;
+					_startDepth.y = _start.y;
+					_startDepth.z = _maxDepth;
+				startCircle = DrawCapsule2d(_startDepth,_startDepth +_direction3d*_length,_action.radius.Value,24);
+
+					_startDepth.z = _minDepth;
+				endCircle = DrawCapsule2d(_startDepth,_startDepth+_direction3d*_length,_action.radius.Value,24);
 
 
-			GetWireDiscPoints(_start,_direction,_action.radius.Value,startCircle);
 
-			DrawPoints(startCircle);
+					if (float.IsPositiveInfinity(_maxDepth))
+					{
+						Handles.DrawDottedLine(startCircle[0],startCircle[0]+_max,dotSize);
+						Handles.DrawDottedLine(startCircle[11],startCircle[11]+_max,dotSize);
+						Handles.DrawDottedLine(startCircle[23],startCircle[23]+_max,dotSize);
+						Handles.DrawDottedLine(startCircle[24],startCircle[24]+_max,dotSize);
+						Handles.DrawDottedLine(startCircle[35],startCircle[35]+_max,dotSize);
+						Handles.DrawDottedLine(startCircle[47],startCircle[47]+_max,dotSize);
+				}else if ( float.IsNegativeInfinity(_minDepth))
+					{
+						Handles.DrawDottedLine(startCircle[0]+_min,startCircle[0],dotSize);
+						Handles.DrawDottedLine(startCircle[11]+_min,startCircle[11],dotSize);
+						Handles.DrawDottedLine(startCircle[23]+_min,startCircle[23],dotSize);
+						Handles.DrawDottedLine(startCircle[24]+_min,startCircle[24],dotSize);
+						Handles.DrawDottedLine(startCircle[35]+_min,startCircle[35],dotSize);
+						Handles.DrawDottedLine(startCircle[47]+_min,startCircle[47],dotSize);
+					}else{
+						Handles.DrawLine(startCircle[0],endCircle[0]);
+						Handles.DrawLine(startCircle[11],endCircle[11]);
+						Handles.DrawLine(startCircle[23],endCircle[23]);
+						Handles.DrawLine(startCircle[24],endCircle[24]);
+						Handles.DrawLine(startCircle[35],endCircle[35]);
+						Handles.DrawLine(startCircle[47],endCircle[47]);
+					}
 
-			GetWireDiscPoints(_start+_direction*_length,_direction,_action.radius.Value,endCircle);
 
-			DrawPoints(endCircle);
 
-			Handles.DrawLine(startCircle[0],endCircle[0]);
-			Handles.DrawLine(startCircle[11],endCircle[11]);
-			Handles.DrawLine(startCircle[22],endCircle[22]);
-			Handles.DrawLine(startCircle[33],endCircle[33]);
 
-			Handles.DrawLine(_start,_start+_direction*_length);
+		
+			}else{
+				startCircle = DrawCapsule2d(_startDepth,_startDepth+_direction3d*_length,_action.radius.Value,24);
 
+
+
+				Handles.DrawDottedLine(startCircle[0]+_min,startCircle[0]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[11]+_min,startCircle[11]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[23]+_min,startCircle[23]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[24]+_min,startCircle[24]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[35]+_min,startCircle[35]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[47]+_min,startCircle[47]+_max,dotSize);
+
+
+			}
+
+			Handles.DrawLine(_startDepth,_startDepth+_direction3d*_length);
+
+
+		
 	        }
+
+
+		Vector3[] DrawCapsule2d(Vector3 start,Vector3 end, float radius, int resolution = 24)
+		{
+			Vector3[] dest = new Vector3[resolution*2];
+
+			float _fromAngle = Angle(end-start,Vector3.right);
+
+			SetDiscSectionPoints (dest,0, start,_fromAngle+90f, 180f, radius,resolution);
+
+			SetDiscSectionPoints (dest,resolution, end,_fromAngle-90f, 180f, radius,resolution);
+			
+
+			DrawPoints(dest);
+
+			Handles.DrawLine(dest[0],dest[dest.Length-1]);
+
+			return dest;
+		}
+
 
 		void DrawPoints(Vector3[] points)
 		{
-
 			for(int i=0;i<points.Length-1;i++)
 			{
 				Handles.DrawLine(points[i],points[i+1]);
 			}
-			Handles.DrawLine(points[points.Length-1],points[0]);
 
 		}
 
-
-
-		void GetWireDiscPoints (Vector3 center, Vector3 normal, float radius,Vector3[] points)
+		void SetDiscSectionPoints (Vector3[] dest, int index, Vector3 center, float fromAngle, float totalAngle, float radius,int resolution)
 		{
-			Vector3 from = Vector3.Cross (normal, Vector3.up);
-			if (from.sqrMagnitude < 0.001f)
-			{
-				from = Vector3.Cross (normal, Vector3.right);
-			}
-	
-			SetDiscSectionPoints (points, center, normal, from, 360, radius);
-		}
 
-		void SetDiscSectionPoints (Vector3[] dest, Vector3 center, Vector3 normal, Vector3 from, float angle, float radius)
-		{
-			from.Normalize ();
-			Quaternion rotation = Quaternion.AngleAxis (angle / (float)(dest.Length - 1), normal);
-			Vector3 vector = from * radius;
-		
-			for (int i = 0; i < dest.Length; i++)
+
+
+			float deltaAngle = totalAngle / (float)(resolution-1);
+
+			for (int i = 0; i < resolution; i++)
 			{
-				dest [i] = center + vector;
-				vector = rotation * vector;
+				dest [i+index].x = center.x + radius * Mathf.Cos((fromAngle + i * deltaAngle) * Mathf.Deg2Rad);
+				dest [i+index].y = center.y + radius * Mathf.Sin((fromAngle+ i * deltaAngle )* Mathf.Deg2Rad);
+				dest [i+index].z = center.z;
 
 			}
+
+
+
 		}
+
+		public static float Angle(Vector3 from, Vector3 to)
+		{
+			float ang = Vector2.Angle(from, to);
+			Vector3 cross = Vector3.Cross(from, to);
+			
+			if (cross.z > 0)
+				ang = 360 - ang;
+
+			return ang; //Mathf.Acos(Mathf.Clamp(Vector3.Dot(from.normalized, to.normalized), -1f, 1f)) *Mathf.Rad2Deg;
+		}
+
 
     }
 }
