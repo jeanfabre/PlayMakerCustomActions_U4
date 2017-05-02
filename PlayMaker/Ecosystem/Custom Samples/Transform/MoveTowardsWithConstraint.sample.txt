@@ -1,5 +1,6 @@
 {
 "__ECO__":"__SAMPLE__",
 "unitypackage":"PlayMaker/Ecosystem/Custom Samples/Transform/MoveTowardsWithConstraint.unitypackage",
-"pingAssetPath":"Assets/PlayMaker Custom Samples/Transform/MoveTowardsWithConstraint/MoveTowardsWithConstraint.unity"
+"pingAssetPath":"Assets/PlayMaker Custom Samples/Transform/MoveTowardsWithConstraint/MoveTowardsWithConstraint.unity",,
+"keywords":"shmup move towards constrain constrained shoot them up"
 }
