@@ -17,13 +17,16 @@ namespace HutongGames.PlayMakerEditor
 		private float _length;
 		private float _minDepth;
 		private float _maxDepth; 
-		private bool _hasDepth;
 		
 		Vector3[] startCircle;
 		Vector3[] endCircle;
 		
 		Vector3 _startDepth;
 		Vector3 _direction3d;
+
+		Vector3 _min;
+		Vector3 _max;
+
 	        public override bool OnGUI()
 	        {
 			_action = (HutongGames.PlayMaker.Actions.CircleCast2d)target;
@@ -31,15 +34,10 @@ namespace HutongGames.PlayMakerEditor
 			bool _changed =  DrawDefaultInspector();
 			if (_changed)
 			{
-				_action.ComputeRayCastProperties(out _start,out _direction,out _length,out _hasDepth, out _minDepth,out _maxDepth);
+				_action.ComputeRayCastProperties(out _start,out _direction,out _length, out _minDepth,out _maxDepth);
 			}
 
-			EditorGUILayout.LabelField("start",_start.ToString());
-			EditorGUILayout.LabelField("direction",_direction.ToString());
-			EditorGUILayout.LabelField("length",_length.ToString());
-			EditorGUILayout.LabelField("hasDepth",_hasDepth.ToString());
-			EditorGUILayout.LabelField("minDepth",_minDepth.ToString());
-			EditorGUILayout.LabelField("maxDepth",_maxDepth.ToString());
+
 
 
 			return _changed;
@@ -57,7 +55,10 @@ namespace HutongGames.PlayMakerEditor
 				return;
 			}
 
-			_action.ComputeRayCastProperties(out _start,out _direction,out _length,out _hasDepth, out _minDepth,out _maxDepth);
+			_action.ComputeRayCastProperties(out _start,out _direction,out _length, out _minDepth,out _maxDepth);
+
+			bool _maxInf = float.IsInfinity(_maxDepth);
+			bool _minInf = float.IsNegativeInfinity(_minDepth);
 
 			Handles.color = _action.debugColor.Value;
 			_startDepth.x = _start.x;
@@ -67,68 +68,76 @@ namespace HutongGames.PlayMakerEditor
 			_direction3d.x = _direction.x;
 			_direction3d.y = _direction.y;
 
-			Vector3 _min = -Vector3.forward*10;
-			Vector3 _max = Vector3.forward*10;
+			_min = -Vector3.forward*10;
+			_max = Vector3.forward*10;
 			float dotSize = 5f;
 
-			if (_hasDepth)
+			Handles.DrawLine(_startDepth,_startDepth+_direction3d*_length);
+
+			if (_maxInf && _minInf)
 			{
-
-					_startDepth.x = _start.x;
-					_startDepth.y = _start.y;
-					_startDepth.z = _maxDepth;
-				startCircle = DrawCapsule2d(_startDepth,_startDepth +_direction3d*_length,_action.radius.Value,24);
-
-					_startDepth.z = _minDepth;
-				endCircle = DrawCapsule2d(_startDepth,_startDepth+_direction3d*_length,_action.radius.Value,24);
-
-
-
-					if (float.IsPositiveInfinity(_maxDepth))
-					{
-						Handles.DrawDottedLine(startCircle[0],startCircle[0]+_max,dotSize);
-						Handles.DrawDottedLine(startCircle[11],startCircle[11]+_max,dotSize);
-						Handles.DrawDottedLine(startCircle[23],startCircle[23]+_max,dotSize);
-						Handles.DrawDottedLine(startCircle[24],startCircle[24]+_max,dotSize);
-						Handles.DrawDottedLine(startCircle[35],startCircle[35]+_max,dotSize);
-						Handles.DrawDottedLine(startCircle[47],startCircle[47]+_max,dotSize);
-				}else if ( float.IsNegativeInfinity(_minDepth))
-					{
-						Handles.DrawDottedLine(startCircle[0]+_min,startCircle[0],dotSize);
-						Handles.DrawDottedLine(startCircle[11]+_min,startCircle[11],dotSize);
-						Handles.DrawDottedLine(startCircle[23]+_min,startCircle[23],dotSize);
-						Handles.DrawDottedLine(startCircle[24]+_min,startCircle[24],dotSize);
-						Handles.DrawDottedLine(startCircle[35]+_min,startCircle[35],dotSize);
-						Handles.DrawDottedLine(startCircle[47]+_min,startCircle[47],dotSize);
-					}else{
-						Handles.DrawLine(startCircle[0],endCircle[0]);
-						Handles.DrawLine(startCircle[11],endCircle[11]);
-						Handles.DrawLine(startCircle[23],endCircle[23]);
-						Handles.DrawLine(startCircle[24],endCircle[24]);
-						Handles.DrawLine(startCircle[35],endCircle[35]);
-						Handles.DrawLine(startCircle[47],endCircle[47]);
-					}
-
-
-
-
-		
-			}else{
 				startCircle = DrawCapsule2d(_startDepth,_startDepth+_direction3d*_length,_action.radius.Value,24);
+			}
+
+			if (! _maxInf)
+			{
+				_startDepth.z = _maxDepth;
+				startCircle = DrawCapsule2d(_startDepth,_startDepth +_direction3d*_length,_action.radius.Value,24);
+			}
+			if (! _minInf)
+			{
+				_startDepth.z = _minDepth;
+				endCircle = DrawCapsule2d(_startDepth,_startDepth+_direction3d*_length,_action.radius.Value,24);
+			}
 
 
-
+			if (_maxInf && _minInf)
+			{
 				Handles.DrawDottedLine(startCircle[0]+_min,startCircle[0]+_max,dotSize);
 				Handles.DrawDottedLine(startCircle[11]+_min,startCircle[11]+_max,dotSize);
 				Handles.DrawDottedLine(startCircle[23]+_min,startCircle[23]+_max,dotSize);
 				Handles.DrawDottedLine(startCircle[24]+_min,startCircle[24]+_max,dotSize);
 				Handles.DrawDottedLine(startCircle[35]+_min,startCircle[35]+_max,dotSize);
 				Handles.DrawDottedLine(startCircle[47]+_min,startCircle[47]+_max,dotSize);
+			}else if (_maxInf && ! _minInf)
+			{
 
+				Handles.DrawDottedLine(endCircle[0],endCircle[0]+_max,dotSize);
+				Handles.DrawDottedLine(endCircle[11],endCircle[11]+_max,dotSize);
+				Handles.DrawDottedLine(endCircle[23],endCircle[23]+_max,dotSize);
+				Handles.DrawDottedLine(endCircle[24],endCircle[24]+_max,dotSize);
+				Handles.DrawDottedLine(endCircle[35],endCircle[35]+_max,dotSize);
+				Handles.DrawDottedLine(endCircle[47],endCircle[47]+_max,dotSize);
 
+			}else if (!_maxInf &&  _minInf)
+			{
+				Handles.DrawDottedLine(startCircle[0]+_min,startCircle[0],dotSize);
+				Handles.DrawDottedLine(startCircle[11]+_min,startCircle[11],dotSize);
+				Handles.DrawDottedLine(startCircle[23]+_min,startCircle[23],dotSize);
+				Handles.DrawDottedLine(startCircle[24]+_min,startCircle[24],dotSize);
+				Handles.DrawDottedLine(startCircle[35]+_min,startCircle[35],dotSize);
+				Handles.DrawDottedLine(startCircle[47]+_min,startCircle[47],dotSize);
+			}else{
+				Handles.DrawLine(startCircle[0],endCircle[0]);
+				Handles.DrawLine(startCircle[11],endCircle[11]);
+				Handles.DrawLine(startCircle[23],endCircle[23]);
+				Handles.DrawLine(startCircle[24],endCircle[24]);
+				Handles.DrawLine(startCircle[35],endCircle[35]);
+				Handles.DrawLine(startCircle[47],endCircle[47]);
 			}
 
-			Handles.DrawLine(_startDepth,_startDepth+_direction3d*_length);
+
+			/*
+				startCircle = DrawCapsule2d(_startDepth,_startDepth+_direction3d*_length,_action.radius.Value,24);
+				Handles.DrawDottedLine(startCircle[0]+_min,startCircle[0]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[11]+_min,startCircle[11]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[23]+_min,startCircle[23]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[24]+_min,startCircle[24]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[35]+_min,startCircle[35]+_max,dotSize);
+				Handles.DrawDottedLine(startCircle[47]+_min,startCircle[47]+_max,dotSize);
+			*/
+
+
 
 
 		
