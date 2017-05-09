@@ -40,7 +40,8 @@ namespace HutongGames.PlayMaker.Actions
 
 		[ActionSection("Result")]
 		[Tooltip("The resulting world point")]
-		[UIHint(UIHint.FsmVector3)]
+		[RequiredField]
+		[UIHint(UIHint.Variable)]
 		public FsmVector3 worldPointResult;
 
 		[Tooltip("Repeat every frame while the state is active.")]
