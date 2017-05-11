@@ -68,8 +68,8 @@ namespace HutongGames.PlayMakerEditor
 			_direction3d.x = _direction.x;
 			_direction3d.y = _direction.y;
 
-			_min = -Vector3.forward*10;
-			_max = Vector3.forward*10;
+			_min = -Vector3.forward*2;
+			_max = Vector3.forward*2;
 			float dotSize = 5f;
 
 			Handles.DrawLine(_startDepth,_startDepth+_direction3d*_length);

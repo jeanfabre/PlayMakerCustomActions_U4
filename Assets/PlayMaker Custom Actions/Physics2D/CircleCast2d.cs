@@ -117,8 +117,8 @@ namespace HutongGames.PlayMaker.Actions
 			minDepth = new FsmInt {UseVariable =true};
 			maxDepth = new FsmInt {UseVariable =true};
 
-			distance = 100;
-			radius = null;
+			distance = 1;
+			radius = 1;
 			hitEvent = null;
 			storeDidHit = null;
 			storeHitObject = null;
