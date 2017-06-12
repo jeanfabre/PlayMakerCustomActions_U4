@@ -1,0 +1,65 @@
+// (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
+// original action by dudeBxl
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+
+using UnityEngine;
+
+namespace HutongGames.PlayMaker.Actions
+{
+	[ActionCategory(ActionCategory.Physics2D)]
+	[Tooltip("Sets the linear drag applies to positional movement.")]
+	public class SetLinearDrag2d : ComponentAction<Rigidbody2D>
+	{
+		[RequiredField]
+		[CheckForComponent(typeof(Rigidbody2D))]
+		public FsmOwnerDefault gameObject;
+		
+		[RequiredField]
+		[HasFloatSlider(0.0f,10f)]
+		public FsmFloat drag;
+		
+		[Tooltip("Repeat every frame.")]
+		public bool everyFrame;
+
+		public override void Reset()
+		{
+			gameObject = null;
+			drag = 1;
+			everyFrame = false;
+		}
+
+		public override void Awake()
+		{
+			Fsm.HandleFixedUpdate = true;
+		}
+
+		public override void OnEnter()
+		{
+			DoSetDrag();
+			
+			if (!everyFrame)
+			{
+				Finish();
+			}
+		}
+		
+		public override void OnFixedUpdate()
+		{
+			DoSetDrag();
+
+			if (!everyFrame)
+			{
+				Finish();
+			}
+		}
+
+		void DoSetDrag()
+		{
+			if (!UpdateCache (Fsm.GetOwnerDefaultTarget (gameObject))) {
+				return;
+			}
+
+			rigidbody2d.drag = drag.Value;
+		}
+	}
+}
