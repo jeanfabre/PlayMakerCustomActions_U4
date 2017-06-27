@@ -32,6 +32,7 @@ namespace HutongGames.PlayMaker.Actions
             boolVariables = null;
             sendEvent = null;
             storeResult = null;
+            elementIndex = null;
             everyFrame = false;
         }
 
