@@ -23,14 +23,22 @@ namespace HutongGames.PlayMaker.Actions
 			everyFrame = false;
 			updateType = FrameUpdateSelector.OnUpdate;
 		}
-		
-		public override void Awake()
+
+		public override void OnPreprocess()
 		{
 			if (updateType == FrameUpdateSelector.OnFixedUpdate)
 			{
-				   Fsm.HandleFixedUpdate = true;
+				Fsm.HandleFixedUpdate = true;
 			}
+
+			#if PLAYMAKER_1_8_5_OR_NEWER
+			if (updateType == FrameUpdateSelector.OnLateUpdate)
+			{
+				Fsm.HandleLateUpdate = true;
+			}
+			#endif
 		}
+
 		
 		public override void OnUpdate()
 		{

@@ -89,8 +89,7 @@ namespace HutongGames.PlayMaker.Actions
 				index.Value = randomIndex;
 				storeValue.SetValue(array.Get(index.Value));
 			}
-			
-	
+
 		}
 
 		

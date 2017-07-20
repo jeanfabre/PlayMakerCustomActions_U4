@@ -35,7 +35,14 @@ namespace HutongGames.PlayMaker.Actions
 			maxSpeed = 100f;
 			storeAngleTo = new FsmFloat{ UseVariable = true};
 		}
-		
+
+		public override void OnPreprocess()
+		{
+			#if PLAYMAKER_1_8_5_OR_NEWER
+			Fsm.HandleLateUpdate = true;
+			#endif
+		}
+
 		public override void OnLateUpdate()
 		{
 			DoLookAt();

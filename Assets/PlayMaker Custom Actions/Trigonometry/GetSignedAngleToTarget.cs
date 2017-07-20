@@ -42,6 +42,13 @@ namespace HutongGames.PlayMaker.Actions
 			everyFrame = false;
 		}
 
+		public override void OnPreprocess()
+		{
+			#if PLAYMAKER_1_8_5_OR_NEWER
+			Fsm.HandleLateUpdate = true;
+			#endif
+		}
+
 		public override void OnLateUpdate()
 		{
 			DoGetAngleToTarget();

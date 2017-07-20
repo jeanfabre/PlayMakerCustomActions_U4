@@ -62,6 +62,21 @@ namespace HutongGames.PlayMaker.Actions
 			updateCall = PlayMakerUpdateCallType.Update;
 		}
 
+		public override void OnPreprocess()
+		{
+			if (updateCall == PlayMakerUpdateCallType.FixedUpdate)
+			{
+				Fsm.HandleFixedUpdate = true;
+			}
+			
+			#if PLAYMAKER_1_8_5_OR_NEWER
+			if (updateCall == PlayMakerUpdateCallType.LateUpdate)
+			{
+				Fsm.HandleLateUpdate = true;
+			}
+			#endif
+		}
+
 		public override void OnEnter()
 		{
 			hash = new System.Collections.Hashtable();

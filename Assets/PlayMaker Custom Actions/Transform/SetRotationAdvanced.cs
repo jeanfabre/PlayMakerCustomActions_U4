@@ -61,12 +61,19 @@ namespace HutongGames.PlayMaker.Actions
 			updateType = PlayMakerActionsUtils.EveryFrameUpdateSelector.OnUpdate;
 		}
 		
-		public override void Awake()
+		public override void OnPreprocess()
 		{
 			if (updateType == PlayMakerActionsUtils.EveryFrameUpdateSelector.OnFixedUpdate)
 			{
-				   Fsm.HandleFixedUpdate = true;
+				Fsm.HandleFixedUpdate = true;
 			}
+			
+			#if PLAYMAKER_1_8_5_OR_NEWER
+			if (updateType == PlayMakerActionsUtils.EveryFrameUpdateSelector.OnLateUpdate)
+			{
+				Fsm.HandleLateUpdate = true;
+			}
+			#endif
 		}
 		
 		public override void OnUpdate()

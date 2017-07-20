@@ -39,7 +39,14 @@ namespace HutongGames.PlayMaker.Actions
 			boundingBoxPadding = 2f;
 			minimumOrthographicSize = 8f;
 		}
-		
+
+		public override void OnPreprocess()
+		{
+			#if PLAYMAKER_1_8_5_OR_NEWER
+				Fsm.HandleLateUpdate = true;
+			#endif
+		}
+
 		public override void OnEnter()
 		{
 			GetCamera();

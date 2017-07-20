@@ -50,6 +50,13 @@ namespace HutongGames.PlayMaker.Actions
           //  lookTarget = null;
 		}
 
+		public override void OnPreprocess()
+		{
+			#if PLAYMAKER_1_8_5_OR_NEWER
+				Fsm.HandleLateUpdate = true;
+			#endif
+		}
+
 		public override void OnLateUpdate()
 		{
 			if (targetObject.Value == null)

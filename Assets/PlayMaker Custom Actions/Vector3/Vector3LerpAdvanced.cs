@@ -55,7 +55,21 @@ namespace HutongGames.PlayMaker.Actions
 			everyFrame = true;
 		}
 		
-		
+		public override void OnPreprocess()
+		{
+			if (updateType == PlayMakerActionsUtils.EveryFrameUpdateSelector.OnFixedUpdate)
+			{
+				Fsm.HandleFixedUpdate = true;
+			}
+			
+			#if PLAYMAKER_1_8_5_OR_NEWER
+			if (updateType == PlayMakerActionsUtils.EveryFrameUpdateSelector.OnLateUpdate)
+			{
+				Fsm.HandleLateUpdate = true;
+			}
+			#endif
+		}
+
 		public override void OnUpdate()
 		{
 			if (updateType == PlayMakerActionsUtils.EveryFrameUpdateSelector.OnUpdate)

@@ -50,6 +50,21 @@ namespace HutongGames.PlayMaker.Actions
 		}
 
 
+		public override void OnPreprocess()
+		{
+			if (updateType == FrameUpdateSelector.OnFixedUpdate)
+			{
+				Fsm.HandleFixedUpdate = true;
+			}
+			
+			#if PLAYMAKER_1_8_5_OR_NEWER
+			if (updateType == FrameUpdateSelector.OnLateUpdate)
+			{
+				Fsm.HandleLateUpdate = true;
+			}
+			#endif
+		}
+
 		void OnActionUpdate()
 		{
 			float _result = value.Value;
@@ -63,14 +78,7 @@ namespace HutongGames.PlayMaker.Actions
 		}
 
 
-		public override void Awake()
-		{
-			if (updateType == FrameUpdateSelector.OnFixedUpdate)
-			{
-				Fsm.HandleFixedUpdate = true;
-			}
-		}
-		
+
 		public override void OnUpdate()
 		{
 			if (updateType == FrameUpdateSelector.OnUpdate)
