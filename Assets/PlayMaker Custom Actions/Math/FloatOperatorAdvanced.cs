@@ -16,7 +16,8 @@ namespace HutongGames.PlayMaker.Actions
 			Multiply,
 			Divide,
 			Min,
-			Max
+			Max,
+			Power
 		}
 
 		[RequiredField]
@@ -82,6 +83,9 @@ namespace HutongGames.PlayMaker.Actions
 				case Operation.Max:
 					storeResult.Value = Mathf.Max(v1, v2);
 					break;
+				case Operation.Power:
+					storeResult.Value = Mathf.Pow(v1, v2);
+				break;
 			}
 		}
 	}
