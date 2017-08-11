@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using System;
@@ -10,12 +10,22 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("Detect collisions with objects that have RigidBody components. \nNOTE: The system events, TRIGGER ENTER, TRIGGER STAY, and TRIGGER EXIT are sent when any object collides with the trigger. Use this action to filter collisions by Tag.")]
 	public class TriggerEvent2 : FsmStateAction
 	{
-		public TriggerType trigger;
-		[UIHint(UIHint.Tag)]
-		public FsmString collideTag;
-		public FsmEvent sendEvent;
-		[UIHint(UIHint.Variable)]
-		public FsmGameObject storeCollider;
+        [Tooltip("The type of trigger event to detect.")]
+        public TriggerType trigger;
+
+        [UIHint(UIHint.Tag)]
+        [Tooltip("Filter by Tag.")]
+        public FsmString collideTag;
+
+        [Tooltip("Where to send the event.")]
+        public FsmEventTarget eventTarget;
+
+        [Tooltip("Event to send if the trigger event is detected.")]
+        public FsmEvent sendEvent;
+
+        [UIHint(UIHint.Variable)]
+        [Tooltip("Store the GameObject that collided with the Owner of this FSM.")]
+        public FsmGameObject storeCollider;
 
 		public override void Reset()
 		{
@@ -25,7 +35,7 @@ namespace HutongGames.PlayMaker.Actions
 			storeCollider = null;
 		}
 
-		public override void Awake()
+		public override void OnPreprocess()
 		{
 			switch (trigger)
 			{
@@ -53,7 +63,7 @@ namespace HutongGames.PlayMaker.Actions
 				if (other.gameObject.tag == collideTag.Value || collideTag.IsNone)
 				{
 					StoreCollisionInfo(other);
-					Fsm.Event(sendEvent);
+					Fsm.Event(eventTarget, sendEvent);
 				}
 			}
 		}
@@ -65,7 +75,7 @@ namespace HutongGames.PlayMaker.Actions
 				if (other.gameObject.tag == collideTag.Value || collideTag.IsNone)
 				{
 					StoreCollisionInfo(other);
-					Fsm.Event(sendEvent);
+					Fsm.Event(eventTarget, sendEvent);
 				}
 			}
 		}
@@ -77,7 +87,7 @@ namespace HutongGames.PlayMaker.Actions
 				if (other.gameObject.tag == collideTag.Value|| collideTag.IsNone )
 				{
 					StoreCollisionInfo(other);
-					Fsm.Event(sendEvent);
+					Fsm.Event(eventTarget, sendEvent);
 				}
 			}
 		}
@@ -86,7 +96,5 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			return ActionHelpers.CheckOwnerPhysicsSetup(Owner);
 		}
-
-
 	}
 }
