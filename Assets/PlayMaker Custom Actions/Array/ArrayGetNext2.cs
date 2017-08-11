@@ -16,10 +16,10 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("The Array Variable to use.")]
 		public FsmArray array;
 
-		[Tooltip("From where to start iteration, leave as 0 to start from the beginning")]
+		[Tooltip("From where to start iteration, leave as 0 or none to start from the beginning")]
 		public FsmInt startIndex;
 		
-		[Tooltip("When to end iteration, leave as 0 to iterate until the end")]
+		[Tooltip("When to end iteration, leave to none to iterate until the end")]
 		public FsmInt endIndex;
 		
 		[Tooltip("Event to send to get the next item.")]
@@ -34,6 +34,7 @@ namespace HutongGames.PlayMaker.Actions
 		[ActionSection("Result")]
 
 		[MatchElementType("array")]
+		[UIHint(UIHint.Variable)]
 		public FsmVar result;
 
 		[UIHint(UIHint.Variable)]
@@ -45,8 +46,8 @@ namespace HutongGames.PlayMaker.Actions
 		public override void Reset()
 		{		
 			array = null;
-			startIndex = null;
-			endIndex = null;
+			startIndex = new FsmInt(){UseVariable=true};
+			endIndex = new FsmInt(){UseVariable=true};
 
 			currentIndex = null;
 
@@ -60,6 +61,15 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void OnEnter()
 		{
+			if (startIndex.IsNone)
+			{
+				startIndex.Value = 0;
+			}
+			if (endIndex.IsNone)
+			{
+				endIndex.Value = 0;
+			}
+
 			if (resetFlag.Value)
 			{
 				resetFlag.Value = false;
@@ -92,31 +102,27 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(finishedEvent);
 				return;
 			}
-			
-			// get next item
-			
-			result.SetValue(array.Get(nextItemIndex));
-			
-			// no more items?
-			// check a second time to avoid process lock and possible infinite loop if the action is called again.
-			// Practically, this enabled calling again this state and it will start again iterating from the first child.
-			
-            if (nextItemIndex >= array.Length)
-			{
-				nextItemIndex = 0;
-				currentIndex.Value = array.Length-1;
-				Fsm.Event(finishedEvent);
-				return;
-			}
-			
-			if (endIndex.Value>0 && nextItemIndex>= endIndex.Value)
+
+			if (!endIndex.IsNone && startIndex.Value == endIndex.Value && nextItemIndex> endIndex.Value)
 			{
 				nextItemIndex = 0;
 				currentIndex.Value = endIndex.Value;
 				Fsm.Event(finishedEvent);
 				return;
 			}
-			
+
+			if (!endIndex.IsNone && nextItemIndex> endIndex.Value && startIndex.Value != endIndex.Value)
+			{
+				nextItemIndex = 0;
+				currentIndex.Value = endIndex.Value;
+				Fsm.Event(finishedEvent);
+				return;
+			}
+
+			// get next item
+			result.SetValue(array.Get(nextItemIndex));
+
+
 			// iterate the next child
 			nextItemIndex++;
 
