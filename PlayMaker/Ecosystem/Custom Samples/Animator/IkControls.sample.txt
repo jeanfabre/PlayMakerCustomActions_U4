@@ -1,6 +1,0 @@
-{
-"__ECO__":"__SAMPLE__",
-"unitypackage":"PlayMaker/Ecosystem/Custom Samples/Animator/IkControls.unitypackage",
-"pingAssetPath":"Assets/PlayMaker Custom Samples/Animator/IK controls/IK Controls.unity",
-"keywords":"Mecanim inverse Kinematics IK"
-}
