@@ -7,7 +7,7 @@ namespace HutongGames.PlayMaker.Actions
 {
     [ActionCategory(ActionCategory.Physics)]
     [Tooltip("Detect collisions between the Owner of this FSM and other Game Objects that have RigidBody components.\nNOTE: The system events, COLLISION ENTER, COLLISION STAY, and COLLISION EXIT are sent automatically on collisions with any object. Use this action to filter collisions by Tag.")]
-    public class CollisionEventPlus : FsmStateAction
+    public class Collision2DEventPlus : FsmStateAction
     {
         public enum Options
         {
@@ -18,7 +18,7 @@ namespace HutongGames.PlayMaker.Actions
         }
 
         [Tooltip("The type of collision to detect.")]
-        public CollisionType collision;
+        public Collision2DType collision;
 
 
         [Tooltip("Select to Chech Tag and/or Layer")]
@@ -52,7 +52,7 @@ namespace HutongGames.PlayMaker.Actions
 
         public override void Reset()
         {
-            collision = CollisionType.OnCollisionEnter;
+            collision = Collision2DType.OnCollisionEnter2D;
             collideTag = new FsmString() { UseVariable = true };
             options = Options.ColliderOnly;
             sendEvent = null;
@@ -66,19 +66,16 @@ namespace HutongGames.PlayMaker.Actions
         {
             switch (collision)
             {
-                case CollisionType.OnCollisionEnter:
+                case Collision2DType.OnCollisionEnter2D:
                     Fsm.HandleCollisionEnter = true;
                     break;
-                case CollisionType.OnCollisionStay:
+                case Collision2DType.OnCollisionStay2D:
                     Fsm.HandleCollisionStay = true;
                     break;
-                case CollisionType.OnCollisionExit:
+                case Collision2DType.OnCollisionExit2D:
                     Fsm.HandleCollisionExit = true;
                     break;
-                case CollisionType.OnControllerColliderHit:
-                    Fsm.HandleControllerColliderHit = true;
-                    break;
-                case CollisionType.OnParticleCollision:
+                case Collision2DType.OnParticleCollision:
                     Fsm.HandleParticleCollision = true;
                     break;
 
@@ -99,7 +96,7 @@ namespace HutongGames.PlayMaker.Actions
             {
                 case Options.ColliderOnly:
                     //set
-                    if (collision == CollisionType.OnCollisionEnter)
+                    if (collision == Collision2DType.OnCollisionEnter2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value)
                         {
@@ -110,7 +107,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.LayerOnly:
                     //set
-                    if (collision == CollisionType.OnCollisionEnter)
+                    if (collision == Collision2DType.OnCollisionEnter2D)
                     {
                         if (collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -121,7 +118,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.ColliderOrLayer:
                     //set
-                    if (collision == CollisionType.OnCollisionEnter)
+                    if (collision == Collision2DType.OnCollisionEnter2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value || collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -132,7 +129,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.ColliderAndLayer:
                     //set
-                    if (collision == CollisionType.OnCollisionEnter)
+                    if (collision == Collision2DType.OnCollisionEnter2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value && collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -151,7 +148,7 @@ namespace HutongGames.PlayMaker.Actions
             {
                 case Options.ColliderOnly:
                     //set
-                    if (collision == CollisionType.OnCollisionStay)
+                    if (collision == Collision2DType.OnCollisionStay2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value)
                         {
@@ -162,7 +159,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.LayerOnly:
                     //set
-                    if (collision == CollisionType.OnCollisionStay)
+                    if (collision == Collision2DType.OnCollisionStay2D)
                     {
                         if (collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -173,7 +170,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.ColliderOrLayer:
                     //set
-                    if (collision == CollisionType.OnCollisionStay)
+                    if (collision == Collision2DType.OnCollisionStay2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value || collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -184,7 +181,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.ColliderAndLayer:
                     //set
-                    if (collision == CollisionType.OnCollisionStay)
+                    if (collision == Collision2DType.OnCollisionStay2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value && collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -202,7 +199,7 @@ namespace HutongGames.PlayMaker.Actions
             {
                 case Options.ColliderOnly:
                     //set
-                    if (collision == CollisionType.OnCollisionExit)
+                    if (collision == Collision2DType.OnCollisionExit2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value)
                         {
@@ -213,7 +210,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.LayerOnly:
                     //set
-                    if (collision == CollisionType.OnCollisionExit)
+                    if (collision == Collision2DType.OnCollisionExit2D)
                     {
                         if (collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -224,7 +221,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.ColliderOrLayer:
                     //set
-                    if (collision == CollisionType.OnCollisionExit)
+                    if (collision == Collision2DType.OnCollisionExit2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value || collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -235,7 +232,7 @@ namespace HutongGames.PlayMaker.Actions
                     break;
                 case Options.ColliderAndLayer:
                     //set
-                    if (collision == CollisionType.OnCollisionExit)
+                    if (collision == Collision2DType.OnCollisionExit2D)
                     {
                         if (collisionInfo.collider.gameObject.tag == collideTag.Value && collisionInfo.collider.gameObject.layer == collideLayer.Value)
                         {
@@ -247,64 +244,9 @@ namespace HutongGames.PlayMaker.Actions
             }
         }
 
-        public override void DoControllerColliderHit(ControllerColliderHit collisionInfo)
-        {
-            if (collision == CollisionType.OnControllerColliderHit)
-            {
-                switch (options)
-                {
-                    case Options.ColliderOnly:
-                        //set
-                        if (collisionInfo.collider.gameObject.tag == collideTag.Value)
-                        {
-                            if (storeCollideObject != null)
-                                storeCollideObject.Value = collisionInfo.gameObject;
-
-                            storeForce.Value = 0f; //TODO: impact force?
-                            Fsm.Event(eventTarget, sendEvent);
-                        }
-                        break;
-                    case Options.LayerOnly:
-                        //set
-                        if (collisionInfo.collider.gameObject.layer == collideLayer.Value)
-                        {
-                            if (storeCollideObject != null)
-                                storeCollideObject.Value = collisionInfo.gameObject;
-
-                            storeForce.Value = 0f; //TODO: impact force?
-                            Fsm.Event(eventTarget, sendEvent);
-                        }
-                        break;
-                    case Options.ColliderOrLayer:
-                        //set
-                        if (collisionInfo.collider.gameObject.tag == collideTag.Value || collisionInfo.collider.gameObject.layer == collideLayer.Value)
-                        {
-                            if (storeCollideObject != null)
-                                storeCollideObject.Value = collisionInfo.gameObject;
-
-                            storeForce.Value = 0f; //TODO: impact force?
-                            Fsm.Event(eventTarget, sendEvent);
-                        }
-                        break;
-                    case Options.ColliderAndLayer:
-                        //set
-                        if (collisionInfo.collider.gameObject.tag == collideTag.Value && collisionInfo.collider.gameObject.layer == collideLayer.Value)
-                        {
-                            if (storeCollideObject != null)
-                                storeCollideObject.Value = collisionInfo.gameObject;
-
-                            storeForce.Value = 0f; //TODO: impact force?
-                            Fsm.Event(eventTarget, sendEvent);
-                        }
-                        break;
-                }
-                
-            }
-        }
-
         public override void DoParticleCollision(GameObject other)
         {
-            if (collision == CollisionType.OnParticleCollision)
+            if (collision == Collision2DType.OnParticleCollision)
             {
                 switch (options)
                 {
