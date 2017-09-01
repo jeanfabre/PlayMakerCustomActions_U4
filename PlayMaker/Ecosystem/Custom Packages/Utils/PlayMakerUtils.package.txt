@@ -1,7 +1,7 @@
 {
 "__ECO__":"__PACKAGE__",
 "Type":"Wizard",
-"Version":"1.3.§",
+"Version":"1.5",
 "UnityMinimumVersion":"4.7.2",
 "PlayMakerMinimumVersion":"1.8.0",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/Utils/PlayMakerUtils.unitypackage",
