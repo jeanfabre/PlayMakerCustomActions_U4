@@ -25,7 +25,10 @@ namespace HutongGames.PlayMaker.Actions
 			TimeSinceStartup,
 			TimeSinceLevelLoad,
 			RealTimeSinceStartup,
-			RealTimeInCurrentState
+			RealTimeInCurrentState,
+			UnscaledDeltaTime,
+			UnscaledTime,
+			MaximumDeltaTime
 		}
 
 		[Tooltip("Time measurements properties.")]
@@ -91,6 +94,18 @@ namespace HutongGames.PlayMaker.Actions
 
 			case TimeInfo.RealTimeInCurrentState:
 				storeValue.Value = FsmTime.RealtimeSinceStartup - State.RealStartTime;
+				break;
+
+			case TimeInfo.UnscaledDeltaTime:
+				storeValue.Value = Time.unscaledDeltaTime;
+				break;
+
+			case TimeInfo.UnscaledTime:
+				storeValue.Value = Time.unscaledTime;
+				break;
+
+			case TimeInfo.MaximumDeltaTime:
+				storeValue.Value = Time.maximumDeltaTime;
 				break;
 
 			default:
