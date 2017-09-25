@@ -1,9 +1,11 @@
 {
 "__ECO__":"__PACKAGE__",
-"Type":"hd",
-"Version":"sdg",
+"Type":"Unity Module",
+"UnityModules":["Animator"],
+"Version":"2.0.0",
 "UnityMinimumVersion":"4.7",
-"PlayMakerMinimumVersion":"1.8.0",
-"unitypackage":"/PlayMaker/Ecosystem/Custom Packages/API",
-"keywords":"sdg"
+"PlayMakerMinimumVersion":"1.8.5",
+"unitypackage":"PlayMaker/Ecosystem/Custom Packages/Animator/AnimatorProxies.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Animator/README.md",
+"keywords":"mecanim synch synchronization animation state machine stateMachine"
 }
