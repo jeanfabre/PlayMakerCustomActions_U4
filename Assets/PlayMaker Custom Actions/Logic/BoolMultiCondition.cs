@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using UnityEngine;
@@ -6,9 +6,10 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
     [ActionCategory(ActionCategory.Logic)]
-    [Tooltip("Adds multipe float variables to float variable.")]
+    [Tooltip("Check multiple bool variables for conditions.")]
     public class BoolMultiCondition : FsmStateAction
     {
+		[CompoundArray("Conditions", "Bool", "Condition")]
         [UIHint(UIHint.Variable)]
         [Tooltip("The variables to evaluate.")]
         public FsmBool[] booleans;
@@ -21,12 +22,19 @@ namespace HutongGames.PlayMaker.Actions
 
 		[Tooltip("If the evaluated booleans do NOT match the conditions, this event can fire.")]
 		public FsmEvent failEvent;
-		
+
+		[Tooltip("true if all conditions met")]
+		[UIHint(UIHint.Variable)]
+		public FsmBool result;
+
 		[Tooltip("Repeat every frame while the state is active.")]
 		public bool everyFrame;
 
 		[Tooltip("Reports clear information about failure events.")]
 		public bool debug;
+
+
+		int _lastResult = -1;
 
         public override void Reset()
         {
@@ -34,13 +42,14 @@ namespace HutongGames.PlayMaker.Actions
 			conditions = null;
 			passEvent = null;
 			failEvent = null;
+			result = null;
             everyFrame = false;
 			debug = false;
         }
 
         public override void OnEnter()
         {
-            DoEvaluate();
+			result.Value = DoEvaluate();
 
             if (!everyFrame)
             {
@@ -50,16 +59,16 @@ namespace HutongGames.PlayMaker.Actions
 
         public override void OnUpdate()
         {
-            DoEvaluate();
+			result.Value = DoEvaluate();
         }
 
-        void DoEvaluate()
+        bool DoEvaluate()
         {		
 			if (conditions.Length != booleans.Length)
 			{
 				Debug.LogError ("<color=red>BoolMultiCondition Action Fatal Error:</color> The number of <i>Booleans</i> and <i>Conditions</i> must be equal!");
 				Finish ();
-				return;
+				return false;
 			}
 
 			bool[] list = new bool[booleans.Length];
@@ -74,14 +83,12 @@ namespace HutongGames.PlayMaker.Actions
 						Debug.Log ("Failure at bool <b>Element "+i+": (" +booleans[i].Name+ ")</b> against its pass condition of <b>"+conditions[i]+".</b>");
 					}
 
-					Fsm.Event(failEvent);
-
-					if (!everyFrame)
+					if (_lastResult!= 0)
 					{
-						Finish ();
+						_lastResult = 0;
+						Fsm.Event(failEvent);
 					}
-
-					return;
+					return false;
 				}
             }
 
@@ -90,8 +97,13 @@ namespace HutongGames.PlayMaker.Actions
 				Debug.Log ("All " +list.Length + " boolean conditions passed.");
 			}
 
-			Fsm.Event(passEvent);
-			Finish ();
+			if (_lastResult!= 1)
+			{
+				_lastResult = 1;
+				Fsm.Event(passEvent);
+			}
+
+			return true;
         }
     }
 }
