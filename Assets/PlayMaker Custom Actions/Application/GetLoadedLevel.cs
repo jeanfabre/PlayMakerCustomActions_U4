@@ -28,7 +28,7 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnEnter()
 		{
 			#if UNITY_5_3_OR_NEWER
-			levelName = SceneManager.GetActiveScene().name;
+			levelName.Value = SceneManager.GetActiveScene().name;
 			level.Value = SceneManager.GetActiveScene().buildIndex;
 			#else
 			levelName.Value = Application.loadedLevelName;
