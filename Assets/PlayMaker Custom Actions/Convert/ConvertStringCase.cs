@@ -1,6 +1,6 @@
 // (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
-
+// original action: http://hutonggames.com/playmakerforum/index.php?topic=4839.0
 
 using UnityEngine;
 using HutongGames.PlayMaker;
