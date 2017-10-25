@@ -1,0 +1,6 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/ArrayMaker/SimonSays.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/ArrayMaker/SimonSays/SimonSays.unity",
+"keywords":"Simon Says Game"
+}
