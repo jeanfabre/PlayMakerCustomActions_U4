@@ -37,8 +37,9 @@ namespace HutongGames.PlayMaker.Actions
     [Tooltip("Add Force on Y.")]
     public FsmFloat explodeY;
 	
+	[ActionSection("Result")]
 	[UIHint(UIHint.Variable)]
-	FsmFloat current_radius;
+	public FsmFloat current_radius;
 
     [Tooltip("Event to send when the Timer is complete.")]
     public FsmEvent finishEvent;
