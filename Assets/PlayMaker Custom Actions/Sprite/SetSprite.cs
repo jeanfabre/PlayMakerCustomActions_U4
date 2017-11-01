@@ -9,7 +9,7 @@ namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("sprite")]
 	[Tooltip("Sets a Sprite on any GameObject. Object must have a Sprite Renderer.")]
-	public class SeSprite : FsmStateAction
+	public class SetSprite : FsmStateAction
 	{
 		
 		[RequiredField]
