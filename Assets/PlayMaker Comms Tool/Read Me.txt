@@ -1,0 +1,12 @@
+//------------------------------------------------------------------------------------------------------
+// Show SendEvent, ActivateGameObject and SendMessage actions in FSMs so you can track down what's going
+// on in multi-FSM designs and where you call script methods more easily.
+//
+// Put the PlayMakerCommsTool.cs script in with your normal code (NOT in the Assets/Editor directory).
+// Put the PlayMakerCommsToolEditor.cs and PlayMakerCommsToolWindow.cs in the Assets/Editor directory.
+//
+// To use:
+// Once the code is in the right place you will find a new menu item "Comm Tool Window" under
+// the Playmaker -> Tools menu. Click this, you only need to do it once in a scene. 
+// You can delete the PlayMakerCommsTool object from your Hierarchy when finished.
+//------------------------------------------------------------------------------------------------------
