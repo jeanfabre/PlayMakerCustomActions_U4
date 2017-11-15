@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
 // __ECO__ __PLAYMAKER__ __ACTION__
 
 using UnityEngine;
@@ -58,80 +58,84 @@ namespace HutongGames.PlayMaker.Actions
 
 			result = null;
 		}
-		
-		public override void OnEnter()
-		{
-			if (startIndex.IsNone)
-			{
-				startIndex.Value = 0;
-			}
-			if (endIndex.IsNone)
-			{
-				endIndex.Value = 0;
-			}
 
-			if (resetFlag.Value)
-			{
-				resetFlag.Value = false;
-				nextItemIndex = 0;
-			}
+        public override void OnEnter()
+        {
 
-			if (nextItemIndex == 0)
-			{
-				if (startIndex.Value>0)
-				{
-					nextItemIndex = startIndex.Value;
-				}
-			}
-			
-			DoGetNextItem();
-			
-			Finish();
-		}
-		
-		
-		void DoGetNextItem()
-		{
-			// no more children?
-			// check first to avoid errors.
-			
-			if (nextItemIndex >= array.Length)
-			{
-				nextItemIndex = 0;
-				currentIndex.Value = array.Length -1;
-				Fsm.Event(finishedEvent);
-				return;
-			}
+            if (startIndex.IsNone)
+            {
+                startIndex.Value = 0;
+            }
+            if (endIndex.IsNone)
+            {
+                endIndex.Value = 0;
+            }
 
-			if (!endIndex.IsNone && startIndex.Value == endIndex.Value && nextItemIndex> endIndex.Value)
-			{
-				nextItemIndex = 0;
-				currentIndex.Value = endIndex.Value;
-				Fsm.Event(finishedEvent);
-				return;
-			}
+            if (resetFlag.Value)
+            {
+                nextItemIndex = startIndex.Value;
+                resetFlag = false;
+            }
+            if (nextItemIndex == 0)
+            {
+                if (startIndex.Value > 0)
+                {
+                    nextItemIndex = startIndex.Value;
+                }
+            }
 
-			if (!endIndex.IsNone && nextItemIndex> endIndex.Value && startIndex.Value != endIndex.Value)
-			{
-				nextItemIndex = 0;
-				currentIndex.Value = endIndex.Value;
-				Fsm.Event(finishedEvent);
-				return;
-			}
+            DoGetNextItem();
 
-			// get next item
-			result.SetValue(array.Get(nextItemIndex));
+            Finish();
+        }
 
 
-			// iterate the next child
-			nextItemIndex++;
+        void DoGetNextItem()
+        {
+            // no more children?
+            // check first to avoid errors.
 
-			currentIndex.Value = nextItemIndex -1 ;
+            if (nextItemIndex >= array.Length)
+            {
+                nextItemIndex = 0;
+                currentIndex.Value = array.Length - 1;
+                Fsm.Event(finishedEvent);
+                return;
+            }
 
-			if (loopEvent != null)
-			{
-				Fsm.Event(loopEvent);
-			}
-		}
-	}
+            // get next item
+
+            result.SetValue(array.Get(nextItemIndex));
+
+            // no more items?
+            // check a second time to avoid process lock and possible infinite loop if the action is called again.
+            // Practically, this enabled calling again this state and it will start again iterating from the first child.
+
+            if (nextItemIndex >= array.Length)
+            {
+                nextItemIndex = 0;
+                currentIndex.Value = array.Length - 1;
+                Fsm.Event(finishedEvent);
+                return;
+            }
+
+            if (endIndex.Value > 0 && nextItemIndex >= endIndex.Value)
+            {
+                nextItemIndex = 0;
+                currentIndex.Value = endIndex.Value;
+                Fsm.Event(finishedEvent);
+                return;
+            }
+
+            // iterate the next child
+            nextItemIndex++;
+
+            currentIndex.Value = nextItemIndex - 1;
+
+            if (loopEvent != null)
+            {
+                Fsm.Event(loopEvent);
+            }
+        }
+    }
 }
