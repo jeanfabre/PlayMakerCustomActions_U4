@@ -74,7 +74,7 @@ namespace HutongGames.PlayMaker.Actions
             if (resetFlag.Value)
             {
                 nextItemIndex = startIndex.Value;
-                resetFlag = false;
+                resetFlag.Value = false;
             }
             if (nextItemIndex == 0)
             {
