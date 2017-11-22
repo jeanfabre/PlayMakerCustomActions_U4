@@ -23,15 +23,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
-			if (Application.isWebPlayer)
-			{
-#if UNITY_IPHONE
-#else
-				Application.ExternalEval("window.open('"+url+"','"+WebWindowTitle.Value+"')");
-#endif
-			}else{
-				Application.OpenURL(url.Value);
-			}
+			Application.OpenURL(url.Value);
 			Finish();
 		}
 	}
