@@ -21,10 +21,23 @@ namespace HutongGames.PlayMaker.Actions
 			url ="";
 		}
 
-		public override void OnEnter()
-		{
-			Application.OpenURL(url.Value);
-			Finish();
-		}
-	}
+        public override void OnEnter()
+        {
+#if UNITY_4 || UNITY_5
+            if (Application.isWebPlayer)
+            {
+#if UNITY_IPHONE
+#else
+                Application.ExternalEval("window.open('" + url + "','" + WebWindowTitle.Value + "')");
+#endif
+            }
+            else
+
+#endif
+            {
+                Application.OpenURL(url.Value);
+            }
+            Finish();
+        }
+    }
 }
