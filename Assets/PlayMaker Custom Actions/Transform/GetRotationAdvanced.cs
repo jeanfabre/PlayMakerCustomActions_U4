@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__
 EcoMetaStart
 {
@@ -21,8 +21,17 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[UIHint(UIHint.Variable)]
 		public FsmQuaternion quaternion;
-		
-		[UIHint(UIHint.Variable)]
+
+        [UIHint(UIHint.Variable)]
+        public FsmFloat qXAngle;
+
+        [UIHint(UIHint.Variable)]
+        public FsmFloat qYAngle;
+
+        [UIHint(UIHint.Variable)]
+        public FsmFloat qZAngle;
+
+        [UIHint(UIHint.Variable)]
 		[Title("Euler Angles")]
 		public FsmVector3 vector;
 		
@@ -43,7 +52,10 @@ namespace HutongGames.PlayMaker.Actions
 
 			gameObject = null;
 			quaternion = null;
-			vector = null;
+            qXAngle = null;
+            qYAngle = null;
+            qZAngle = null;
+            vector = null;
 			xAngle = null;
 			yAngle = null;
 			zAngle = null;
@@ -78,8 +90,11 @@ namespace HutongGames.PlayMaker.Actions
 			if (space == Space.World)
 			{
 				quaternion.Value = go.transform.rotation;
+                qXAngle.Value = go.transform.rotation.x;
+                qYAngle.Value = go.transform.rotation.y;
+                qZAngle.Value = go.transform.rotation.z;
 
-				var rotation = go.transform.eulerAngles;
+                var rotation = go.transform.eulerAngles;
 				
 				vector.Value = rotation;
 				xAngle.Value = rotation.x;
@@ -91,8 +106,11 @@ namespace HutongGames.PlayMaker.Actions
 				var rotation = go.transform.localEulerAngles;
 
 				quaternion.Value = Quaternion.Euler(rotation);
-				
-				vector.Value = rotation;
+                qXAngle.Value = Quaternion.Euler(rotation).x;
+                qYAngle.Value = Quaternion.Euler(rotation).y;
+                qZAngle.Value = Quaternion.Euler(rotation).z;
+
+                vector.Value = rotation;
 				xAngle.Value = rotation.x;
 				yAngle.Value = rotation.y;
 				zAngle.Value = rotation.z;
