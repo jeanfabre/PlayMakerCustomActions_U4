@@ -32,6 +32,10 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmInt signAsInt;
 
 
+		[UIHint(UIHint.Variable)]
+        	[Tooltip("The sign as bool. False or True")]
+        	public FsmBool signAsBool;
+	
 		public override void Reset()
 		{
 			base.Reset ();
@@ -39,6 +43,7 @@ namespace HutongGames.PlayMaker.Actions
 			floatVariable = new FsmFloat() {UseVariable =true};
 			sign = null;
 			signAsInt = null;
+			signAsBool = null;
 
 		}
 		
@@ -60,6 +65,8 @@ namespace HutongGames.PlayMaker.Actions
 			if (!sign.IsNone) sign.Value = Mathf.Sign(floatVariable.Value);
 
 			if (!signAsInt.IsNone) signAsInt.Value = floatVariable.Value == 0f ?1:System.Math.Sign(floatVariable.Value);
+			
+			if (!signAsBool.IsNone) signAsBool.Value = Mathf.Sign(floatVariable.Value) == 1f ? true : false;
 		}
 
 	}
