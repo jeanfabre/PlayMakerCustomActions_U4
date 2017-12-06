@@ -87,7 +87,7 @@ namespace HutongGames.PlayMaker.Actions
 
 			progress.Value = wwwObject.progress;
 
-			if (progress.Value.Equals(1f))
+			if (wwwObject.isDone)
 			{
 			
 			
