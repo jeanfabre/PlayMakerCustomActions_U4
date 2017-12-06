@@ -1,6 +1,7 @@
 // (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
 // http://hutonggames.com/playmakerforum/index.php?topic=5844.msg32820;topicseen#new
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+// Keywords: switch
 
 using UnityEngine;
 
