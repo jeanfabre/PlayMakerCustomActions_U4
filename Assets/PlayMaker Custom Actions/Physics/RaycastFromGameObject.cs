@@ -110,9 +110,7 @@ namespace HutongGames.PlayMaker.Actions
 			Vector3 dir = GetDirectionVector();
 			
 			Physics.Raycast(originPos, dir, out hitInfo, rayLength, ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value)); //TODO LayerMask support
-			
-			Debug.Log(hitInfo.triangleIndex);
-			
+
 			Fsm.RaycastHitInfo = hitInfo;
 			
 			bool didHit = hitInfo.collider != null;
