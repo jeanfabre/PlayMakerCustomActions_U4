@@ -1,4 +1,4 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using System;
@@ -10,7 +10,7 @@ namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.Array)]
 	[Tooltip("Get all children of a gameobject and save them in an Array.")]
-	public class GetGameObjectChildrenInArray : FsmStateAction
+	public class ArrayGetGameObjectChildren : FsmStateAction
 	{
 		[RequiredField]
 		[Tooltip("The gameObject Variable to get its children from.")]
@@ -20,10 +20,6 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.Variable)]
 		[Tooltip("The Array Variable to use.")]
 		public FsmArray array;
-
-		[UIHint(UIHint.Layer)]
-		[Tooltip("Only consider objects from these layers.")]
-		public FsmInt[] layerMask;
 		
 		[Tooltip("Invert the mask, so you pick from all layers except those defined above.")]
 		public FsmBool invertMask;
@@ -37,7 +33,6 @@ namespace HutongGames.PlayMaker.Actions
 			gameObject = null;
 			array = null;
 			withTag = "Untagged";
-			layerMask = null;
 			invertMask = null;
 
 		}
@@ -54,9 +49,6 @@ namespace HutongGames.PlayMaker.Actions
 			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
 			if (go == null) return;
 
-			int _layerMask = ActionHelpers.LayerArrayToLayerMask(layerMask, invertMask.Value);
-
-
 			List<GameObject> _list = new List<GameObject>();
 
 			foreach (Transform child in go.transform)
@@ -67,12 +59,6 @@ namespace HutongGames.PlayMaker.Actions
 				{
 					_valid = child.tag == withTag.Value;
 					
-				}
-
-				// layer filtering
-				if (child.gameObject.layer != _layerMask)
-				{
-				//	continue;
 				}
 
 				if (_valid) _list.Add(child.gameObject);
