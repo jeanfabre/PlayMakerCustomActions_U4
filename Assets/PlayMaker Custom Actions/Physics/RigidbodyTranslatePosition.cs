@@ -27,7 +27,7 @@ namespace HutongGames.PlayMaker.Actions
 			inputVector = null;
 		}
 
-		public override void Awake()
+		public override void OnPreprocess()
 		{
 			Fsm.HandleFixedUpdate = true;
 		}

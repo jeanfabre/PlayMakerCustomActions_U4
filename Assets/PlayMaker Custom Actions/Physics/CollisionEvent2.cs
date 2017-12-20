@@ -37,7 +37,7 @@ namespace HutongGames.PlayMaker.Actions
 			storeForce = null;
 		}
 
-		public override void Awake()
+		public override void OnPreprocess()
 		{
 			switch (collision)
 			{

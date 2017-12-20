@@ -94,7 +94,7 @@ namespace HutongGames.PlayMaker.Actions
 						#if PLAYMAKER_1_8
 						Fsm.RecordLastRaycastHit2DInfo(Fsm,hitInfo);
 						#else
-						PlayMakerUnity2d.RecordLastRaycastHitInfo(this.Fsm,hitInfo);	
+						PlayMakerUnity2d.RecordLastRaycastHitInfo(Fsm,hitInfo);	
 						#endif
 						
 						if (hitInfo.transform != null)
