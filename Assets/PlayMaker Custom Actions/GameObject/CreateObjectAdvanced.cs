@@ -88,7 +88,7 @@ namespace HutongGames.PlayMaker.Actions
 					}
                 }
 				
-
+				newObject = (GameObject)Object.Instantiate(go, spawnPosition, Quaternion.Euler(spawnRotation));
 
                 storeObject.Value = newObject;
 				
