@@ -21,7 +21,10 @@ namespace HutongGames.PlayMaker.Actions
 
 		[Tooltip("GameObject name. Leave to null or none for default")]
 		public FsmString name;
-		
+
+		[Tooltip("Activate the created instance or not")]
+		public FsmBool setActive;
+
 		[Tooltip("Optional Spawn Point.")]
 		public FsmGameObject spawnPoint;
 		
@@ -44,10 +47,14 @@ namespace HutongGames.PlayMaker.Actions
 			
 			parent = new FsmOwnerDefault();
 			parent.OwnerOption = OwnerDefaultOption.SpecifyGameObject;
+			parent.GameObject = new FsmGameObject (){UseVariable=true};
+
 			worldPositionStays = true;
 
 			name = new FsmString() {UseVariable=true};
-			
+
+			setActive = true;
+
 			spawnPoint = null;
 			position = new FsmVector3 { UseVariable = true };
 			rotation = new FsmVector3 { UseVariable = true };
@@ -91,7 +98,9 @@ namespace HutongGames.PlayMaker.Actions
 				newObject = (GameObject)Object.Instantiate(go, spawnPosition, Quaternion.Euler(spawnRotation));
 
                 storeObject.Value = newObject;
-				
+
+				newObject.SetActive(setActive.Value);
+
 				newObject.transform.position = spawnPosition;
 				newObject.transform.eulerAngles = spawnRotation;
 				
