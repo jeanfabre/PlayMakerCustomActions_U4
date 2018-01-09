@@ -185,6 +185,9 @@ namespace HutongGames.PlayMaker.Actions
             {
                 runFsm.Stop();
             }
+
+			fsmTemplateControl = new FsmTemplateControl();
+			runFsm = null;
         }
 
         void CheckIfFinished()
