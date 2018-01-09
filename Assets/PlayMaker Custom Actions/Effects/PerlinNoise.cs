@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2017. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 using UnityEngine;
@@ -12,7 +12,10 @@ namespace HutongGames.PlayMaker.Actions
 		[RequiredField]
 		[Tooltip("PerlinNoise animation speed")]
 		public FsmFloat speed;
-		
+
+		[Tooltip("PerlinNoise seed ( the x component). Leave to none for random")]
+		public FsmFloat seed;
+
 		[RequiredField]
 		[Tooltip("the actual PerlinNoise result ranging from 0 to 1")]
 		[UIHint(UIHint.Variable)]
@@ -31,8 +34,8 @@ namespace HutongGames.PlayMaker.Actions
 		/// </summary>
 		public override void Reset()
 		{		
-			
 			_seed = Random.Range(0f, 65535f);
+			seed = new FsmFloat (){UseVariable=true};
 			speed = new FsmFloat();
 			speed.Value = 1f;
 			perlinNoise= null;
@@ -46,7 +49,6 @@ namespace HutongGames.PlayMaker.Actions
 		/// </summary>		
 		public override void OnEnter()
 		{
-			
 			ComputePerlinNoise();
 			
 			if (!everyFrame)
@@ -71,7 +73,11 @@ namespace HutongGames.PlayMaker.Actions
 		/// Compute and store the current perlin noise.
 		/// </summary>
 		private void ComputePerlinNoise(){
-			
+
+			if (!seed.IsNone) {
+				_seed = seed.Value;
+			}
+
 			perlinNoise.Value = Mathf.PerlinNoise(_seed, speed.Value*Time.time);
 			
 		}// ComputePerlinNoise
