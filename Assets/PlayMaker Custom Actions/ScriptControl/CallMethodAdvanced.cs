@@ -3,7 +3,8 @@
 EcoMetaStart
 {
 "script dependancies":[
-						"Assets/PlayMaker Custom Actions/__Internal/FsmStateActionAdvanced.cs"
+						"Assets/PlayMaker Custom Actions/__Internal/FsmStateActionAdvanced.cs",
+						"Assets/PlayMaker Custom Actions/ScriptControl/Editor/CallMethodAdvancedEditor.cs"
 					]
 }
 EcoMetaEnd
