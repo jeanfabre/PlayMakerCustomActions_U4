@@ -31,3 +31,9 @@ Assets/Chili4U
 Chili4U.meta
 Assets/Plugins
 Builds
+Assets/Editor.meta
+.vs/PlayMakerCustomActions_U4-csharp/v15/.suo
+PlayMaker/Ecosystem/Custom Packages/API/.unitypackage
+PlayMaker/Ecosystem/Custom Packages/API/.package.txt
+Assets/PlayMaker Custom Actions/ScriptControl/Editor.meta
+Assets/PlayMaker Custom Actions/Logic/BoolCompare.cs.meta

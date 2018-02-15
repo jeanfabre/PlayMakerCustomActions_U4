@@ -24,6 +24,9 @@ namespace HutongGames.PlayMaker.Actions
         [UIHint(UIHint.Variable)]
         public FsmGameObject storeCollider;
 
+        [Tooltip("If you want to reset the iteration, raise this flag to true when you enter the state, it will indicate you want to start from the beginning again")]
+        public FsmBool resetFlag;
+
         [Tooltip("The gameobject that activated the trigger. Use this to debug or instead of an additional get trigger info action.")]
         public FsmGameObject gameObjectHit;
 
@@ -36,7 +39,8 @@ namespace HutongGames.PlayMaker.Actions
             collideTag = "Untagged";
             sendEvent = null;
             storeCollider = null;
-            
+            resetFlag = null;
+
             gameObjectHit = null;
             alreadyHit = null;
           
@@ -68,6 +72,11 @@ namespace HutongGames.PlayMaker.Actions
 
         public override void DoTriggerEnter(Collider other)
         {
+            if (resetFlag.Value)
+            {
+                alreadyHit.Clear();
+                resetFlag.Value = false;
+            }
             gameObjectHit.Value = Fsm.TriggerCollider.gameObject;
 
 
@@ -88,6 +97,11 @@ namespace HutongGames.PlayMaker.Actions
         {
             if (trigger == TriggerType.OnTriggerStay)
             {
+                if (resetFlag.Value)
+                {
+                    alreadyHit.Clear();
+                    resetFlag.Value = false;
+                }
                 gameObjectHit.Value = Fsm.TriggerCollider.gameObject;
 
                 if (other.gameObject.tag == collideTag.Value & !(alreadyHit.Contains(gameObjectHit.Value)))
@@ -104,6 +118,11 @@ namespace HutongGames.PlayMaker.Actions
         {
             if (trigger == TriggerType.OnTriggerExit)
             {
+                if (resetFlag.Value)
+                {
+                    alreadyHit.Clear();
+                    resetFlag.Value = false;
+                }
                 gameObjectHit.Value = Fsm.TriggerCollider.gameObject;
 
                 if (other.gameObject.tag == collideTag.Value & !(alreadyHit.Contains(gameObjectHit.Value)))
