@@ -7,7 +7,7 @@ using UnityEngine;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.UnityObject)]
-	[Tooltip("Destroys a Component of an Object. WARNING! COLLIDERS DO NOT WORK WITH THIS ACTION and Some Components Might not work!")]
+	[Tooltip("activate a Component of an Object. WARNING! COLLIDERS DO NOT WORK WITH THIS ACTION and Some Components Might not work!")]
 	public class ActivateComponent : FsmStateAction
 	{
         [RequiredField]
