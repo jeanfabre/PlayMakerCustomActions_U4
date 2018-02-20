@@ -6,11 +6,11 @@ using System;
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.Convert)]
-	[Tooltip("Convert an int value to an Enum Variable")]
-	public class ConvertIntToEnum: FsmStateAction
+	[Tooltip("Convert an string value to an Enum Variable")]
+	public class ConvertStringToEnum: FsmStateAction
 	{
-		[Tooltip("The int value to convert to Enum")]
-		public FsmInt value;
+		[Tooltip("The string value to convert to Enum")]
+		public FsmString value;
 
 		[UIHint(UIHint.Variable)]
 		[Tooltip("The Enum Variable to set.")]
@@ -22,12 +22,12 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Repeat every frame.")]
 		public bool everyFrame;
 
-		int _valueCache;
+		string _valueCache;
 
 		public override void Reset()
 		{
 			enumVariable = null;
-			value = null;
+			value = "";
 			errorEvent = null;
 			everyFrame = false;
 		}
@@ -51,7 +51,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 
 			if (Enum.IsDefined (enumVariable.Value.GetType (), value.Value)) {
-				enumVariable.Value = (Enum)Enum.Parse (enumVariable.Value.GetType (), value.Value.ToString ());
+				enumVariable.Value = (Enum)Enum.Parse (enumVariable.Value.GetType (), value.Value);
 			} else {
 
 				if (_valueCache!= value.Value)
