@@ -1,0 +1,6 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/DataMaker/MeFace.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/DataMaker/MeFace/MeFace.unity",
+"keywords":"DataMaker data Xml Face 2d binding UI uGui Array"
+}
