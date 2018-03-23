@@ -22,6 +22,11 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("The multiplier of torque to apply.")]
 		public FsmFloat forceMultiplier;
 
+		[Tooltip("The torque forceMode")]
+		[ObjectType(typeof(ForceMode))]
+		public FsmEnum forceMode;
+
+
 		[Tooltip("The multiplier of torque to apply.")]
 		public FsmFloat storeAngleTo;
 
@@ -32,6 +37,7 @@ namespace HutongGames.PlayMaker.Actions
 			gameObject = null;
 			targetObject = null;
 			forceMultiplier = new FsmFloat{ UseVariable = true};
+			forceMode = null;
 			maxSpeed = 100f;
 			storeAngleTo = new FsmFloat{ UseVariable = true};
 		}
@@ -58,7 +64,7 @@ namespace HutongGames.PlayMaker.Actions
 			storeAngleTo.Value = angleDiff;
 			Vector3 cross = Vector3.Cross(go.transform.forward, targetDelta);
 			cross = Vector3.ClampMagnitude(cross, maxSpeed.Value);
-			go.rigidbody.AddTorque(cross * angleDiff * forceMultiplier.Value);
+			go.rigidbody.AddTorque(cross * angleDiff * forceMultiplier.Value,(ForceMode)forceMode.Value);
 			
 		}
 	}
