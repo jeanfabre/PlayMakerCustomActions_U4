@@ -49,6 +49,8 @@ namespace HutongGames.PlayMaker.Actions
 
         public override void OnEnter()
         {
+			_lastResult = -1;
+
 			result.Value = DoEvaluate();
 
             if (!everyFrame)
