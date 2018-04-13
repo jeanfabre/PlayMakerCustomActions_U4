@@ -15,14 +15,18 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmEvent sendEvent;
 		[UIHint(UIHint.Variable)]
 		public FsmBool storeResult;
-		private KeyCode key;
+        [UIHint(UIHint.Variable)]
+        public FsmString storeKey;
+        private KeyCode key;
 		
 		public override void Reset()
 		{
 			sendEvent = null;
 			keyCode = null;
 			storeResult = null;
-		}
+            storeKey = null;
+
+        }
 
 		public override void OnEnter()
 		{
@@ -34,8 +38,11 @@ namespace HutongGames.PlayMaker.Actions
 			bool keyDown = Input.GetKeyDown(key);
 			
 			if (keyDown)
-				Fsm.Event(sendEvent);
-			
+            {
+                storeKey.Value = keyCode.Value;
+                Fsm.Event(sendEvent);
+                
+            }
 			storeResult.Value = keyDown;
 		}
 	}
