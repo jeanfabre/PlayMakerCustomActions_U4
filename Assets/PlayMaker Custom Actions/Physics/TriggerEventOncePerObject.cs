@@ -30,7 +30,7 @@ namespace HutongGames.PlayMaker.Actions
         [Tooltip("The gameobject that activated the trigger. Use this to debug or instead of an additional get trigger info action.")]
         public FsmGameObject gameObjectHit;
 
-        public List<GameObject> alreadyHit;
+        private List<GameObject> alreadyHit;
 
 
         public override void Reset()
