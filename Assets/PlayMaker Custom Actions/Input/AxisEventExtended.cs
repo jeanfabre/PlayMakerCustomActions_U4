@@ -14,8 +14,11 @@ namespace HutongGames.PlayMaker.Actions
 		
 		[Tooltip("Vertical axis as defined in the Input Manager")]
 		public FsmString verticalAxis;
-		
-		[UIHint(UIHint.Variable)]
+
+        [Tooltip("Set a tolerance when the event should trigger (deadzone) This must be a value between 0 and 1")]
+        public FsmFloat tolerance;
+
+        [UIHint(UIHint.Variable)]
 		[Tooltip("The direction angle. Range from -180 to 180, 0 being full up")]
 		public FsmFloat storeAngle;
 		
@@ -50,8 +53,10 @@ namespace HutongGames.PlayMaker.Actions
 		public bool discreteEvents;
 			
 		private int currentDirection =-2;
-		
-		public override void Reset()
+        private float x;
+        private float y;
+
+        public override void Reset()
 		{
 			horizontalAxis = "Horizontal";
 			verticalAxis = "Vertical";
@@ -64,11 +69,9 @@ namespace HutongGames.PlayMaker.Actions
 			downLeftEvent = null;
 			downRightEvent = null;
 			noDirection = null;
-			
 			discreteEvents = true;
-			
-
-		}
+            tolerance = 0;
+        }
 		
 		public override void OnEnter()
 		{
@@ -91,42 +94,42 @@ namespace HutongGames.PlayMaker.Actions
 			}
 			// send events bases on direction
 			
-			if (direction == 0 && rightEvent != null)
+			if (direction == 0 && rightEvent != null && x >= tolerance.Value)
 			{
 				Fsm.Event(rightEvent);
 				//Debug.Log("Right");
 			} 
-			else if (direction == 1 && upRightEvent != null)
+			else if (direction == 1 && upRightEvent != null && x >= tolerance.Value && y >= tolerance.Value)
 			{
 				Fsm.Event(upRightEvent);
 				//Debug.Log("UpRight");
 			}
-			else if (direction == 2 && upEvent != null)
+			else if (direction == 2 && upEvent != null && y >= tolerance.Value)
 			{
 				Fsm.Event(upEvent);
 				//Debug.Log("Up");
 			}			
-			else if (direction == 3 && upLeftEvent != null)
+			else if (direction == 3 && upLeftEvent != null && y >= tolerance.Value && x <= tolerance.Value * -1)
 			{
 				Fsm.Event(upLeftEvent);
 				//Debug.Log("upLeftEvent");
 			}
-				else if (direction == 4 && leftEvent != null)
+				else if (direction == 4 && leftEvent != null && x <= tolerance.Value * -1)
 			{
 				Fsm.Event(leftEvent);
 				//Debug.Log("LeftEvent");
 			}
-				else if (direction == 5 && downLeftEvent != null)
+				else if (direction == 5 && downLeftEvent != null && y <= tolerance.Value * -1 && x <= tolerance.Value * -1)
 			{
 				Fsm.Event(downLeftEvent);
 				//Debug.Log("downLeftEvent");
 			}
-				else if (direction == 6 && downEvent != null)
+				else if (direction == 6 && downEvent != null && y <= tolerance.Value * -1)
 			{
 				Fsm.Event(downEvent);
 				//Debug.Log("downEvent");
 			}
-				else if (direction == 7 && downRightEvent != null)
+				else if (direction == 7 && downRightEvent != null && y <= tolerance.Value * -1 && x >= tolerance.Value)
 			{
 				Fsm.Event(downRightEvent);
 				//Debug.Log("downRightEvent");
@@ -135,8 +138,8 @@ namespace HutongGames.PlayMaker.Actions
 		
 		private int GetCurrentDirection()
 		{
-			var x = horizontalAxis.Value != "" ? Input.GetAxis(horizontalAxis.Value) : 0;
-			var y = verticalAxis.Value != "" ? Input.GetAxis(verticalAxis.Value) : 0;
+			x = horizontalAxis.Value != "" ? Input.GetAxis(horizontalAxis.Value) : 0;
+			y = verticalAxis.Value != "" ? Input.GetAxis(verticalAxis.Value) : 0;
 			
 			// get squared offset from center
 			
