@@ -29,7 +29,7 @@ namespace HutongGames.PlayMaker.Actions
 			gameObject = null;
 			resetOnExit = false;
 
-			spriteToSwap = new Sprite();
+			spriteToSwap = null;
 		}
 		
 		public override void OnEnter()
