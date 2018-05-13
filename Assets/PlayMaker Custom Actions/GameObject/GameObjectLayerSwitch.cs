@@ -50,15 +50,15 @@ namespace HutongGames.PlayMaker.Actions
 		void DoLayerSwitch()
 		{
 
-			var go = gameObject.Value.layer;
-			if (go == null)
+            var go = gameObject.Value;
+            if (go == null)
 			{
 			    return;
 			}
 			
 			for (var i = 0; i < layer.Length; i++) 
 			{
-				if (go == layer[i].Value)
+				if (go.layer == layer[i].Value)
 				{
 					Fsm.Event(sendEvent[i]);
 					return;
