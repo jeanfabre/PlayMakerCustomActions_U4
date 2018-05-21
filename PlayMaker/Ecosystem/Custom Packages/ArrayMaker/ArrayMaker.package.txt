@@ -1,7 +1,7 @@
 {
 "__ECO__":"__PACKAGE__",
 "Type":"Addon",
-"Version":"1.2.2",
+"Version":"1.2.3",
 "UnityMinimumVersion":"4.7.2",
 "PlayMakerMinimumVersion":"1.8.5",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/ArrayMaker/ArrayMaker.unitypackage",
