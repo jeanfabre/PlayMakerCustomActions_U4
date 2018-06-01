@@ -1,6 +1,6 @@
-// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2018. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
-
+// Edited by DjayDino
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
@@ -44,9 +44,12 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.Variable)]
 		[Tooltip("Store the angle of the direction vector. Ranges from -180 to 180, 0, being fully vertical, 90, fully right,-90 fully left")]
 		public FsmFloat storeAngle;
-		
-		
-		public override void Reset()
+
+        [Tooltip("If Uncheck, this will prevent to check the angle when the magnitude is 0 ( both axis are 0)")]
+        public bool checkAngleIfNoAxis;
+
+
+        public override void Reset()
 		{
 			horizontalAxis = "Horizontal";
 			verticalAxis = "Vertical";
@@ -55,6 +58,7 @@ namespace HutongGames.PlayMaker.Actions
 			storeVector = null;
 			storeMagnitude = null;
 			storeAngle = null;
+            checkAngleIfNoAxis = true;
 		}
 
 		public override void OnUpdate()
@@ -130,10 +134,18 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (! storeAngle.IsNone)
 			{
-				storeAngle.Value = Mathf.Atan2(h,v) * Mathf.Rad2Deg;
-			
-			}
-		}
+                if(checkAngleIfNoAxis)
+                {
+                    storeAngle.Value = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
+                }
+                else
+                {
+                    if (direction.magnitude > 0f)
+                    {
+                        storeAngle.Value = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
+                    }
+                }
+            }
+        }
 	}
 }
-
