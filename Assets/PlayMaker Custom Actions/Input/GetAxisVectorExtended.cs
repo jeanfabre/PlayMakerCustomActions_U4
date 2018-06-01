@@ -46,7 +46,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmFloat storeAngle;
 
         [Tooltip("If Uncheck, this will prevent to check the angle when the magnitude is 0 ( both axis are 0)")]
-        public bool checkAngleIfNoAxis;
+        public bool checkAngleIfAxis0;
 
 
         public override void Reset()
@@ -58,7 +58,7 @@ namespace HutongGames.PlayMaker.Actions
 			storeVector = null;
 			storeMagnitude = null;
 			storeAngle = null;
-            checkAngleIfNoAxis = true;
+            checkAngleIfAxis0 = true;
 		}
 
 		public override void OnUpdate()
@@ -134,7 +134,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (! storeAngle.IsNone)
 			{
-                if(checkAngleIfNoAxis)
+                if(checkAngleIfAxis0)
                 {
                     storeAngle.Value = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
                 }
