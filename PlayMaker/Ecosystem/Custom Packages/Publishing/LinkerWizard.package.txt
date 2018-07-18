@@ -1,7 +1,7 @@
 {
 "__ECO__":"__PACKAGE__",
 "Type":"Addon",
-"Version":"1.2.9",
+"Version":"1.5.3",
 "UnityMinimumVersion":"4.7",
 "PlayMakerMinimumVersion":"1.8.3",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/Publishing/LinkerWizard.unitypackage",
