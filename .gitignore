@@ -37,3 +37,7 @@ PlayMaker/Ecosystem/Custom Packages/API/.unitypackage
 PlayMaker/Ecosystem/Custom Packages/API/.package.txt
 Assets/PlayMaker Custom Actions/ScriptControl/Editor.meta
 Assets/PlayMaker Custom Actions/Logic/BoolCompare.cs.meta
+
+Assets/VisualVariableMonitoring/
+
+Assets/VisualVariableMonitoring\.meta
