@@ -1,6 +1,0 @@
-{
-"__ECO__":"__SAMPLE__",
-"unitypackage":"PlayMaker/Ecosystem/Custom Samples/PhotonUnityNetworking/PUNDemoWorker.unitypackage",
-"pingAssetPath":"Assets/PlayMaker Custom Samples/PhotonUnityNetworking/DemoWorker/DemoWorker.unity",
-"keywords":"ExitGames Photon networking PUN multi player online"
-}
