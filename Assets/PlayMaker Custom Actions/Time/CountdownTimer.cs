@@ -18,7 +18,6 @@ namespace HutongGames.PlayMaker.Actions
         public FsmEvent finishEvent;
         public bool realTime;
         public FsmFloat storeValue;
-
         private float startTime;
         private float timer;
         private float theTime;
