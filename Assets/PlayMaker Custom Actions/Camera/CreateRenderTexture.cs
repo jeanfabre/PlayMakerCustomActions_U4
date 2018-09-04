@@ -35,7 +35,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			width = null;
 			height = null;
-			depth = 26;
+			depth = 24;
 			TextureFormat = null;
 			TextureReadWrite = null;
 			renderTexture = null;
