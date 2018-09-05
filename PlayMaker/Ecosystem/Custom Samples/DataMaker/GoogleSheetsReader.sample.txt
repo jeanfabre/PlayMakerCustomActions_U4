@@ -1,0 +1,6 @@
+{
+"__ECO__":"__SAMPLE__",
+"unitypackage":"PlayMaker/Ecosystem/Custom Samples/DataMaker/GoogleSheetsReader.unitypackage",
+"pingAssetPath":"Assets/PlayMaker Custom Samples/DataMaker/GoogleSheetsReader/GoogleSheetsReader.unity",
+"keywords":"DataMaker Google data Xml excel spreadsheet sheet version table list"
+}
