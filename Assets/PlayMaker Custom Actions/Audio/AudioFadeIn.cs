@@ -9,18 +9,24 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("Fades in the Volume of the Audio Clip played by the AudioSource component on a Game Object.")]
 	public class AudioFadeIn : FsmStateAction
 	{
+
 		[RequiredField]
 		[CheckForComponent(typeof(AudioSource))]
 		public FsmOwnerDefault gameObject;
 		
 		[RequiredField]
+		[HasFloatSlider(0,1)]
+		[Tooltip("The volume to reach")]
+		public FsmFloat inVolume;
+		
+		[RequiredField]
 		[HasFloatSlider(0,10)]
-        [Tooltip("Fade in time in seconds.")]
+		[Tooltip("Fade in time in seconds.")]
 		public FsmFloat time;
-
-        [Tooltip("Event to send when finished.")]
+		
+		[Tooltip("Event to send when finished.")]
 		public FsmEvent finishEvent;
-
+		
 		[Tooltip("Ignore TimeScale. Useful if the game is paused.")]
 		public bool realTime;
 		
@@ -31,10 +37,10 @@ namespace HutongGames.PlayMaker.Actions
 		
 		// for the linear equation;
 		private float m;
-		private float b;
 		
 		public override void Reset()
 		{
+			inVolume = 1f;
 			gameObject = null;
 			time = 1.0f;
 			finishEvent = null;
@@ -47,10 +53,6 @@ namespace HutongGames.PlayMaker.Actions
 			if (go != null)
 			{
 				_audioSource = go.audio;
-				if (_audioSource != null)
-				{
-					b = _audioSource.volume;
-				}
 			}
 			
 			startTime = FsmTime.RealtimeSinceStartup;
@@ -59,12 +61,12 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (time.Value>0f)
 			{
-				m = - b/time.Value;
+				m = inVolume.Value/time.Value;
 			}else{
 				m = 0f;
 			}
 		}
-
+		
 		public override void OnUpdate()
 		{
 			if (realTime)
@@ -78,19 +80,21 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (_audioSource != null)
 			{
-				_audioSource.volume = m*(currentTime) + b;
+				_audioSource.volume = m*(currentTime);
 			}
 			
 			if (currentTime > time.Value)
 			{
 				if (finishEvent != null)
 				{
-				    Fsm.Event(finishEvent);
+					Fsm.Event(finishEvent);
 				}
 				
 				Finish();
 			}
 		}
+
+
 
 	}
 }
