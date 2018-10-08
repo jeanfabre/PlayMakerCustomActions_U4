@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace HutongGames.PlayMaker.Actions
 {
-	[ActionCategory("Texture")]
+	[ActionCategory("Terrain")]
 	[Tooltip("Get Terrain Splat Texture Map Name over Game Object Position.")]
 	public class GetTerrainTextureName : FsmStateAction
 	{
@@ -34,12 +34,12 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnEnter ()
 		{
 			
-			GetTexture();
+			ExecuteAction();
 			
 			Finish();
 		}
 		
-		public void GetTexture () 
+		public void ExecuteAction () 
 		{
 			var go = Fsm.GetOwnerDefaultTarget(texturePosition); // our game object
 			
