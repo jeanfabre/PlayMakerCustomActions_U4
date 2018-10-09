@@ -9,7 +9,7 @@ namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory("Terrain")]
 	[Tooltip("Get Terrain Splat Texture Map Name over Game Object Position.")]
-	public class GetTerrainTextureName : FsmStateAction
+	public class GetTerrainSampleHeight : FsmStateAction
 	{
 		[RequiredField]
 		[Tooltip("The GameObject to sample height from")]
@@ -38,7 +38,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void Reset ()
 		{
-			texturePosition = null;
+			GameObject = null;
 			position = null;
 			terrain = null;
 			height = null;
@@ -56,7 +56,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			_position = Vector3.zero;
 
-			_go = Fsm.GetOwnerDefaultTarget(texturePosition); // our game object
+			_go = Fsm.GetOwnerDefaultTarget(GameObject); // our game object
 
 			if (_go != null) {
 				_position = _go.transform.position;
