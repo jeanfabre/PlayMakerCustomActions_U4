@@ -17,6 +17,7 @@ namespace HutongGames.PlayMaker.Actions
         public FsmFloat stopOn;
         public FsmEvent finishEvent;
         public bool realTime;
+        [UIHint(UIHint.Variable)]
         public FsmFloat storeValue;
         private float startTime;
         private float timer;
