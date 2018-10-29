@@ -48,6 +48,11 @@ namespace HutongGames.PlayMaker.Actions
         [Tooltip("If Uncheck, this will prevent to check the angle when the magnitude is 0 ( both axis are 0)")]
         public bool checkAngleIfAxis0;
 
+		public bool useRawAxis;
+
+
+		float h;
+		float v;
 
         public override void Reset()
 		{
@@ -59,6 +64,7 @@ namespace HutongGames.PlayMaker.Actions
 			storeMagnitude = null;
 			storeAngle = null;
             checkAngleIfAxis0 = true;
+			useRawAxis = false;
 		}
 
 		public override void OnUpdate()
@@ -117,9 +123,11 @@ namespace HutongGames.PlayMaker.Actions
 			// get individual axis
 			// leaving an axis blank or set to None sets it to 0
 
-			var h = (horizontalAxis.IsNone || string.IsNullOrEmpty(horizontalAxis.Value)) ? 0f : Input.GetAxis(horizontalAxis.Value);
-			var v = (verticalAxis.IsNone || string.IsNullOrEmpty(verticalAxis.Value)) ? 0f : Input.GetAxis(verticalAxis.Value);
-			
+
+			h = (horizontalAxis.IsNone || string.IsNullOrEmpty(horizontalAxis.Value)) ? 0f : GetInputAxis(horizontalAxis.Value);
+			v = (verticalAxis.IsNone || string.IsNullOrEmpty(verticalAxis.Value)) ? 0f : GetInputAxis(verticalAxis.Value);
+
+
 			// calculate resulting direction vector
 
 			var direction = h * right + v * forward;
@@ -147,5 +155,15 @@ namespace HutongGames.PlayMaker.Actions
                 }
             }
         }
+
+		float GetInputAxis(string axis)
+		{
+			if (useRawAxis) {
+				return Input.GetAxisRaw(axis);
+			}
+
+			return  Input.GetAxis(axis);
+		}
+
 	}
 }
