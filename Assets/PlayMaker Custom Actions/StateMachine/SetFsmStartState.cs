@@ -1,50 +1,73 @@
-// (c) Copyright HutongGames, LLC 2010-2018. All rights reserved.
-
+// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-    [ActionCategory(ActionCategory.StateMachine)]
-    [Tooltip("Set an FSM start state.")]
+	[ActionCategory(ActionCategory.StateMachine)]
+	[Tooltip("set a new start state on an fsm.")]
 	public class SetFsmStartState : FsmStateAction
-    {
-
-		[RequiredField]
-		[Tooltip("The GameObject")]
+	{
+		[Tooltip("Drag a PlayMakerFSM component here.")]
+		public PlayMakerFSM fsmComponent;
+		
+		[Tooltip("If not specifyng the component above, specify the GameObject that owns the FSM")]
 		public FsmOwnerDefault gameObject;
-
+		
 		[UIHint(UIHint.FsmName)]
-		[Tooltip("Optional name of FSM on Game Object")]
+		[Tooltip("Optional name of Fsm on Game Object. If left blank it will find the first PlayMakerFSM on the GameObject.")]
 		public FsmString fsmName;
-
-        [Tooltip("State name for the FSM start state")]
-		public FsmString startState;
-
-		GameObject go;
-		GameObject goLastFrame;
-		PlayMakerFSM fsm;
-
-		public override void Reset ()
+		
+		[RequiredField]
+		[Tooltip("Store the state name in a string variable.")]
+		public FsmString stateName;
+		
+		private PlayMakerFSM fsm;
+		
+		public override void Reset()
 		{
-			startState = null;
+			fsmComponent = null;
+			gameObject = null;
+			fsmName = "";
+			stateName = null;
+			
 		}
-
-        public override void OnEnter()
-        {
-			go = Fsm.GetOwnerDefaultTarget(gameObject);
-			if (go == null) return;
-			if (go != goLastFrame)
+		
+		public override void Awake()
+		{
+			DoSetFsmState();
+			Finish();
+			
+		}
+		
+		void DoSetFsmState()
+		{
+			if (fsm == null)
 			{
-				fsm = ActionHelpers.GetGameObjectFsm(go, fsmName.Value);
-				goLastFrame = go;
+				if (fsmComponent != null)
+				{
+					fsm = fsmComponent;
+				}
+				else
+				{
+					var go = Fsm.GetOwnerDefaultTarget(gameObject);
+					if (go != null)
+					{
+						fsm = ActionHelpers.GetGameObjectFsm(go, fsmName.Value);
+					}
+				}
+				
+				if (fsm == null)
+				{
+					LogWarning("Could not find FSM: " + fsmName.Value);
+					return;
+				}
+				
+				fsm.Fsm.StartState =  stateName.Value;
+				
 			}
 			
-			if (fsm != null)
-			{
-				fsm.Fsm.StartState = startState.Value;
-			}
-
-            Finish ();
-        }
-    }
+		}
+		
+	}
 }
