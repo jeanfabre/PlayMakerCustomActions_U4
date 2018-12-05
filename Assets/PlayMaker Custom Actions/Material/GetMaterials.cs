@@ -50,7 +50,7 @@ namespace HutongGames.PlayMaker.Actions
 				return false;
 			}
 
-			materials.objectReferences = go.renderer.materials;
+			materials.Values = go.renderer.materials;
 
 			return true;
 		}
