@@ -20,8 +20,6 @@ namespace HutongGames.PlayMaker.Actions
 
 		[Tooltip("Event sent if material was not found")]
 		public FsmEvent fail;
-
-		string _token = " (instance)";
 		
 		public override void Reset()
 		{
