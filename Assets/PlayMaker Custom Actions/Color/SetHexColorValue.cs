@@ -1,6 +1,5 @@
 // (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
-// This Action requires ArrayMaker: https://hutonggames.fogbugz.com/default.asp?W715
 // original action http://hutonggames.com/playmakerforum/index.php?topic=10258.msg48436#msg48436
 
 
