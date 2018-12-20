@@ -17,7 +17,10 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.Variable)]
 		[Tooltip("Get the index of the triangle that was hit.")]
 		public FsmInt triangleIndex;
-		
+
+		[UIHint(UIHint.Variable)]
+		[Tooltip("Get the material of the triangle that was hit.")]
+		public FsmMaterial TriangleMaterial;
 
 		[UIHint(UIHint.Variable)]
 		[Tooltip("Get the uv texture coordinate at the impact point.")]
@@ -52,6 +55,11 @@ namespace HutongGames.PlayMaker.Actions
 				textureCoord.Value	= Fsm.RaycastHitInfo.textureCoord;
 				textureCoord2.Value	= Fsm.RaycastHitInfo.textureCoord2;
 				lightmapCoord.Value	= Fsm.RaycastHitInfo.lightmapCoord;
+
+				if (!TriangleMaterial.IsNone)
+				{
+					TriangleMaterial.Value = GetTriangleIndexMaterial(Fsm.RaycastHitInfo.triangleIndex,Fsm.RaycastHitInfo.collider as MeshCollider);
+				}
 			}
 		}
 
@@ -69,5 +77,24 @@ namespace HutongGames.PlayMaker.Actions
         {
             GetRaycastInfo();
         }
+
+
+		Material GetTriangleIndexMaterial(int triangleIndex, MeshCollider meshCollider)
+		{
+
+			// There are 3 indices stored per triangle
+			int limit = triangleIndex * 3;
+			int submesh;
+			for(submesh = 0; submesh < meshCollider.sharedMesh.subMeshCount; submesh++)
+			{
+				int numIndices = meshCollider.sharedMesh.GetTriangles(submesh).Length;
+				if(numIndices > limit)
+					break;
+				
+				limit -= numIndices;   
+			}
+			
+			return  meshCollider.GetComponent<MeshRenderer>().sharedMaterials[submesh];
+		}
 	}
 }
