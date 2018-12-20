@@ -48,9 +48,11 @@ namespace HutongGames.PlayMaker.Actions
 				return false;
 			}
 
-			materials.RawValue = go.renderer.materials;
+			materials.Values = go.renderer.materials;
+            materials.SaveChanges();
 
-			return true;
+
+            return true;
 		}
 
 	}
