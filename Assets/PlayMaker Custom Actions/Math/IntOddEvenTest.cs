@@ -64,7 +64,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				Fsm.Event(isOddEvent);
 			}
-			if(isEventEvent!=null & !_isOdd)
+			if(isEvenEvent!=null & !_isOdd)
 			{
 				Fsm.Event(isEvenEvent);
 			}
