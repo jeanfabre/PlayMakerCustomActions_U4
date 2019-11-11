@@ -240,6 +240,8 @@ namespace HutongGames.PlayMaker.Actions
 			if (systemMemorySize != null){
 				systemMemorySize.Value = SystemInfo.systemMemorySize;
 			}
+			
+			Finish();
 		}
 	}
 }
