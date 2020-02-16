@@ -1,4 +1,5 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0) 
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 // based on https://twitter.com/runevision/status/798580573606395904 https://www.youtube.com/watch?v=5eoDoMj4E8E

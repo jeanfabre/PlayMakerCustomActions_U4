@@ -1,4 +1,5 @@
-// (c) Copyright HutongGames, LLC 2010-2011. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0) 
 // Modified by Jean Fabre : contact@fabrejean.net 
 // this is a combination of BoolTest and GetFsmBool since I don't want the extras steps required otherwise.
 // I also don't feel like saving a variable for every single check from other fsm, I want to avoid redundance sometimes.

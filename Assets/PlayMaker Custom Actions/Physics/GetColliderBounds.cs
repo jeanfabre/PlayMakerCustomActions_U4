@@ -1,4 +1,5 @@
-﻿// (c) Copyright HutongGames, LLC 2010-2016. All rights reserved.
+﻿// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0) 
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
 // drawing box based on http://answers.unity3d.com/questions/461588/drawing-a-bounding-box-similar-to-box-collider.html

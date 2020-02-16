@@ -1,4 +1,5 @@
-// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0) 
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 // forum thread: http://hutonggames.com/playmakerforum/index.php?topic=8137.msg39239#msg39239
 // code source: http://nielson.io/2014/03/making-a-target-tracking-orthographic-camera-in-unity/

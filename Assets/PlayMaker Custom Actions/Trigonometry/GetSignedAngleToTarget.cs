@@ -1,4 +1,5 @@
-// (c) Copyright// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0) 
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 /* original action on https://github.com/pedrosanta/PlaymakerActionsPack */
 
