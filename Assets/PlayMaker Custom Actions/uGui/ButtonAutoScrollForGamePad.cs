@@ -1,4 +1,6 @@
-﻿//Frankencopypastecoded by MDS
+﻿// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0)
+//Frankencopypastecoded by MDS
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 // Keywords: scrollrect ugui gamepad button selection menu auto
 //  // All the important code is from Twiik here http://forum.unity3d.com/threads/scroll-rect-and-scroll-bar-arrow-keys-control.339661/

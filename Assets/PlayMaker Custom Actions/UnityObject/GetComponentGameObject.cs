@@ -1,4 +1,6 @@
-﻿/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
+﻿// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0)
+/*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 // source: http://hutonggames.com/playmakerforum/index.php?action=post;topic=19298.0;last_msg=84017
 
 using UnityEngine;

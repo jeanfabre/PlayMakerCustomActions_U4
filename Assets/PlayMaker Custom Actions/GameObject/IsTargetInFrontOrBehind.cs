@@ -1,4 +1,6 @@
-﻿//Important code is from http://www.habrador.com/tutorials/linear-algebra/1-behind-or-in-front/
+﻿// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0)
+//Important code is from http://www.habrador.com/tutorials/linear-algebra/1-behind-or-in-front/
 
 using UnityEngine;
 

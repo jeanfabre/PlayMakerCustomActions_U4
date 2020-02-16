@@ -1,4 +1,5 @@
-// (c) copyright Innovatorium  2018.//
+// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.  
+// License: Attribution 4.0 International(CC BY 4.0)
 //Action by Marc Saubion for Playmaker's Ecosystem// http://hutonggames.com/playmakerforum/index.php?topic=18387.msg79738
 /*--- __ECO__ __PLAYMAKER__ __ACTION__ ---*/
 
