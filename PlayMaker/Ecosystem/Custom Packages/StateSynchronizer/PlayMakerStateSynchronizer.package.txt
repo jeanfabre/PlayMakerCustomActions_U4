@@ -6,5 +6,5 @@
 "PlayMakerMinimumVersion":"1.7.8.3",
 "unitypackage":"PlayMaker/Ecosystem/Custom Packages/StateSynchronizer/PlayMakerStateSynchronizer.unitypackage",
 "pingAssetPath":"Assets/PlayMaker Custom Scripts/StateSynchronizer/PlayMakerFsmStateSynchronizer.cs",
-"keywords":"sync","match","fsm","PlayMaker"
+"keywords":"sync match fsm PlayMaker"
 }
