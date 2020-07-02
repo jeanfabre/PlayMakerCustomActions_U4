@@ -59,8 +59,15 @@ namespace HutongGames.PlayMaker.Actions
 
 			_result = _go.GetComponentsInChildren<Transform>(includeInactive.Value);
 			_result = _result.Where((source, index) => index != 0).ToArray();
-			store.RawValue = _result;
-			
+
+			store.Resize(_result.Length);
+			int i = 0;
+			foreach (Transform transform in _result)
+			{
+				store.Set(i,transform.gameObject);
+				i++;
+			}
+
 		}
 
 		
